@@ -3,15 +3,13 @@
  */
 
 import React, { Component, PropTypes } from 'react';
-import { View, Text, TouchableHighlight, ToolbarAndroid, StyleSheet } from 'react-native';
+import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 
 export default class First extends React.Component{
     render() {
         return (
             <View style={this.styles.container}>
-                <ToolbarAndroid style={this.styles.toolbar}
-                                title={this.props.title}
-                                titleColor={'#FFFFFF'}/>
+                <Text>FIRST</Text>
                 <TouchableHighlight onPress={this.navSecond.bind(this)}>
                     <Text>Navigate to second screen</Text>
                 </TouchableHighlight>
@@ -31,13 +29,7 @@ export default class First extends React.Component{
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: '#910D1A',
-        },
-        toolbar: {
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: '#356434',
-        },
+        }
     });
 
 }

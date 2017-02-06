@@ -12,7 +12,7 @@ export default class Navigation extends React.Component {
     render() {
         return (
             <Navigator
-                style={this.styles.container}
+
                 initialRoute={{id: 'first'}}
                 renderScene={this.navigatorRenderScene}/>
         );

@@ -3,20 +3,16 @@
  */
 
 import React, { Component, PropTypes } from 'react';
-import { View, Text, ToolbarAndroid, StyleSheet } from 'react-native';
+import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 
 export default class Second extends React.Component{
     render() {
         return (
             <View style={this.styles.container}>
-                <ToolbarAndroid style={this.styles.toolbar}
-                                title={this.props.title}
-                                navIcon={require('./android/app/src/main/res/ic_arrow_back_white_24dp.png')}
-                                onIconClicked={this.props.navigator.pop}
-                                titleColor={'#FFFFFF'}/>
-                <Text>
-                    Second screen
-                </Text>
+                <Text>SECOND</Text>
+                <TouchableHighlight onPress={this.props.navigator.pop}>
+                    <Text>Back</Text>
+                </TouchableHighlight>
             </View>
         );
     }
@@ -26,13 +22,7 @@ export default class Second extends React.Component{
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: '#05124E',
-        },
-        toolbar: {
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: '#356434',
-        },
+            backgroundColor: '#146db4',
+        }
     });
 };
