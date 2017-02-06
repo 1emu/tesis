@@ -5,6 +5,8 @@
 import React, { Component, PropTypes } from 'react';
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 
+import BoardView from "./RushHour"
+
 export default class Second extends React.Component{
     render() {
         return (
@@ -13,6 +15,7 @@ export default class Second extends React.Component{
                 <TouchableHighlight onPress={this.props.navigator.pop}>
                     <Text>Back</Text>
                 </TouchableHighlight>
+                <BoardView/>
             </View>
         );
     }
