@@ -1,6 +1,6 @@
 ##Levantar App:
 
-$ android vdm
+$ android avd
 
 $ react-native run-android
 

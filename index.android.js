@@ -1,1 +1,1 @@
-require('react-native').AppRegistry.registerComponent('TesisArnaudoNodar', () => require('./main.js'));
+require('react-native').AppRegistry.registerComponent('TesisArnaudoNodar', () => require('./app/main.js'));

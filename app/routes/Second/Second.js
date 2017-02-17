@@ -3,14 +3,15 @@
  */
 
 import React, { Component, PropTypes } from 'react';
-import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
+import { View, Text, TouchableHighlight } from 'react-native';
 
-import BoardView from "./RushHour"
+import BoardView from "../../components/RushHour"
+import scene from "../../styles/scene"
 
 export default class Second extends React.Component{
     render() {
         return (
-            <View style={this.styles.container}>
+            <View style={[scene.container, {backgroundColor: '#146db4'}]}>
                 <Text>SECOND</Text>
                 <TouchableHighlight onPress={this.props.navigator.pop}>
                     <Text>Back</Text>
@@ -20,12 +21,4 @@ export default class Second extends React.Component{
         );
     }
 
-    styles = StyleSheet.create({
-        container: {
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: '#146db4',
-        }
-    });
 };

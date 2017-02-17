@@ -82,7 +82,6 @@ export default class BoardView extends Component {
             duration: 250, // milliseconds
             easing: Easing.quad // quadratic easing function: (t) => t * t
         }).start();
-        console.log("baripplastio leviosá");
     }
 }
 
