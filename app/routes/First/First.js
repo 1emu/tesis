@@ -19,6 +19,10 @@ export default class First extends React.Component {
         <TouchableHighlight onPress={this.navAnimatedBars.bind(this)}>
           <Text>Navigate to animated bars</Text>
         </TouchableHighlight>
+        <Text>DRAG AND DROP</Text>
+        <TouchableHighlight onPress={this.navDragAndDrop.bind(this)}>
+          <Text>Navigate to drag and drop test</Text>
+        </TouchableHighlight>
       </View>
     );
   }
@@ -35,4 +39,9 @@ export default class First extends React.Component {
     })
   }
 
+  navDragAndDrop() {
+    this.props.navigator.push({
+      id: 'dragAndDrop'
+    })
+  }
 }
