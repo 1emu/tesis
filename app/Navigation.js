@@ -8,7 +8,7 @@ import {Navigator, StyleSheet, View, Text, TouchableHighlight} from "react-nativ
 import First from "./routes/First/First"
 import Second from "./routes/Second/Second"
 import AnimatedBars from "./routes/AnimatedBars/AnimatedBars"
-import DragAndDrop from "./components/DragAndDrop"
+import DragAndDrop from "./routes/DragAndDrop/DragAndDrop"
 
 
 export default class Navigation extends React.Component {
