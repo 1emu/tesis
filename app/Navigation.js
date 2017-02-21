@@ -29,8 +29,7 @@ export default class Navigation extends React.Component {
             case 'animatedBars':
                 return (<AnimatedBars navigator={navigator} title="animatedBars"/>);
             case 'dragAndDrop':
-                return (<DragAndDrop/>);
+                return (<DragAndDrop navigator={navigator} title="dragAndDrop"/>);
         }
     }
-
 }

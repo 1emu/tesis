@@ -28,9 +28,7 @@ export default class DragAndDrop extends Component{
             }]),
             onPanResponderRelease           : (e, gesture) => {
                 if(this.isDropZone(gesture)){
-                    this.setState({
-                        showDraggable : false
-                    });
+                    this.props.navigator.pop();
                 }else{
                     Animated.spring(
                         this.state.pan,
