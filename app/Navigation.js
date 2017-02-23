@@ -8,6 +8,7 @@ import {Navigator, StyleSheet, View, Text, TouchableHighlight} from "react-nativ
 import First from "./routes/First/First"
 import Second from "./routes/Second/Second"
 import AnimatedBars from "./routes/AnimatedBars/AnimatedBars"
+import Tiles from "./routes/Tiles/Tiles"
 
 export default class Navigation extends React.Component {
     render() {
@@ -26,6 +27,8 @@ export default class Navigation extends React.Component {
                 return (<Second navigator={navigator} title="second"/>);
             case 'animatedBars':
                 return (<AnimatedBars navigator={navigator} title="animatedBars"/>);
+            case 'tiles':
+                return (<Tiles navigator={navigator} title="tiles"/>);
         }
     }
 

@@ -12,12 +12,17 @@ export default class First extends React.Component {
     return (
       <View style={scene.container}>
         <Text>FIRST</Text>
+
         <TouchableHighlight onPress={this.navSecond.bind(this)}>
           <Text>Navigate to second screen</Text>
         </TouchableHighlight>
-        <Text>ANIMATED BARS</Text>
+
         <TouchableHighlight onPress={this.navAnimatedBars.bind(this)}>
           <Text>Navigate to animated bars</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight onPress={this.tiles.bind(this)}>
+          <Text>Navigate to tiles</Text>
         </TouchableHighlight>
       </View>
     );
@@ -32,6 +37,12 @@ export default class First extends React.Component {
   navAnimatedBars() {
     this.props.navigator.push({
       id: 'animatedBars'
+    })
+  }
+
+  tiles() {
+    this.props.navigator.push({
+      id: 'tiles'
     })
   }
 
