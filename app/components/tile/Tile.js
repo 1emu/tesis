@@ -2,21 +2,24 @@
  * Created by jp on 2/22/2017.
  */
 import React, {Component} from "react";
-import {View, StyleSheet, Animated, PanResponder, Text, Dimensions} from "react-native";
-
-import tileStyle from './style'
+import {View, StyleSheet, Animated, PanResponder, Text} from "react-native";
+import tileStyle from "./style";
 
 export default class Tile extends Component {
 
   constructor(props) {
     super(props);
 
-    this.state = this._getState();
+    this.state = {
+      pan: new Animated.ValueXY(),
+      scale: new Animated.Value(1),
+      parentDimensions: ''
+    };
     this.panResponder = this._getPanResponder();
   }
 
-  render() {
 
+  render() {
     let rotate = '0deg';
     let scale = this.state.scale;
     let rotationStyle = {transform: [{rotate}, {scale}]};
@@ -24,22 +27,23 @@ export default class Tile extends Component {
     const tileDimensions = {
       height: this.props.height,
       width: this.props.width,
-      borderRadius:  Math.floor(this.props.width * .05) * 2,
+      borderRadius: Math.floor(this.props.width * .05) * 2,
     };
 
-
     return (
-        <Animated.View {...this.panResponder.panHandlers} style={[this.state.pan.getLayout(), tileStyle.body, tileDimensions, rotationStyle]}>
-          <Text style={tileStyle.text}>Tile</Text>
-        </Animated.View>
+      <Animated.View {...this.panResponder.panHandlers}
+        style={[this.state.pan.getLayout(), tileStyle.body, tileDimensions, rotationStyle]}>
+        <Text style={tileStyle.text}>{'x: ' + this._getParentX()}</Text>
+      </Animated.View>
     );
   }
 
-  _getState() {
-    return {
-      pan: new Animated.ValueXY(),
-      scale: new Animated.Value(1)
-    };
+  componentWillReceiveProps(nextProps) {
+    this.setState({parentDimensions: nextProps.parentDimensions ? nextProps.parentDimensions : this.state.parentDimensions})
+  }
+
+  _getParentX(){
+    return this.state.parentDimensions ? this.state.parentDimensions.x : '?';
   }
 
   _getPanResponder() {
