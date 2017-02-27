@@ -10,6 +10,11 @@ import Tile from "../../components/Tile"
 import style from "./style"
 import scene from "../../styles/scene"
 
+var {width, height} = Dimensions.get('window');
+var TILE_WIDTH = Math.floor(width * .2); // 20% of the screen width
+var TILE_HEIGHT = TILE_WIDTH;
+
+
 export default class Tiles extends React.Component{
     render() {
         return (
@@ -20,8 +25,8 @@ export default class Tiles extends React.Component{
                     <Text>Back</Text>
                 </TouchableHighlight>
               </View>
-              <View style={style.tileContainer}>
-                <Tile />
+              <View style={style.draggableTileContainer}>
+                <Tile width={TILE_WIDTH} height={TILE_HEIGHT} />
               </View>
 
             </View>

@@ -7,12 +7,13 @@ const style = StyleSheet.create({
     alignItems: 'center'
   },
 
-  tileContainer: {
+  draggableTileContainer: {
     flex: 7,
     flexDirection: "column",
     alignItems: 'flex-start',
     borderWidth: 2,
-    width: 300,
+    width: 250,
+    backgroundColor: "#000cff",
   }
 
 });
