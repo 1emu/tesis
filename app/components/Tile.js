@@ -17,20 +17,20 @@ export default class Tile extends Component {
       onStartShouldSetPanResponder: () => true,
 
       onPanResponderGrant: (e, gestureState) => {
-        this.state.pan.setValue({x: 50, y: 0});
+        this.state.pan.setOffset({x: this.state.pan.x._value, y: this.state.pan.y._value});
+        this.state.pan.setValue({x: 0, y: 0});
       },
 
       onPanResponderMove: Animated.event([null, {
-        dx: this.state.pan.x, // c
+        dx: this.state.pan.x,
         dy: this.state.pan.y
       }]),
 
-      // onPanResponderRelease: (e, gesture) => {
-      //   Animated.spring(
-      //     this.state.pan,
-      //     {toValue: {x: 0, y: 0}}
-      //   ).start();
-      // }
+      onPanResponderRelease: (e, gesture) => {
+        this.state.pan.flattenOffset();
+      }
+
+
 
     });
   }
@@ -44,7 +44,7 @@ export default class Tile extends Component {
     };
 
     return (
-        <Animated.View style={[this.state.pan.getLayout(), styles.tileStyle, tileDimensions]}> {...this.panResponder.panHandlers}
+        <Animated.View {...this.panResponder.panHandlers} style={[this.state.pan.getLayout(), styles.tileStyle, tileDimensions]}>
           <Text style={styles.text}>Drag me!</Text>
         </Animated.View>
     );
