@@ -6,7 +6,7 @@ import React, { Component, PropTypes } from 'react';
 import { View, Text, TouchableHighlight, Dimensions } from 'react-native';
 
 
-import Tile from "../../components/Tile"
+import Tile from "../../components/tile/Tile"
 import style from "./style"
 import scene from "../../styles/scene"
 
@@ -25,6 +25,7 @@ export default class Tiles extends React.Component{
                     <Text>Back</Text>
                 </TouchableHighlight>
               </View>
+
               <View style={style.draggableTileContainer}>
                 <Tile width={TILE_WIDTH} height={TILE_HEIGHT} />
               </View>
