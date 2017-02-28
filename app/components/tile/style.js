@@ -2,9 +2,9 @@ import {StyleSheet} from "react-native";
 
 const tileStyle = StyleSheet.create({
   text: {
-    marginTop: 25,
-    marginLeft: 5,
-    marginRight: 5,
+    marginTop: 2,
+    marginLeft: 2,
+    marginRight: 2,
     textAlign: 'center',
     color: '#fff'
   },

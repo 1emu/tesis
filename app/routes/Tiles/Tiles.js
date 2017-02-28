@@ -8,7 +8,7 @@ import style from "./style";
 import scene from "../../styles/scene";
 
 var {width, height} = Dimensions.get('window');
-var TILE_WIDTH = Math.floor(width * .2); // 20% of the screen width
+var TILE_WIDTH = Math.floor(width * .2) + 20; // 20% of the screen width
 var TILE_HEIGHT = TILE_WIDTH;
 
 
@@ -19,7 +19,7 @@ export default class Tiles extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {draggableTileContainerDimensions: undefined}
+    this.state = {draggableTileContainerLayout: undefined}
   }
 
   render() {
@@ -35,8 +35,9 @@ export default class Tiles extends React.Component {
         </View>
 
         <View style={[style.tilesContainer]}>
+          <Text>DraggableTileContainer : {this._getDraggableTileContainerLayout()}</Text>
           <View style={[style.draggableTileContainer, {width: 200, height: 300}]} onLayout={this.onLayout}>
-            <Tile width={TILE_WIDTH} height={TILE_HEIGHT} parentDimensions={this.state.draggableTileContainerDimensions}/>
+            <Tile width={TILE_WIDTH} height={TILE_HEIGHT} parentLayout={this.state.draggableTileContainerLayout}/>
           </View>
         </View>
 
@@ -45,8 +46,13 @@ export default class Tiles extends React.Component {
   }
 
   onLayout = event => {
-    if (this.state.draggableTileContainerDimensions) return;
-    this.setState({draggableTileContainerDimensions: event.nativeEvent.layout});
+    if (this.state.draggableTileContainerLayout) return;
+    this.setState({draggableTileContainerLayout: event.nativeEvent.layout});
+  };
+
+  _getDraggableTileContainerLayout(){
+    let layout = this.state.draggableTileContainerLayout;
+    return layout ? 'x: ' + layout.x + ' y: ' + layout.y + ' width: ' + layout.width + ' hegiht: ' + layout.height : "undefined"
   }
 
 
