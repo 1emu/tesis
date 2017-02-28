@@ -8,7 +8,7 @@ import style from "./style";
 import scene from "../../styles/scene";
 
 var {width, height} = Dimensions.get('window');
-var TILE_WIDTH = Math.floor(width * .2) + 20; // 20% of the screen width
+var TILE_WIDTH = 20; // 20% of the screen width
 var TILE_HEIGHT = TILE_WIDTH;
 
 
