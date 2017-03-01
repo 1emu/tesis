@@ -20,7 +20,7 @@ const style = StyleSheet.create({
 
   draggableTileContainer: {
     borderWidth: 1,
-    backgroundColor: "#000cff",
+    backgroundColor: "#00faff",
   }
 
 });

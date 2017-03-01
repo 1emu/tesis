@@ -8,8 +8,6 @@ import style from "./style";
 import scene from "../../styles/scene";
 
 var {width, height} = Dimensions.get('window');
-var TILE_WIDTH = 20; // 20% of the screen width
-var TILE_HEIGHT = TILE_WIDTH;
 
 
 export default class Tiles extends React.Component {
@@ -23,7 +21,7 @@ export default class Tiles extends React.Component {
   }
 
   render() {
-    let windowDimensions = "w: " + width + " h: " + height;
+    let windowDimensions = "W: " + width + " H: " + height;
 
     return (
       <View style={[style.container, {backgroundColor: '#37b451'}]}>
@@ -35,11 +33,11 @@ export default class Tiles extends React.Component {
         </View>
 
         <View style={[style.tilesContainer]}>
-          <Text>DraggableTileContainer : {this._getDraggableTileContainerLayout()}</Text>
-          <View style={[style.draggableTileContainer, {width: 200, height: 300}]} onLayout={this.onLayout}>
-            <Tile width={TILE_WIDTH} height={TILE_HEIGHT} parentLayout={this.state.draggableTileContainerLayout}/>
-            <Tile width={40} height={40} parentLayout={this.state.draggableTileContainerLayout}/>
-            <Tile width={TILE_WIDTH} height={40} parentLayout={this.state.draggableTileContainerLayout}/>
+          <Text>TileContainer : {this._getDraggableTileContainerLayout()}</Text>
+          <View style={[style.draggableTileContainer, {width: width * 0.8, height: height * 0.8}]} onLayout={this.onLayout}>
+            <Tile width={20} height={20} parentLayout={this.state.draggableTileContainerLayout}/>
+            <Tile width={40} height={40} x={62} y={0} parentLayout={this.state.draggableTileContainerLayout}/>
+            <Tile width={20} height={40} x={100} y={150} parentLayout={this.state.draggableTileContainerLayout}/>
           </View>
         </View>
 
@@ -54,7 +52,7 @@ export default class Tiles extends React.Component {
 
   _getDraggableTileContainerLayout(){
     let layout = this.state.draggableTileContainerLayout;
-    return layout ? 'x: ' + layout.x + ' y: ' + layout.y + ' width: ' + layout.width + ' hegiht: ' + layout.height : "undefined"
+    return layout ? 'X: ' + Math.floor(layout.x) + ' Y: ' + Math.floor(layout.y) + ' W: ' + Math.floor(layout.width) + ' H: ' + Math.floor(layout.height) : "undefined"
   }
 
 

@@ -10,8 +10,11 @@ export default class Tile extends Component {
   constructor(props) {
     super(props);
 
+    let initialX = this.props.x ? this.props.x : 0;
+    let initialY = this.props.y ? this.props.y : 0;
+
     this.state = {
-      pan: new Animated.ValueXY(),
+      pan: new Animated.ValueXY({x: initialX, y: initialY}),
       scale: new Animated.Value(1),
       layout: {x: 0, y: 0}
     };
@@ -81,7 +84,7 @@ export default class Tile extends Component {
         return Animated.event([null, {
           dx: this.state.pan.x,
           dy: this.state.pan.y
-        }])(e, updateComand) ;
+        }])(e, updateComand);
       },
 
       onPanResponderRelease: (e, gesture) => {
@@ -92,33 +95,33 @@ export default class Tile extends Component {
     });
   }
 
-  _calculateDX(gesture){
+  _calculateDX(gesture) {
     let {tileInitialCenterX, rightLimit, leftLimit} = this.state;
     let resultingX = tileInitialCenterX + gesture.dx;
     let actualX = this._getCurrentCenterX();
 
     // si el gesto esta dentro de los limites, que se mueva hacia el gesto
-    if(resultingX > leftLimit && resultingX < rightLimit) return gesture.dx;
+    if (resultingX > leftLimit && resultingX < rightLimit) return gesture.dx;
 
     // si el gesto se paso de los limites, pero el tile sigue dentro, que vaya hacia el gesto de a 1 unidad
-    if(resultingX >= rightLimit) return this.state.pan.x._value + (rightLimit - actualX) * 0.5;
-    if(resultingX <= leftLimit) return this.state.pan.x._value - (actualX - leftLimit) * 0.5;
+    if (resultingX >= rightLimit) return this.state.pan.x._value + (rightLimit - actualX) * 0.5;
+    if (resultingX <= leftLimit) return this.state.pan.x._value - (actualX - leftLimit) * 0.5;
 
     // caso contrario, que no actualice su posición
     return this.state.pan.x._value;
   }
 
-  _calculateDY(gesture){
+  _calculateDY(gesture) {
     let {tileInitialCenterY, bottomLimit, topLimit} = this.state;
     let resultingY = tileInitialCenterY + gesture.dy;
     let actualY = this._getCurrentCenterY();
 
     // si el gesto esta dentro de los limites, que se mueva hacia el gesto
-    if(resultingY > topLimit && resultingY < bottomLimit) return gesture.dy;
+    if (resultingY > topLimit && resultingY < bottomLimit) return gesture.dy;
 
     // si el gesto se paso de los limites, pero el tile sigue dentro, que vaya hacia el gesto de a 1 unidad
-    if(resultingY >= bottomLimit) return this.state.pan.y._value + (bottomLimit - actualY) * 0.5;
-    if(resultingY <= topLimit) return this.state.pan.y._value - (actualY - topLimit) * 0.5;
+    if (resultingY >= bottomLimit) return this.state.pan.y._value + (bottomLimit - actualY) * 0.5;
+    if (resultingY <= topLimit) return this.state.pan.y._value - (actualY - topLimit) * 0.5;
 
     // caso contrario, que no actualice su posición
     return this.state.pan.y._value;
@@ -127,6 +130,7 @@ export default class Tile extends Component {
   _getCurrentCenterX() {
     return this.state.containerLeftMargin + this.state.layout.x + this.props.width * 0.5;
   }
+
   _getCurrentCenterY() {
     return this.state.containerTopMargin + this.state.layout.y + this.props.height * 0.5;
   }
