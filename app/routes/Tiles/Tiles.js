@@ -38,6 +38,8 @@ export default class Tiles extends React.Component {
           <Text>DraggableTileContainer : {this._getDraggableTileContainerLayout()}</Text>
           <View style={[style.draggableTileContainer, {width: 200, height: 300}]} onLayout={this.onLayout}>
             <Tile width={TILE_WIDTH} height={TILE_HEIGHT} parentLayout={this.state.draggableTileContainerLayout}/>
+            <Tile width={40} height={40} parentLayout={this.state.draggableTileContainerLayout}/>
+            <Tile width={TILE_WIDTH} height={40} parentLayout={this.state.draggableTileContainerLayout}/>
           </View>
         </View>
 

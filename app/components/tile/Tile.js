@@ -128,7 +128,7 @@ export default class Tile extends Component {
     return this.state.containerLeftMargin + this.state.layout.x + this.props.width * 0.5;
   }
   _getCurrentCenterY() {
-    return this.state.containerTopMargin + this.state.layout.y + this.props.width * 0.5;
+    return this.state.containerTopMargin + this.state.layout.y + this.props.height * 0.5;
   }
 
   _scaleDown() {
