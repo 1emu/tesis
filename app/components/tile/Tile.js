@@ -16,7 +16,12 @@ export default class Tile extends Component {
     this.state = {
       pan: new Animated.ValueXY({x: initialX, y: initialY}),
       scale: new Animated.Value(1),
-      layout: {x: 0, y: 0}
+      layout: {x: 0, y: 0},
+      tileDimensions: {
+        height: this.props.height,
+        width: this.props.width,
+        borderRadius: Math.floor(this.props.width * .05) * 2,
+      }
     };
     this.panResponder = this._getPanResponder();
   }
@@ -27,15 +32,9 @@ export default class Tile extends Component {
     let scale = this.state.scale;
     let rotationStyle = {transform: [{rotate}, {scale}]};
 
-    const tileDimensions = {
-      height: this.props.height,
-      width: this.props.width,
-      borderRadius: Math.floor(this.props.width * .05) * 2,
-    };
-
     return (
       <Animated.View {...this.panResponder.panHandlers}
-        style={[this.state.pan.getLayout(), tileStyle.body, tileDimensions, rotationStyle]}
+        style={[this.state.pan.getLayout(), tileStyle.body, this.state.tileDimensions, rotationStyle]}
         onLayout={this.onLayout}>
       </Animated.View>
     );
