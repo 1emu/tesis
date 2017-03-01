@@ -42,6 +42,8 @@ export default class Tile extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({parentLayout: nextProps.parentLayout ? nextProps.parentLayout : this.state.parentLayout})
+    this.setState({containerLeftMargin: nextProps.parentLayout.x, containerRightMargin: nextProps.parentLayout.x + nextProps.parentLayout.width,
+                   containerTopMargin: nextProps.parentLayout.y, containerBottomMargin: nextProps.parentLayout.y + nextProps.parentLayout.height})
   }
 
   _printInfo(){
@@ -52,28 +54,12 @@ export default class Tile extends Component {
     this.setState({layout: event.nativeEvent.layout});
   };
 
-  _getParentX(){
-    return this.state.parentLayout ? this.state.parentLayout.x : 0;
-  }
-
   _getParentY(){
     return this.state.parentLayout ? this.state.parentLayout.y : 0;
   }
 
-  _getParentWidth(){
-    return this.state.parentLayout ? this.state.parentLayout.width : 0;
-  }
-
   _getParentHeight(){
     return this.state.parentLayout ? this.state.parentLayout.height : 0;
-  }
-
-  _containerLeftMargin(){
-    return this._getParentX();
-  }
-
-  _containerRightMargin(){
-    return this._getParentX() + this._getParentWidth();
   }
 
   _topBorder(){
@@ -85,40 +71,39 @@ export default class Tile extends Component {
   }
 
   _calculateDX(gesture){
-    this._logGesture(gesture);
-
-    let resultingTileRM = this.state.tileInitialRM + gesture.dx;
-    let actualTileRightM = this._containerLeftMargin() + this.state.layout.x + this.props.width;
-
-    let resultingTileLM = this.state.tileInitialLM + gesture.dx;
-    let actualTileLeftM = this._containerLeftMargin() + this.state.layout.x;
+    let {tileInitialRM, tileInitialLM, containerLeftMargin, containerRightMargin} = this.state;
+    let resultingTileRM = tileInitialRM + gesture.dx;
+    let actualTileRightM = containerLeftMargin + this.state.layout.x + this.props.width;
+    let resultingTileLM = tileInitialLM + gesture.dx;
+    let actualTileLeftM = containerLeftMargin + this.state.layout.x;
 
     // si el gesto esta dentro de los limites, que se mueva hacia el gesto
-    if(resultingTileLM > this._containerLeftMargin() && resultingTileRM < this._containerRightMargin()) return gesture.dx;
+    if(resultingTileLM > containerLeftMargin && resultingTileRM < containerRightMargin) return gesture.dx;
 
     // si el gesto se paso de los limites, pero el tile sigue dentro, que vaya hacia el gesto de a 1 unidad
-    if(resultingTileRM >= this._containerRightMargin()){
-      if(actualTileRightM < this._containerRightMargin()) return this.state.pan.x._value + 1;
-    }
-    if(resultingTileLM <= this._containerLeftMargin()){
-      if(actualTileLeftM > this._containerLeftMargin()) return this.state.pan.x._value - 1;
-    }
+    if(resultingTileRM >= containerRightMargin) return this.state.pan.x._value + (containerRightMargin - actualTileRightM) * 0.5;
+    if(resultingTileLM <= containerLeftMargin) return this.state.pan.x._value - (actualTileLeftM - containerLeftMargin) * 0.5;
 
     // caso contrario, que no actualice su posición
     return this.state.pan.x._value;
   }
 
-  _logGesture(gesture) {
-    let tileLeftM = this._containerLeftMargin() + this.state.layout.x;
-    let tileRightM = this._containerLeftMargin() + this.state.layout.x + this.props.width;
-    let resultingX = tileRightM + gesture.dx;
+  _calculateDY(gesture){
+    let {tileInitialTM, tileInitialBM, containerTopMargin, containerBottomMargin} = this.state;
+    let resultingTileBM = tileInitialBM + gesture.dy;
+    let actualTileBottomM = containerTopMargin + this.state.layout.y + this.props.height;
+    let resultingTileTM = tileInitialTM + gesture.dy;
+    let actualTileTopM = containerTopMargin + this.state.layout.y;
 
-    console.log('-----------------');
-    console.log('GESTURE: g0 : ' + gesture.x0 + ' dg : ' + gesture.dx + ' moveXg : ' + gesture.moveX);
-    console.log('LAYOUT  x : ' + this.state.layout.x + ' pan x : ' + this.state.pan.x._value + ' Tile LM: ' + tileLeftM + ' Tile RM: ' + tileRightM);
-    console.log('RESULTING resultingX : ' + resultingX + ' right border: ' + this._containerRightMargin());
-    console.log('tileInitialRM: ' + this.state.tileInitialRM + ' dif tileInitialRM - g0: ' + (this.state.tileInitialRM - gesture.x0));
-    console.log('X11: ' + (this.state.tileInitialRM + gesture.dx));
+    // si el gesto esta dentro de los limites, que se mueva hacia el gesto
+    if(resultingTileTM > containerTopMargin && resultingTileBM < containerBottomMargin) return gesture.dy;
+
+    // si el gesto se paso de los limites, pero el tile sigue dentro, que vaya hacia el gesto de a 1 unidad
+    if(resultingTileBM >= containerBottomMargin)  return this.state.pan.y._value + (containerBottomMargin - actualTileBottomM) * 0.5;
+    if(resultingTileTM <= containerTopMargin) return this.state.pan.y._value - (actualTileTopM - containerTopMargin) * 0.5;
+
+    // caso contrario, que no actualice su posición
+    return this.state.pan.y._value;
   }
 
   _getPanResponder() {
@@ -130,16 +115,18 @@ export default class Tile extends Component {
         this.state.pan.setValue({x: 0, y: 0});
 
         // guardamos la info al inicio del movimiento
-        let tileRightM = this._containerLeftMargin() + this.state.layout.x + this.props.width;
-        let tileLeftM = this._containerLeftMargin() + this.state.layout.x;
-        this.setState({tileInitialLM: tileLeftM, tileInitialRM: tileRightM});
+        let tileLeftM = this.state.containerLeftMargin + this.state.layout.x;
+        let tileRightM = tileLeftM + this.props.width;
+        let tileTopM = this.state.containerTopMargin + this.state.layout.y;
+        let tileBottomM = tileTopM + this.props.height;
+        this.setState({tileInitialLM: tileLeftM, tileInitialRM: tileRightM, tileInitialTM: tileTopM, tileInitialBM: tileBottomM});
 
         // this._scaleUp();
       },
 
       onPanResponderMove: (e, gesture) => {
 
-        updateComand = {dx: this._calculateDX(gesture), dy: gesture.dy}
+        updateComand = {dx: this._calculateDX(gesture), dy: this._calculateDY(gesture)}
 
         return Animated.event([null, {
           dx: this.state.pan.x,
@@ -147,17 +134,13 @@ export default class Tile extends Component {
         }])(e, updateComand) ;
       },
 
-
       onPanResponderRelease: (e, gesture) => {
         this.state.pan.flattenOffset();
         // this._scaleDown();
-        this._logGesture(gesture);
       }
 
     });
-
   }
-
 
   _scaleDown() {
     Animated.spring(
