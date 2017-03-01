@@ -34,7 +34,6 @@ export default class Tile extends Component {
       <Animated.View {...this.panResponder.panHandlers}
         style={[this.state.pan.getLayout(), tileStyle.body, tileDimensions, rotationStyle]}
         onLayout={this.onLayout}>
-        <Text style={tileStyle.text}>{this._printInfo()}</Text>
       </Animated.View>
     );
   }
@@ -121,7 +120,7 @@ export default class Tile extends Component {
         let tileBottomM = tileTopM + this.props.height;
         this.setState({tileInitialLM: tileLeftM, tileInitialRM: tileRightM, tileInitialTM: tileTopM, tileInitialBM: tileBottomM});
 
-        // this._scaleUp();
+        this._scaleUp();
       },
 
       onPanResponderMove: (e, gesture) => {
@@ -136,7 +135,7 @@ export default class Tile extends Component {
 
       onPanResponderRelease: (e, gesture) => {
         this.state.pan.flattenOffset();
-        // this._scaleDown();
+        this._scaleDown();
       }
 
     });
