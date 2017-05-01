@@ -1,1 +1,3 @@
-require('react-native').AppRegistry.registerComponent('TesisArnaudoNodar', () => require('./app/main.js'));
+import { AppRegistry } from 'react-native'
+
+module.exports = AppRegistry.registerComponent('TesisArnaudoNodar', () => require('./app/main.js'));
