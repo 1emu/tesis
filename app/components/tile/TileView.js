@@ -7,12 +7,12 @@ import tileStyle from "./style";
 import {observable, observer, computed, autorun} from 'mobx';
 
 
-export default class Tile extends Component {
+export default class TileView extends Component {
 
   @observable lala = 1;
 
   @computed get report() {
-    return 'tile #' + this.props.tileModel.number + ' lala:' + this.lala;
+    return 'TileView:  tile #' + this.props.tileModel.number + ' lala:' + this.lala;
   }
 
   constructor(props) {

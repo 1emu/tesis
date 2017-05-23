@@ -6,8 +6,8 @@ import {View, Text, TouchableHighlight, Dimensions} from "react-native";
 import {observer} from 'mobx-react/native'
 import style from "./style";
 import scene from "../../styles/scene";
-import colisionador from "../../components/Colisionador"
-import Tile from '../../components/tile/Tile';
+import tileMap from "../../components/TileMap"
+import TileView from '../../components/tile/TileView';
 
 var {width, height} = Dimensions.get('window');
 
@@ -20,7 +20,7 @@ export default class Tiles extends React.Component {
   }
 
   render() {
-    const colo = new colisionador();
+    const tmap = new tileMap();
 
     let windowDimensions = "W: " + width + " H: " + height;
 
@@ -37,9 +37,9 @@ export default class Tiles extends React.Component {
           <Text>TileContainer : {this._getDraggableTileContainerLayout()}</Text>
 
           <View style={[style.draggableTileContainer, {width: width * 0.8, height: height * 0.8}]} onLayout={this.onLayout}>
-            <Text>{colo.tiles[0].lulu}</Text>
-            {colo.tiles.map(
-              (tile, key) => <Tile key={key} tileModel={tile} parentLayout={this.state.draggableTileContainerLayout}/>
+            <Text>{tmap.tiles[0].lulu}</Text>
+            {tmap.tiles.map(
+              (tile, key) => <TileView key={key} tileModel={tile} parentLayout={this.state.draggableTileContainerLayout}/>
             )}
           </View>
 
