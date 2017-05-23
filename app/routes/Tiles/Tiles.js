@@ -4,9 +4,10 @@
 import React, {Component, PropTypes} from "react";
 import {View, Text, TouchableHighlight, Dimensions} from "react-native";
 import {observer} from 'mobx-react/native'
-import Tile from "../../components/tile/Tile";
 import style from "./style";
 import scene from "../../styles/scene";
+import colisionador from "../../components/Colisionador"
+import Tile from '../../components/tile/Tile';
 
 var {width, height} = Dimensions.get('window');
 
@@ -15,11 +16,12 @@ export default class Tiles extends React.Component {
 
   constructor(props) {
     super(props);
-
     this.state = {draggableTileContainerLayout: undefined}
   }
 
   render() {
+    const colo = new colisionador();
+
     let windowDimensions = "W: " + width + " H: " + height;
 
     return (
@@ -33,12 +35,15 @@ export default class Tiles extends React.Component {
 
         <View style={[style.tilesContainer]}>
           <Text>TileContainer : {this._getDraggableTileContainerLayout()}</Text>
-          <View style={[style.draggableTileContainer, {width: width * 0.8, height: height * 0.8}]} onLayout={this.onLayout}>
-            <Text>Tile 1 - Xc: Yc: w: 40 h: 40</Text>
-            <Tile width={40} height={40} x={50} y={50} tileNumber={'1'} parentLayout={this.state.draggableTileContainerLayout}/>
-          </View>
-        </View>
 
+          <View style={[style.draggableTileContainer, {width: width * 0.8, height: height * 0.8}]} onLayout={this.onLayout}>
+            <Text>{colo.tiles[0].lulu}</Text>
+            {colo.tiles.map(
+              (tile, key) => <Tile key={key} tileModel={tile} parentLayout={this.state.draggableTileContainerLayout}/>
+            )}
+          </View>
+
+        </View>
       </View>
     );
   }

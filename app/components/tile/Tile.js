@@ -4,14 +4,15 @@
 import React, {Component} from "react";
 import {View, StyleSheet, Animated, PanResponder, Text} from "react-native";
 import tileStyle from "./style";
-import {observable, computed, autorun} from 'mobx'
+import {observable, observer, computed, autorun} from 'mobx';
+
 
 export default class Tile extends Component {
 
-  @observable tileDimensions = {lala: 1};
+  @observable lala = 1;
 
   @computed get report() {
-    return 'tile #' + this.props.tileNumber + ' lala:' + this.tileDimensions.lala;
+    return 'tile #' + this.props.tileModel.number + ' lala:' + this.lala;
   }
 
   constructor(props) {
@@ -19,17 +20,17 @@ export default class Tile extends Component {
 
     autorun(() => console.log(this.report));
 
-    let initialX = this.props.x ? this.props.x : 0;
-    let initialY = this.props.y ? this.props.y : 0;
+    let initialX = this.props.tileModel.x ? this.props.tileModel.x : 0;
+    let initialY = this.props.tileModel.y ? this.props.tileModel.y : 0;
 
     this.state = {
       pan: new Animated.ValueXY({x: initialX, y: initialY}),
       scale: new Animated.Value(1),
       layout: {x: 0, y: 0},
       tileDimensions: {
-        height: this.props.height,
-        width: this.props.width,
-        borderRadius: Math.floor(this.props.width * .05) * 2,
+        height: this.props.tileModel.height,
+        width: this.props.tileModel.width,
+        borderRadius: Math.floor(this.props.tileModel.width * .05) * 2,
       }
     };
     this.panResponder = this._getPanResponder();
@@ -44,7 +45,7 @@ export default class Tile extends Component {
       <Animated.View {...this.panResponder.panHandlers}
         style={[this.state.pan.getLayout(), tileStyle.body, this.state.tileDimensions, rotationStyle]}
         onLayout={this.onLayout}>
-        <Text>{this.props.tileNumber}</Text>
+        <Text>{this.props.tileModel.number}</Text>
       </Animated.View>
     );
   }
@@ -58,10 +59,10 @@ export default class Tile extends Component {
     this.setState({
       containerLeftMargin: containerLeftMargin,
       containerTopMargin: containerTopMargin,
-      leftLimit: containerLeftMargin + this.props.width * 0.5,
-      rightLimit: containerRightMargin - this.props.width * 0.5,
-      topLimit: containerTopMargin + this.props.height * 0.5,
-      bottomLimit: containerBottomMargin - this.props.height * 0.5
+      leftLimit: containerLeftMargin + this.props.tileModel.width * 0.5,
+      rightLimit: containerRightMargin - this.props.tileModel.width * 0.5,
+      topLimit: containerTopMargin + this.props.tileModel.height * 0.5,
+      bottomLimit: containerBottomMargin - this.props.tileModel.height * 0.5
     });
   }
 
@@ -82,7 +83,11 @@ export default class Tile extends Component {
         let tileInitialCenterY = this._getCurrentCenterY();
         this.setState({tileInitialCenterX: tileInitialCenterX, tileInitialCenterY: tileInitialCenterY});
 
-        this.tileDimensions.lala++;
+        this.lala++;
+
+        const tileModel = this.props.tileModel;
+        tileModel.lulu++;
+
         this._scaleUp();
       },
 
@@ -137,11 +142,11 @@ export default class Tile extends Component {
   }
 
   _getCurrentCenterX() {
-    return this.state.containerLeftMargin + this.state.layout.x + this.props.width * 0.5;
+    return this.state.containerLeftMargin + this.state.layout.x + this.props.tileModel.width * 0.5;
   }
 
   _getCurrentCenterY() {
-    return this.state.containerTopMargin + this.state.layout.y + this.props.height * 0.5;
+    return this.state.containerTopMargin + this.state.layout.y + this.props.tileModel.height * 0.5;
   }
 
   _scaleDown() {
