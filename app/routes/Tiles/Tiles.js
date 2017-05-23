@@ -3,16 +3,15 @@
  */
 import React, {Component, PropTypes} from "react";
 import {View, Text, TouchableHighlight, Dimensions} from "react-native";
+import {observer} from 'mobx-react/native'
 import Tile from "../../components/tile/Tile";
 import style from "./style";
 import scene from "../../styles/scene";
 
 var {width, height} = Dimensions.get('window');
 
-
+@observer
 export default class Tiles extends React.Component {
-
-
 
   constructor(props) {
     super(props);
@@ -35,9 +34,8 @@ export default class Tiles extends React.Component {
         <View style={[style.tilesContainer]}>
           <Text>TileContainer : {this._getDraggableTileContainerLayout()}</Text>
           <View style={[style.draggableTileContainer, {width: width * 0.8, height: height * 0.8}]} onLayout={this.onLayout}>
-            <Tile width={20} height={20} parentLayout={this.state.draggableTileContainerLayout}/>
-            <Tile width={40} height={40} x={62} y={0} parentLayout={this.state.draggableTileContainerLayout}/>
-            <Tile width={20} height={40} x={100} y={150} parentLayout={this.state.draggableTileContainerLayout}/>
+            <Text>Tile 1 - Xc: Yc: w: 40 h: 40</Text>
+            <Tile width={40} height={40} x={50} y={50} tileNumber={'1'} parentLayout={this.state.draggableTileContainerLayout}/>
           </View>
         </View>
 

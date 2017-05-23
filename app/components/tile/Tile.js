@@ -4,11 +4,20 @@
 import React, {Component} from "react";
 import {View, StyleSheet, Animated, PanResponder, Text} from "react-native";
 import tileStyle from "./style";
+import {observable, computed, autorun} from 'mobx'
 
 export default class Tile extends Component {
 
+  @observable tileDimensions = {lala: 1};
+
+  @computed get report() {
+    return 'tile #' + this.props.tileNumber + ' lala:' + this.tileDimensions.lala;
+  }
+
   constructor(props) {
     super(props);
+
+    autorun(() => console.log(this.report));
 
     let initialX = this.props.x ? this.props.x : 0;
     let initialY = this.props.y ? this.props.y : 0;
@@ -26,7 +35,6 @@ export default class Tile extends Component {
     this.panResponder = this._getPanResponder();
   }
 
-
   render() {
     let rotate = '0deg';
     let scale = this.state.scale;
@@ -36,6 +44,7 @@ export default class Tile extends Component {
       <Animated.View {...this.panResponder.panHandlers}
         style={[this.state.pan.getLayout(), tileStyle.body, this.state.tileDimensions, rotationStyle]}
         onLayout={this.onLayout}>
+        <Text>{this.props.tileNumber}</Text>
       </Animated.View>
     );
   }
@@ -73,6 +82,7 @@ export default class Tile extends Component {
         let tileInitialCenterY = this._getCurrentCenterY();
         this.setState({tileInitialCenterX: tileInitialCenterX, tileInitialCenterY: tileInitialCenterY});
 
+        this.tileDimensions.lala++;
         this._scaleUp();
       },
 
