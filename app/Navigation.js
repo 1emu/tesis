@@ -10,6 +10,7 @@ import First from "./routes/First/First"
 import Second from "./routes/Second/Second"
 import AnimatedBars from "./routes/AnimatedBars/AnimatedBars"
 import Tiles from "./routes/Tiles/Tiles"
+import TableroView from "./prueba/TableroView"
 
 export default class Navigation extends React.Component {
     render() {
@@ -30,6 +31,8 @@ export default class Navigation extends React.Component {
                 return (<AnimatedBars navigator={navigator} title="animatedBars"/>);
             case 'tiles':
                 return (<Tiles navigator={navigator} title="tiles"/>);
+            case 'prueba':
+                return (<TableroView/>);
         }
     }
 

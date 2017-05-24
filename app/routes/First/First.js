@@ -24,6 +24,10 @@ export default class First extends React.Component {
         <TouchableHighlight onPress={this.tiles.bind(this)}>
           <Text>Navigate to tiles</Text>
         </TouchableHighlight>
+
+        <TouchableHighlight onPress={this.pruebaSanti.bind(this)}>
+          <Text>Navigate to prueba de santi</Text>
+        </TouchableHighlight>
       </View>
     );
   }
@@ -46,4 +50,9 @@ export default class First extends React.Component {
     })
   }
 
+  pruebaSanti() {
+    this.props.navigator.push({
+      id: 'prueba'
+    })
+  }
 }

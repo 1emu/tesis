@@ -17,6 +17,10 @@ class RushHourBoard {
   spaceIsOccupied(position) {
     return this.board.some((vehicle) => { return vehicle.occupies(position) })
   }
+
+  moveRight(car) {
+
+  }
 }
 
 class Car {
@@ -32,8 +36,8 @@ class Car {
   }
 
   collidesWith(other_vehicle) {
-    return (this.x <= other_vehicle.maxX() || this.maxX() >= other_vehicle.x) &&
-        (this.y <= other_vehicle.maxY() || this.maxY() >= other_vehicle.y);
+    return !(this.x > other_vehicle.maxX() || this.maxX() < other_vehicle.x ||
+        this.y > other_vehicle.maxY() || this.maxY() < other_vehicle.y);
   }
 
   maxX() {
@@ -78,14 +82,25 @@ describe('RushHourBoard', () => {
       board = new RushHourBoard();
       board.place(new Car(2, 1, { x: 1, y: 0 }));
 
-      expect(() => { board.place(new Car(4, { x: 0, y: 0 })) }).toThrow("occupied");
+      expect(() => { board.place(new Car(4, 1, { x: 0, y: 0 })) }).toThrow("occupied");
     });
 
     test('cant place a car with a length that would occupy the height of another car', () => {
       board = new RushHourBoard();
-      board.place(new Car(2, 1, { x: 1, y: 0 }));
+      board.place(new Car(1, 2, { x: 1, y: 0 }));
 
-      expect(() => { board.place(new Car(4, 1, { x: 0, y: 0 })) }).toThrow("occupied");
+      expect(() => { board.place(new Car(2, 1, { x: 0, y: 1 })) }).toThrow("occupied");
+    });
+  });
+
+  describe('#move', () => {
+    test('asd', () => {
+      board = new RushHourBoard();
+      car = new Car(1, 2, { x: 0, y: 0 });
+      board.place(car);
+      board.moveRight(car);
+      expect(car.x).toEq(1);
+      expect(car.y).toEq(0);
     });
   });
 });
