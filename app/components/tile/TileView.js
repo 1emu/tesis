@@ -1,46 +1,27 @@
 /**
  * Created by jp on 2/22/2017.
  */
-import React, {Component} from "react";
-import {View, StyleSheet, Animated, PanResponder, Text} from "react-native";
-import tileStyle from "./style";
+import React, {Component} from 'react';
+import {View, StyleSheet, Animated, PanResponder, Text} from 'react-native';
+import tileStyle from './style';
 import {observable, observer, computed, autorun} from 'mobx';
 
 
 export default class TileView extends Component {
 
-  @computed get report() {
-    return '======================\nTileView: ' + JSON.stringify(this.props.tileModel.pan);
-  }
-
   constructor(props) {
     super(props);
-
-    // autorun(() => console.log(this.report));
-
-    let tileModel = this.props.tileModel;
-
-    this.state = {
-      tileModel: tileModel,
-      scale: new Animated.Value(1),
-      tileDimensions: {
-        height: tileModel.height,
-        width: tileModel.width,
-        borderRadius: Math.floor(tileModel.width * .05) * 2,
-      }
-    };
+    this.state = {scale: new Animated.Value(1)};
     this.panResponder = this._getPanResponder();
   }
 
   render() {
-    let rotate = '0deg';
-    let scale = this.state.scale;
-    let rotationStyle = {transform: [{rotate}, {scale}]};
+    let rotationStyle = {transform: [{rotate: '0deg'}, {scale: this.state.scale}]};
 
     return (
       <Animated.View {...this.panResponder.panHandlers}
-        style={[this.state.tileModel.pan.getLayout(), tileStyle.body, this.state.tileDimensions, rotationStyle]}
-        onLayout={this.onLayout}>
+                     style={[this.props.tileModel.pan.getLayout(), tileStyle.body, this.props.tileModel.tileDimensions, rotationStyle]}
+                     onLayout={this.onLayout}>
         <Text>{this.props.tileModel.number}</Text>
       </Animated.View>
     );
@@ -55,31 +36,27 @@ export default class TileView extends Component {
       onStartShouldSetPanResponder: () => true,
 
       onPanResponderGrant: (e, gestureState) => {
-        let pan = this.state.tileModel.pan;
-
+        let pan = this.props.tileModel.pan;
         pan.setOffset({x: pan.x._value, y: pan.y._value});
         pan.setValue({x: 0, y: 0});
 
         // guardamos la info al inicio del movimiento
-        this.props.tileModel.recordInitialLayout()
-
-        const tileModel = this.props.tileModel;
-        tileModel.lulu++;
+        this.props.tileModel.recordInitialLayout();
 
         this._scaleUp();
       },
 
       onPanResponderMove: (e, gesture) => {
-        updateComand = this.props.tileMap.getUpdateCommandFor(this, gesture);
+        updateComand = this.props.tileMap.getUpdateCommandFor(this.props.tileModel, gesture);
 
         return Animated.event([null, {
-          dx: this.state.tileModel.pan.x,
-          dy: this.state.tileModel.pan.y
+          dx: this.props.tileModel.pan.x,
+          dy: this.props.tileModel.pan.y
         }])(e, updateComand);
       },
 
       onPanResponderRelease: (e, gesture) => {
-        this.state.tileModel.pan.flattenOffset();
+        this.props.tileModel.pan.flattenOffset();
         this._scaleDown();
       }
 

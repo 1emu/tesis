@@ -11,7 +11,7 @@ export default class TileModel {
   @observable pan;
 
   constructor(props) {
-    let {lulu, width, height, x,  y, number} = props;
+    let {lulu, width, height, x, y, number} = props;
     this.lulu = lulu;
     this.width = width;
     this.height = height;
@@ -20,9 +20,15 @@ export default class TileModel {
     this.number = number;
     this.pan = new Animated.ValueXY({x: x, y: y});
     this.layout = {x: 0, y: 0};
+    this.initialLayout = {x: 0, y: 0};
+    this.tileDimensions = {
+      height: height,
+      width: width,
+      borderRadius: Math.floor(width * .05) * 2,
+    }
   }
 
-  recordInitialLayout(){
+  recordInitialLayout() {
     this.initialLayout = this.layout;
   }
 

@@ -16,6 +16,7 @@ export default class TileMap {
     // autorun(() => console.log(this.report)); // que logguee el mapa cada vez que cambia algo
   }
 
+  // esta funcion se llama al final de cada movimiento dentro del tile map. Podriamos usarla para evaluar la condicion final del nivel.
   @computed get report() {
     if (this.tiles.length === 0) return '<none>';
     return '\nTileMap: ' + JSON.stringify(this.tiles)
@@ -65,7 +66,7 @@ export default class TileMap {
     return tileModel.pan.x._value;
   }
 
-  _calculateDY(gesture, tileModel) {
+  _calculateDY(tileModel, gesture) {
     let {leftLimit, rightLimit, topLimit, bottomLimit} = this._calculateLimits(tileModel);
     let Yc = topLimit + tileModel.initialLayout.y;
     let actualY = tileModel.pan.y._value + Yc;
