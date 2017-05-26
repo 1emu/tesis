@@ -70,8 +70,7 @@ export default class TileView extends Component {
       },
 
       onPanResponderMove: (e, gesture) => {
-
-        updateComand = {dx: this.props.tileMap.calculateDX(gesture, this.props.tileModel), dy: this.props.tileMap.calculateDY(gesture, this.props.tileModel)}
+        updateComand = this.props.tileMap.getUpdateCommandFor(this, gesture);
 
         return Animated.event([null, {
           dx: this.state.tileModel.pan.x,
@@ -85,23 +84,6 @@ export default class TileView extends Component {
       }
 
     });
-  }
-
-  _calculateDY(gesture) {
-    return gesture.dy;
-    let {tileInitialCenterY, bottomLimit, topLimit} = this.state;
-    let resultingY = tileInitialCenterY + gesture.dy;
-    let actualY = this._getCurrentCenterY();
-
-    // si el gesto esta dentro de los limites, que se mueva hacia el gesto
-    if (resultingY > topLimit && resultingY < bottomLimit) return gesture.dy;
-
-    // si el gesto se paso de los limites, pero el tile sigue dentro, que vaya hacia el gesto de a 1 unidad
-    if (resultingY >= bottomLimit) return this.state.tileModel.pan.y._value + (bottomLimit - actualY) * 0.5;
-    if (resultingY <= topLimit) return this.state.tileModel.pan.y._value - (actualY - topLimit) * 0.5;
-
-    // caso contrario, que no actualice su posición
-    return this.state.tileModel.pan.y._value;
   }
 
   _scaleDown() {
