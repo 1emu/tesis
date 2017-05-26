@@ -1,28 +1,33 @@
 /**
  * Created by jp on 2/22/2017.
  */
-import React, {Component, PropTypes} from "react";
-import {View, Text, TouchableHighlight, Dimensions} from "react-native";
+import React, {Component, PropTypes} from 'react';
+import {View, Text, TouchableHighlight, Dimensions} from 'react-native';
 import {observer} from 'mobx-react/native'
-import style from "./style";
-import scene from "../../styles/scene";
-import tileMap from "../../components/TileMap"
-import TileView from '../../components/tile/TileView';
+import style from './style';
+import scene from '../../styles/scene';
+import tileMap from '../../components/TileMap'
+import TileModel from '../../components/tile/TileModel';
 
 var {width, height} = Dimensions.get('window');
 
-@observer
+const initialTiles = [
+  new TileModel({lulu: 1, width: 40, height: 40, x: 50, y: 50, number: 1}),
+  new TileModel({lulu: 88, width: 40, height: 40, x: 50, y: 100, number: 2})
+];
+
 export default class Tiles extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {draggableTileContainerLayout: undefined}
+    this.state = {
+      draggableTileContainerLayout: undefined,
+      tileMap: new tileMap(initialTiles)
+    };
   }
 
   render() {
-    const tmap = new tileMap();
-
-    let windowDimensions = "W: " + width + " H: " + height;
+    let windowDimensions = 'W: ' + width + ' H: ' + height;
 
     return (
       <View style={[style.container, {backgroundColor: '#37b451'}]}>
@@ -34,15 +39,9 @@ export default class Tiles extends React.Component {
         </View>
 
         <View style={[style.tilesContainer]}>
-          <Text>TileContainer : {this._getDraggableTileContainerLayout()}</Text>
-
           <View style={[style.draggableTileContainer, {width: width * 0.8, height: height * 0.8}]} onLayout={this.onLayout}>
-            <Text>{tmap.tiles[0].lulu}</Text>
-            {tmap.tiles.map(
-              (tile, key) => <TileView key={key} tileModel={tile} parentLayout={this.state.draggableTileContainerLayout}/>
-            )}
+            {this.state.tileMap.render()}
           </View>
-
         </View>
       </View>
     );
@@ -50,13 +49,7 @@ export default class Tiles extends React.Component {
 
   onLayout = event => {
     if (this.state.draggableTileContainerLayout) return;
-    this.setState({draggableTileContainerLayout: event.nativeEvent.layout});
+    this.state.tileMap.containerLayout = event.nativeEvent.layout;
   };
-
-  _getDraggableTileContainerLayout(){
-    let layout = this.state.draggableTileContainerLayout;
-    return layout ? 'X: ' + Math.floor(layout.x) + ' Y: ' + Math.floor(layout.y) + ' W: ' + Math.floor(layout.width) + ' H: ' + Math.floor(layout.height) : "undefined"
-  }
-
 
 };
