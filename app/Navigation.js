@@ -2,7 +2,8 @@
  * Created by jp on 2/5/2017.
  */
 import React, {Component, PropTypes} from "react";
-import {Navigator, StyleSheet, View, Text, TouchableHighlight} from "react-native";
+import {StyleSheet, View, Text, TouchableHighlight} from "react-native";
+import {Navigator} from "react-native-deprecated-custom-components";
 
 
 import First from "./routes/First/First"
