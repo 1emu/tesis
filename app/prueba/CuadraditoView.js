@@ -12,7 +12,7 @@ export default class CuadraditoView extends Component {
   render() {
     return (
         <View
-            style={{width: 50, height: 50, backgroundColor: 'powderblue', left: this._currentX(), top: this._currentY()}}
+            style={{width: this.props.cuadradito.width(), height: this.props.cuadradito.height(), backgroundColor: 'green', left: this._currentX(), top: this._currentY()}}
             {...this._panResponder.panHandlers}
         />
     )
@@ -39,7 +39,7 @@ export default class CuadraditoView extends Component {
       onPanResponderMove: (evt, gestureState) => {
         let newX = this.gestureStartX + gestureState.dx;
         let newY = this.gestureStartY + gestureState.dy;
-        this.props.cuadradito.setPosition(newX, newY);
+        this.props.cuadradito.pushTowards(newX, newY);
       }
     });
   }

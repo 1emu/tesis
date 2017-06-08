@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import {View} from "react-native";
-import Tablero from "./Tablero"
-import CuadraditoView from "./CuadraditoView"
+import Tablero from "./Tablero";
+import CuadraditoView from "./CuadraditoView";
+import Cuadradito from "./Cuadradito";
 
 export default class TableroView extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ export default class TableroView extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{backgroundColor: 'powderblue', height: 500, width: 300, top: 50, left: 30}}>
         { this.tablero.cuadraditos.map((cuadradito, index) => {
           return (<CuadraditoView key={index} cuadradito={cuadradito}/>);
         })}

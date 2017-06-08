@@ -16,7 +16,7 @@ export default class Navigation extends React.Component {
     render() {
         return (
             <Navigator
-                initialRoute={{id: 'first'}}
+                initialRoute={{id: 'prueba'}}
                 renderScene={this.navigatorRenderScene}/>
         );
     }
