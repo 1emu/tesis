@@ -1,4 +1,4 @@
-import {observable} from "mobx";
+import {observable, autorun} from "mobx";
 
 export default class Cuadradito {
   @observable x;
@@ -12,7 +12,8 @@ export default class Cuadradito {
     return 50;
   }
 
-  constructor(x = 0, y = 0, tablero) {
+  constructor(id, x = 0, y = 0, tablero) {
+    this.id = id;
     this.tablero = tablero;
     this.setPosition(x, y);
   }
@@ -22,7 +23,38 @@ export default class Cuadradito {
     this.y = y;
   }
 
+  xMax() {
+    return this.x + this.width()
+  }
+
+  yMax() {
+    return this.y + this.height()
+  }
+
+  isOccupyingYSpan(yMin, yMax) {
+    return !(yMin >= this.yMax() || yMax <= this.y);
+  }
+
+  isOccupyingXSpan(xMin, xMax) {
+    return !(xMin >= this.xMax() || xMax <= this.x);
+  }
+
   pushTowards(x, y) {
-    this.setPosition(this.tablero.movementLimitX(this, x), this.tablero.movementLimitY(this, y));
+    var newX, newY;
+    if (x >= this.x) {
+      //Estoy empujandolo a la derecha
+      newX = this.tablero.movementLimitRight(this, x);
+    } else {
+      //Estoy empujandolo a la izquierda
+      newX = this.tablero.movementLimitLeft(this, x);
+    }
+    if (y >= this.y) {
+      //Estoy empujandolo hacia abajo
+      newY = this.tablero.movementLimitBottom(this, y);
+    } else {
+      //Estoy empujandolo hacia arriba
+      newY = this.tablero.movementLimitTop(this, y);
+    }
+    this.setPosition(newX, newY);
   }
 }

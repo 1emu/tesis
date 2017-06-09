@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import {View} from "react-native";
 import Tablero from "./Tablero";
 import CuadraditoView from "./CuadraditoView";
-import Cuadradito from "./Cuadradito";
 
 export default class TableroView extends Component {
   constructor(props) {
