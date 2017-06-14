@@ -1,15 +1,24 @@
 import Cuadradito from "./Cuadradito"
+import Magneto from "./Magneto"
 
 export default class Tablero {
   constructor() {
     this.cuadraditos = [
-      new Cuadradito('a', 0, 0, this),
-      new Cuadradito('b', 100, 100, this)
+      new Cuadradito('c', 100, 200, this)
     ];
+
+    this.magnetitos = [];
+
+    for (i = 0; i < 300; i = i +50) {
+      for (j = 0; j < 500; j = j +50) {
+        this.magnetitos.push(new Magneto(''+i+j, i, j, this))
+      }
+    }
+
   }
 
   otherCuadraditos(cuadradito) {
-    return this.cuadraditos.filter((other) => { return cuadradito.id != other.id })
+    return this.cuadraditos.filter((other) => { return cuadradito.id !== other.id })
   }
 
   otherCuadraditosAtTheSameHeightSpan(cuadradito) {
@@ -42,5 +51,12 @@ export default class Tablero {
     let cuadraditosAbove = this.otherCuadraditosAtTheSameWidthSpan(cuadradito).filter((other) => { return other.yMax() <= cuadradito.y });
     let candidateMaximums = [0, y].concat(cuadraditosAbove.map((other) => { return other.yMax() }));
     return Math.max(...candidateMaximums);
+  }
+
+  getClosestMagneto(cuadradito) {
+    let magnetines = this.magnetitos.sort((magneto1, magneto2) => {
+      return magneto1.distanceTo(cuadradito) - magneto2.distanceTo(cuadradito);
+    });
+    return magnetines[0]
   }
 }

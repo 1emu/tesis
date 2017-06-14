@@ -57,4 +57,9 @@ export default class Cuadradito {
     }
     this.setPosition(newX, newY);
   }
+
+  snapYoAss(){
+    let closestMagneto = this.tablero.getClosestMagneto(this);
+    this.setPosition(closestMagneto.x, closestMagneto.y);
+  }
 }
