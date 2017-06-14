@@ -32,7 +32,7 @@ export default class Navigation extends React.Component {
             case 'tiles':
                 return (<Tiles navigator={navigator} title="tiles"/>);
             case 'prueba':
-                return (<TableroView/>);
+                return (<TableroView navigator={navigator} title="prueba"/>);
         }
     }
 

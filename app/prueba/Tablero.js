@@ -3,7 +3,7 @@ import Magneto from "./Magneto"
 import VictoryGarden from "./VictoryGarden"
 
 export default class Tablero {
-  constructor() {
+  constructor(navigator) {
     this.cuadraditos = [
       new Cuadradito('c', 100, 200, this)
     ];
@@ -17,6 +17,8 @@ export default class Tablero {
     }
 
     this.victoryGarden = new VictoryGarden('victoryGarden', 1, 0, 4, 1);
+
+    this.navigator = navigator;
   }
 
   otherCuadraditos(cuadradito) {
@@ -64,11 +66,7 @@ export default class Tablero {
 
   checkWinCondition(cuadradito){
     if(this.victoryGarden.contains(cuadradito)){
-      this.victoryGarden.backgroundColor = 'red';
-    } else {
-      this.victoryGarden.backgroundColor = 'blue';
+      this.navigator.push({id: 'first'});
     }
-
-    console.log('vg bgcolor ', this.victoryGarden.backgroundColor)
   }
 }

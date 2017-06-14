@@ -7,7 +7,7 @@ import VictoryGardenView from "./VictoryGardenView";
 export default class TableroView extends Component {
   constructor(props) {
     super(props);
-    this.tablero = new Tablero();
+    this.tablero = new Tablero(props.navigator);
   }
 
   render() {
@@ -20,6 +20,4 @@ export default class TableroView extends Component {
       </View>
     )
   }
-
-
 }
