@@ -1,5 +1,6 @@
 import Cuadradito from "./Cuadradito"
 import Magneto from "./Magneto"
+import VictoryGarden from "./VictoryGarden"
 
 export default class Tablero {
   constructor() {
@@ -15,6 +16,7 @@ export default class Tablero {
       }
     }
 
+    this.victoryGarden = new VictoryGarden('victoryGarden', 1, 0, 4, 1);
   }
 
   otherCuadraditos(cuadradito) {
@@ -58,5 +60,15 @@ export default class Tablero {
       return magneto1.distanceTo(cuadradito) - magneto2.distanceTo(cuadradito);
     });
     return magnetines[0]
+  }
+
+  checkWinCondition(cuadradito){
+    if(this.victoryGarden.contains(cuadradito)){
+      this.victoryGarden.backgroundColor = 'red';
+    } else {
+      this.victoryGarden.backgroundColor = 'blue';
+    }
+
+    console.log('vg bgcolor ', this.victoryGarden.backgroundColor)
   }
 }

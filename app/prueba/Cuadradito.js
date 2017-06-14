@@ -62,4 +62,8 @@ export default class Cuadradito {
     let closestMagneto = this.tablero.getClosestMagneto(this);
     this.setPosition(closestMagneto.x, closestMagneto.y);
   }
+
+  checkWinCondition(){
+    this.tablero.checkWinCondition(this);
+  }
 }

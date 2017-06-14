@@ -44,6 +44,7 @@ export default class CuadraditoView extends Component {
       },
       onPanResponderRelease: (e, gestureState) => {
         this.props.cuadradito.snapYoAss();
+        this.props.cuadradito.checkWinCondition();
       }
     });
   }
