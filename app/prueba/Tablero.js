@@ -1,11 +1,13 @@
 import Cuadradito from "./Cuadradito"
 import Magneto from "./Magneto"
 import VictoryGarden from "./VictoryGarden"
+import CuadraditoGanador from './CuadraditoGanador';
 
 export default class Tablero {
   constructor(navigator) {
     this.cuadraditos = [
-      new Cuadradito('c', 100, 200, this)
+      new Cuadradito('c', 100, 200, this),
+      new CuadraditoGanador('ganador', 100, 300, this),
     ];
 
     this.magnetitos = [];

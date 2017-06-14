@@ -12,7 +12,8 @@ export default class CuadraditoView extends Component {
   render() {
     return (
         <View
-            style={{width: this.props.cuadradito.width(), height: this.props.cuadradito.height(), backgroundColor: 'green', left: this._currentX(), top: this._currentY(), position: 'absolute',
+            style={{width: this.props.cuadradito.width(), height: this.props.cuadradito.height(), backgroundColor: this.props.cuadradito.backgroundColor,
+              left: this._currentX(), top: this._currentY(), position: 'absolute',
               }}
             {...this._panResponder.panHandlers}
         />

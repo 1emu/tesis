@@ -15,6 +15,7 @@ export default class Cuadradito {
   constructor(id, x = 0, y = 0, tablero) {
     this.id = id;
     this.tablero = tablero;
+    this.backgroundColor = 'green';
     this.setPosition(x, y);
   }
 
@@ -64,6 +65,6 @@ export default class Cuadradito {
   }
 
   checkWinCondition(){
-    this.tablero.checkWinCondition(this);
+    // smile and wave
   }
 }
