@@ -11,6 +11,9 @@ export default class Tablero {
     this.metrics = props.metrics;
 
     this.generarCuadraditos();
+    this.generarBumpers();
+    this.colisionables = this.cuadraditos.concat(this.bumpers);
+
     this.generarMagnetos();
     this.victoryGarden = new VictoryGarden('victoryGarden', 2, 0, 1, 1, this);
   }
@@ -29,14 +32,14 @@ export default class Tablero {
     ];
 
     this.cuadraditos.push(new CuadraditoGanador('ganador', 2, 5, 1, 1, this, 'red'));
+  }
 
+  generarBumpers(){
     let bumperColors = randomcolor({hue: 'monochrome', seed: 1, count: 1});
-    let bumpers = [
+    this.bumpers = [
       new Cuadradito('b1', 0, 0, 2, 1, this, bumperColors[0]),
       new Cuadradito('b2', 3, 0, 2, 1, this, bumperColors[0])
     ];
-
-    this.cuadraditos = this.cuadraditos.concat(bumpers)
   }
 
   generarMagnetos() {
@@ -54,7 +57,7 @@ export default class Tablero {
   }
 
   otherCuadraditos(cuadradito) {
-    return this.cuadraditos.filter((other) => { return cuadradito.id !== other.id })
+    return this.colisionables.filter((other) => { return cuadradito.id !== other.id })
   }
 
   otherCuadraditosAtTheSameHeightSpan(cuadradito) {

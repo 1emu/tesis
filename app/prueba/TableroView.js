@@ -4,6 +4,7 @@ import Tablero from './Tablero';
 import CuadraditoView from './CuadraditoView';
 import VictoryGardenView from './VictoryGardenView';
 import {BOARD_HEIGHT, BOARD_WIDTH} from './Metrics';
+import BumperView from './BumperView';
 
 
 export default class TableroView extends Component {
@@ -20,6 +21,9 @@ export default class TableroView extends Component {
     return (
       <View style={{backgroundColor: 'lightgrey', height: height, width: width, top: boardmargin, left: boardmargin/2}}>
         <VictoryGardenView key='victoryGarden' victoryGarden={this.tablero.victoryGarden}/>
+        { this.tablero.bumpers.map((cuadradito, index) => {
+          return (<BumperView key={index} cuadradito={cuadradito}/>);
+        })}
         { this.tablero.cuadraditos.map((cuadradito, index) => {
           return (<CuadraditoView key={index} cuadradito={cuadradito}/>);
         })}
