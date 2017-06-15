@@ -10,9 +10,12 @@ export default class Tablero {
     this.navigator = props.navigator;
     this.metrics = props.metrics;
 
-    let ganadorX = Math.floor(this.metrics.BOARD_WIDTH/this.metrics.TILE_SIZE) * 0.5;
-    let ganadorY = Math.floor(this.metrics.BOARD_HEIGHT/this.metrics.TILE_SIZE);
+    this.generarCuadraditos();
+    this.generarMagnetos();
+    this.victoryGarden = new VictoryGarden('victoryGarden', 2, 0, 1, 1, this);
+  }
 
+  generarCuadraditos() {
     let cuadraditosColors = randomcolor({hue: 'green', count: 6, luminosity: 'bright'});
 
     this.cuadraditos = [
@@ -23,12 +26,17 @@ export default class Tablero {
       new Cuadradito('5', 3, 5, 1, 2, this, cuadraditosColors[4]),
       new Cuadradito('6', 4, 2, 1, 5, this, cuadraditosColors[5]),
 
-      new CuadraditoGanador('ganador', 2 , 5, 1, 1, this, 'red')
     ];
 
-    this.generarMagnetos();
+    this.cuadraditos.push(new CuadraditoGanador('ganador', 2, 5, 1, 1, this, 'red'));
 
-    this.victoryGarden = new VictoryGarden('victoryGarden', 0, 0, 5, 1, this);
+    let bumperColors = randomcolor({hue: 'monochrome', seed: 1, count: 1});
+    let bumpers = [
+      new Cuadradito('b1', 0, 0, 2, 1, this, bumperColors[0]),
+      new Cuadradito('b2', 3, 0, 2, 1, this, bumperColors[0])
+    ];
+
+    this.cuadraditos = this.cuadraditos.concat(bumpers)
   }
 
   generarMagnetos() {

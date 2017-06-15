@@ -5,7 +5,7 @@ export default class VictoryTile {
 
   constructor(id, x = 0, y = 0, widthEnCuadraditos, heightEnCuadraditos, tablero) {
     this.id = id;
-    this.backgroundColor = 'blue';
+    this.backgroundColor = 'lightgrey';
     this.setDimensions(widthEnCuadraditos, heightEnCuadraditos, tablero.metrics.TILE_SIZE);
     this.setPosition(x * tablero.metrics.TILE_SIZE, y * tablero.metrics.TILE_SIZE);
   }

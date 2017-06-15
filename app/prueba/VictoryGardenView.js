@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {View, PanResponder, Text} from 'react-native';
-import {observer} from "mobx-react/native"
-import Metrics from './Metrics';
+import {View, PanResponder, Text, StyleSheet} from 'react-native';
+import {observer} from 'mobx-react/native'
 
 @observer
 export default class VictoryGardenView extends Component {
@@ -12,10 +11,14 @@ export default class VictoryGardenView extends Component {
   render() {
     return (
       <View
-        style={{width: this.props.victoryGarden.width, height: this.props.victoryGarden.height, backgroundColor: this.props.victoryGarden.backgroundColor,
-          left: this._currentX(), top: this._currentY(), position: 'absolute', borderWidth: 1,
-        borderColor: 'white'}}>
-      <Text style={{color: 'white'}}>{this.props.victoryGarden.id}</Text>
+        style={{
+          width: this.props.victoryGarden.width, height: this.props.victoryGarden.height, backgroundColor: this.props.victoryGarden.backgroundColor,
+          left: this._currentX(), top: this._currentY(), position: 'absolute',
+          borderColor: 'white'
+        }}>
+        <View style={styles.container}>
+          <Text style={styles.headline}> | {'\n'} | {'\n'} | {'\n'} | {'\n'} | {'\n'} | {'\n'}</Text>
+        </View>
       </View>
     )
   }
@@ -29,3 +32,22 @@ export default class VictoryGardenView extends Component {
   }
 
 }
+
+var styles = StyleSheet.create({
+
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    // backgroundColor: 'lightgray',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  headline: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: 'yellow',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+
+});

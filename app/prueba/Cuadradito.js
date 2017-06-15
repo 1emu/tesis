@@ -4,12 +4,14 @@ export default class Cuadradito {
   @observable x;
   @observable y;
 
+
   constructor(id, x = 0, y = 0, width, height, tablero, backgroundColor) {
     this.id = id;
     this.tablero = tablero;
     this.backgroundColor = backgroundColor;
     this.setPosition(x * this.tablero.metrics.TILE_SIZE, y * this.tablero.metrics.TILE_SIZE);
     this.setDimensions(width, height, this.tablero.metrics.TILE_SIZE);
+    this.maxSpaceInBetween = this.tablero.metrics.TILE_SIZE * 0.1;
   }
 
   setPosition(x, y) {
@@ -31,15 +33,15 @@ export default class Cuadradito {
   }
 
   isOccupyingYSpan(yMin, yMax) {
-    return !(yMin >= this.yMax() || yMax <= this.y);
+    return !(yMin >= this.yMax() - this.maxSpaceInBetween || yMax <= this.y + this.maxSpaceInBetween);
   }
 
   isOccupyingXSpan(xMin, xMax) {
-    return !(xMin >= this.xMax() || xMax <= this.x);
+    return !(xMin >= this.xMax() - this.maxSpaceInBetween || xMax <= this.x + this.maxSpaceInBetween);
   }
 
   pushTowards(x, y) {
-    var newX, newY;
+    let newX, newY;
     if (x >= this.x) {
       //Estoy empujandolo a la derecha
       newX = this.tablero.movementLimitRight(this, x);
