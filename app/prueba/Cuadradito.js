@@ -4,19 +4,19 @@ export default class Cuadradito {
   @observable x;
   @observable y;
 
-  height() {
-    return 50;
-  }
-
-  width() {
-    return 50;
-  }
-
   constructor(id, x = 0, y = 0, tablero) {
     this.id = id;
     this.tablero = tablero;
     this.backgroundColor = 'green';
-    this.setPosition(x, y);
+    this.setPosition(x * this.tablero.metrics.TILE_SIZE, y * this.tablero.metrics.TILE_SIZE);
+  }
+
+  height() {
+    return this.tablero.metrics.TILE_SIZE;
+  }
+
+  width() {
+    return this.tablero.metrics.TILE_SIZE;
   }
 
   setPosition(x, y) {

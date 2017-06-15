@@ -4,23 +4,33 @@ import VictoryGarden from "./VictoryGarden"
 import CuadraditoGanador from './CuadraditoGanador';
 
 export default class Tablero {
-  constructor(navigator) {
+
+  constructor(props) {
+    this.navigator = props.navigator;
+    this.metrics = props.metrics;
+
     this.cuadraditos = [
-      new Cuadradito('c', 100, 200, this),
-      new CuadraditoGanador('ganador', 100, 300, this),
+      new Cuadradito('c', 1, 2, this),
+      new CuadraditoGanador('ganador', 1, 3, this),
     ];
 
+    this.generarMagnetos();
+
+    this.victoryGarden = new VictoryGarden('victoryGarden', 1, 0, 4, 1, this);
+  }
+
+  generarMagnetos() {
     this.magnetitos = [];
 
-    for (i = 0; i < 300; i = i +50) {
-      for (j = 0; j < 500; j = j +50) {
-        this.magnetitos.push(new Magneto(''+i+j, i, j, this))
+    let width = this.metrics.BOARD_WIDTH;
+    let height = this.metrics.BOARD_HEIGHT;
+    let tileSize = this.metrics.TILE_SIZE;
+
+    for(i = 0; i < width; i = i + tileSize){
+      for (j = 0; j < height; j = j + tileSize) {
+        this.magnetitos.push(new Magneto('' + i + j, i, j))
       }
     }
-
-    this.victoryGarden = new VictoryGarden('victoryGarden', 1, 0, 4, 1);
-
-    this.navigator = navigator;
   }
 
   otherCuadraditos(cuadradito) {
@@ -37,7 +47,7 @@ export default class Tablero {
 
   movementLimitRight(cuadradito, x) {
     let cuadraditosToTheRight = this.otherCuadraditosAtTheSameHeightSpan(cuadradito).filter((other) => { return other.x >= cuadradito.xMax() });
-    let candidateMinimums = [x + cuadradito.width(), 300].concat(cuadraditosToTheRight.map((other) => { return other.x }));
+    let candidateMinimums = [x + cuadradito.width(), this.metrics.BOARD_WIDTH].concat(cuadraditosToTheRight.map((other) => { return other.x }));
     return Math.min(...candidateMinimums) - cuadradito.width();
   }
 
@@ -49,7 +59,7 @@ export default class Tablero {
 
   movementLimitBottom(cuadradito, y) {
     let cuadraditosBelow = this.otherCuadraditosAtTheSameWidthSpan(cuadradito).filter((other) => { return other.y >= cuadradito.yMax() });
-    let candidateMinimums = [y + cuadradito.height(), 500].concat(cuadraditosBelow.map((other) => { return other.y }));
+    let candidateMinimums = [y + cuadradito.height(), this.metrics.BOARD_HEIGHT].concat(cuadraditosBelow.map((other) => { return other.y }));
     return Math.min(...candidateMinimums) - cuadradito.height();
   }
 

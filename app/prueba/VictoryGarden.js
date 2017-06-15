@@ -3,21 +3,21 @@ import {observable} from "mobx";
 export default class VictoryTile {
   @observable backgroundColor;
 
-  constructor(id, x = 0, y = 0, widthEnCuadraditos, heightEnCuadraditos) {
+  constructor(id, x = 0, y = 0, widthEnCuadraditos, heightEnCuadraditos, tablero) {
     this.id = id;
     this.backgroundColor = 'blue';
-    this.setDimensions(widthEnCuadraditos, heightEnCuadraditos);
-    this.setPosition(x, y);
+    this.setDimensions(widthEnCuadraditos, heightEnCuadraditos, tablero.metrics.TILE_SIZE);
+    this.setPosition(x * tablero.metrics.TILE_SIZE, y * tablero.metrics.TILE_SIZE);
   }
 
   setPosition(x, y) {
-    this.x = x * 50;
-    this.y = y * 50;
+    this.x = x;
+    this.y = y;
   }
 
-  setDimensions(widthEnCuadraditos, heightEnCuadraditos) {
-    this.width = 50 * widthEnCuadraditos;
-    this.height = 50 * heightEnCuadraditos;
+  setDimensions(widthEnCuadraditos, heightEnCuadraditos, tileSize) {
+    this.width = tileSize * widthEnCuadraditos;
+    this.height = tileSize * heightEnCuadraditos;
   }
 
   distanceTo(cuadradito) {

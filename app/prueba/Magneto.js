@@ -1,13 +1,5 @@
 export default class Magneto {
 
-  height() {
-    return 50;
-  }
-
-  width() {
-    return 50;
-  }
-
   constructor(id, x = 0, y = 0) {
     this.id = id;
     this.setPosition(x, y);
