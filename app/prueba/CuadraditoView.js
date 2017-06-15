@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {View, PanResponder} from "react-native";
+import {View, PanResponder, Animated} from "react-native";
 import {observer} from "mobx-react/native"
 
 @observer
@@ -7,15 +7,18 @@ export default class CuadraditoView extends Component {
   constructor(props) {
     super(props);
     this._setupPanResponder();
+    this.state = {scale: new Animated.Value(1)};
   }
 
   render() {
+
     return (
-        <View
-            style={{width: this.props.cuadradito.width, height: this.props.cuadradito.height, backgroundColor: this.props.cuadradito.backgroundColor,
-              left: this._currentX(), top: this._currentY(), position: 'absolute',
-              }}
+        <Animated.View
             {...this._panResponder.panHandlers}
+            style={{width: this.props.cuadradito.width, height: this.props.cuadradito.height, backgroundColor: this.props.cuadradito.backgroundColor,
+              left: this._currentX(), top: this._currentY(), position: 'absolute', transform: [{rotate: '0deg'}, {scale: this.state.scale}]
+              }}
+
         />
     )
   }
@@ -35,6 +38,8 @@ export default class CuadraditoView extends Component {
       onMoveShouldSetPanResponder: (evt, gestureState) => true,
       onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
       onPanResponderGrant: (_evt, gestureState) => {
+        this._scaleDown();
+
         this.gestureStartX = this._currentX();
         this.gestureStartY = this._currentY();
       },
@@ -45,8 +50,23 @@ export default class CuadraditoView extends Component {
       },
       onPanResponderRelease: (e, gestureState) => {
         this.props.cuadradito.snapYoAss();
+        this._scaleUp();
         this.props.cuadradito.checkWinCondition();
       }
     });
+  }
+
+  _scaleDown() {
+    Animated.spring(
+      this.state.scale,
+      {toValue: 0.9, friction: 3}
+    ).start();
+  }
+
+  _scaleUp() {
+    Animated.spring(
+      this.state.scale,
+      {toValue: 1, friction: 3}
+    ).start();
   }
 }
