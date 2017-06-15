@@ -5,6 +5,8 @@ import CuadraditoView from './CuadraditoView';
 import VictoryGardenView from './VictoryGardenView';
 import {BOARD_HEIGHT, BOARD_WIDTH} from './Metrics';
 import BumperView from './BumperView';
+import CuadraditosView from './CuadraditosView';
+import BumpersView from './BumpersView';
 
 
 export default class TableroView extends Component {
@@ -21,13 +23,11 @@ export default class TableroView extends Component {
     return (
       <View style={{backgroundColor: 'lightgrey', height: height, width: width, top: boardmargin, left: boardmargin/2}}>
         <VictoryGardenView key='victoryGarden' victoryGarden={this.tablero.victoryGarden}/>
-        { this.tablero.bumpers.map((cuadradito, index) => {
-          return (<BumperView key={index} cuadradito={cuadradito}/>);
-        })}
-        { this.tablero.cuadraditos.map((cuadradito, index) => {
-          return (<CuadraditoView key={index} cuadradito={cuadradito}/>);
-        })}
+        <BumpersView bumpers={this.tablero.bumpers} />
+        <CuadraditosView cuadraditos={this.tablero.cuadraditos} />
       </View>
     )
   }
 }
+
+
