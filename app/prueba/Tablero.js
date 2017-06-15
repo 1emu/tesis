@@ -2,6 +2,7 @@ import Cuadradito from "./Cuadradito"
 import Magneto from "./Magneto"
 import VictoryGarden from "./VictoryGarden"
 import CuadraditoGanador from './CuadraditoGanador';
+import randomcolor from 'randomcolor';
 
 export default class Tablero {
 
@@ -9,14 +10,25 @@ export default class Tablero {
     this.navigator = props.navigator;
     this.metrics = props.metrics;
 
+    let ganadorX = Math.floor(this.metrics.BOARD_WIDTH/this.metrics.TILE_SIZE) * 0.5;
+    let ganadorY = Math.floor(this.metrics.BOARD_HEIGHT/this.metrics.TILE_SIZE);
+
+    let cuadraditosColors = randomcolor({hue: 'green', count: 6, luminosity: 'bright'});
+
     this.cuadraditos = [
-      new Cuadradito('c', 1, 2, 1, 1, this),
-      new CuadraditoGanador('ganador', 1, 3, 1, 1, this),
+      new Cuadradito('1', 0, 2, 2, 1, this, cuadraditosColors[0]),
+      new Cuadradito('2', 1, 3, 1, 2, this, cuadraditosColors[1]),
+      new Cuadradito('3', 3, 1, 2, 1, this, cuadraditosColors[2]),
+      new Cuadradito('4', 2, 3, 2, 1, this, cuadraditosColors[3]),
+      new Cuadradito('5', 3, 5, 1, 2, this, cuadraditosColors[4]),
+      new Cuadradito('6', 4, 2, 1, 5, this, cuadraditosColors[5]),
+
+      new CuadraditoGanador('ganador', 2 , 5, 1, 1, this, 'red')
     ];
 
     this.generarMagnetos();
 
-    this.victoryGarden = new VictoryGarden('victoryGarden', 1, 0, 4, 1, this);
+    this.victoryGarden = new VictoryGarden('victoryGarden', 0, 0, 5, 1, this);
   }
 
   generarMagnetos() {
