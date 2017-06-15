@@ -4,19 +4,12 @@ export default class Cuadradito {
   @observable x;
   @observable y;
 
-  constructor(id, x = 0, y = 0, tablero) {
+  constructor(id, x = 0, y = 0, width, height, tablero) {
     this.id = id;
     this.tablero = tablero;
     this.backgroundColor = 'green';
     this.setPosition(x * this.tablero.metrics.TILE_SIZE, y * this.tablero.metrics.TILE_SIZE);
-  }
-
-  height() {
-    return this.tablero.metrics.TILE_SIZE;
-  }
-
-  width() {
-    return this.tablero.metrics.TILE_SIZE;
+    this.setDimensions(width, height, this.tablero.metrics.TILE_SIZE);
   }
 
   setPosition(x, y) {
@@ -24,12 +17,17 @@ export default class Cuadradito {
     this.y = y;
   }
 
+  setDimensions(width, height, tileSize) {
+    this.width = width * tileSize;
+    this.height = height * tileSize;
+  }
+
   xMax() {
-    return this.x + this.width()
+    return this.x + this.width
   }
 
   yMax() {
-    return this.y + this.height()
+    return this.y + this.height
   }
 
   isOccupyingYSpan(yMin, yMax) {

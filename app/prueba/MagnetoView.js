@@ -9,7 +9,7 @@ export default class MagnetoView extends Component {
   render() {
     return (
       <View
-        style={{width: this.props.magneto.width(), height: this.props.magneto.height(), backgroundColor: 'black', left: this._currentX(), top: this._currentY(), position: 'absolute', borderWidth: 1,
+        style={{width: this.props.magneto.width, height: this.props.magneto.height(), backgroundColor: 'black', left: this._currentX(), top: this._currentY(), position: 'absolute', borderWidth: 1,
         borderColor: 'white'}}>
       <Text style={{color: 'white'}}>{this.props.magneto.id}</Text>
       </View>

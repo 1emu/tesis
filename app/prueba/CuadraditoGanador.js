@@ -3,8 +3,8 @@ import Cuadradito from './Cuadradito';
 
 export default class CuadraditoGanador extends Cuadradito {
 
-  constructor(id, x = 0, y = 0, tablero) {
-    super(id, x, y, tablero);
+  constructor(id, x = 0, y = 0, width, height, tablero) {
+    super(id, x = 0, y = 0, width, height, tablero);
     this.backgroundColor = 'red';
   }
 

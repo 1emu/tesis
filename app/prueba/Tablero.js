@@ -10,8 +10,8 @@ export default class Tablero {
     this.metrics = props.metrics;
 
     this.cuadraditos = [
-      new Cuadradito('c', 1, 2, this),
-      new CuadraditoGanador('ganador', 1, 3, this),
+      new Cuadradito('c', 1, 2, 1, 1, this),
+      new CuadraditoGanador('ganador', 1, 3, 1, 1, this),
     ];
 
     this.generarMagnetos();
@@ -47,8 +47,8 @@ export default class Tablero {
 
   movementLimitRight(cuadradito, x) {
     let cuadraditosToTheRight = this.otherCuadraditosAtTheSameHeightSpan(cuadradito).filter((other) => { return other.x >= cuadradito.xMax() });
-    let candidateMinimums = [x + cuadradito.width(), this.metrics.BOARD_WIDTH].concat(cuadraditosToTheRight.map((other) => { return other.x }));
-    return Math.min(...candidateMinimums) - cuadradito.width();
+    let candidateMinimums = [x + cuadradito.width, this.metrics.BOARD_WIDTH].concat(cuadraditosToTheRight.map((other) => { return other.x }));
+    return Math.min(...candidateMinimums) - cuadradito.width;
   }
 
   movementLimitLeft(cuadradito, x) {
@@ -59,8 +59,8 @@ export default class Tablero {
 
   movementLimitBottom(cuadradito, y) {
     let cuadraditosBelow = this.otherCuadraditosAtTheSameWidthSpan(cuadradito).filter((other) => { return other.y >= cuadradito.yMax() });
-    let candidateMinimums = [y + cuadradito.height(), this.metrics.BOARD_HEIGHT].concat(cuadraditosBelow.map((other) => { return other.y }));
-    return Math.min(...candidateMinimums) - cuadradito.height();
+    let candidateMinimums = [y + cuadradito.height, this.metrics.BOARD_HEIGHT].concat(cuadraditosBelow.map((other) => { return other.y }));
+    return Math.min(...candidateMinimums) - cuadradito.height;
   }
 
   movementLimitTop(cuadradito, y) {
