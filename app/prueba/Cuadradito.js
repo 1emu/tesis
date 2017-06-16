@@ -6,15 +6,13 @@ export default class Cuadradito {
   @observable x;
   @observable y;
 
-  constructor(id, x = 0, y = 0, width, height, tablero, backgroundColor, image = null, borderRadius) {
+  constructor(id, x = 0, y = 0, width, height, tablero, backgroundColor, image = null) {
     this.id = id;
     this.tablero = tablero;
 
     this.setInitialPosition(x * this.tablero.metrics.TILE_SIZE, y * this.tablero.metrics.TILE_SIZE);
     this.setDimensions(width, height, this.tablero.metrics.TILE_SIZE);
-    this.maxSpaceInBetween = this.tablero.metrics.TILE_SIZE * 0.1;
-
-    this.borderRadius = (borderRadius !== null ? borderRadius :this.tablero.metrics.TILE_BORDER_RADIUS);
+    this.maxSpaceInBetween = this.tablero.metrics.MAX_SPACE_IN_BETWEEN_TILES;
 
     this.backgroundColor = backgroundColor;
     this.image = (image ? image : this.DEFAULT_IMG);

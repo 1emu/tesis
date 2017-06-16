@@ -1,6 +1,6 @@
-import React, {Component} from "react";
-import {View, Image, PanResponder, Animated} from "react-native";
-import {observer} from "mobx-react/native"
+import React, {Component} from 'react';
+import {View, Image, PanResponder, Animated} from 'react-native';
+import {observer} from 'mobx-react/native'
 
 @observer
 export default class CuadraditoView extends Component {
@@ -12,22 +12,19 @@ export default class CuadraditoView extends Component {
 
   render() {
 
+    const width = this.props.cuadradito.width;
+    const height = this.props.cuadradito.height;
+
     return (
 
-      <Animated.View {...this._panResponder.panHandlers}
-                     style={{width: this.props.cuadradito.width, height: this.props.cuadradito.height, left: this._currentX(), top: this._currentY(),
-                       position: 'absolute',
-                       transform: [{rotate: '0deg'}, {scale: this.state.scale}]
-                     }}
-      >
-        <Image source={this.props.cuadradito.image}
-               style={{width: this.props.cuadradito.width, height: this.props.cuadradito.height,
-                 borderRadius: this.props.cuadradito.borderRadius, borderWidth: 0, borderColor: 'black',
-                 backgroundColor: this.props.cuadradito.backgroundColor,
-                 overflow: 'hidden',
-
-        }}/>
-      </Animated.View>
+      <Animated.Image {...this._panResponder.panHandlers}
+                      style={{
+                        width: width, height: height, left: this._currentX(), top: this._currentY(),
+                        position: 'absolute',
+                        transform: [{rotate: '0deg'}, {scale: this.state.scale}]
+                      }}
+                      source={this.props.cuadradito.image}
+      />
     )
   }
 

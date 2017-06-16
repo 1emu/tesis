@@ -35,7 +35,7 @@ export default class Tablero {
       new CuadraditoHorizontal('3', 3, 1, 2, 1, this, cuadraditosColors[2], leftCarImage),
       new CuadraditoHorizontal('4', 2, 3, 2, 1, this, cuadraditosColors[3], leftCarImage),
       new CuadraditoVertical('5', 3, 5, 1, 2, this, cuadraditosColors[4], upCarImage),
-      new CuadraditoVertical('6', 4, 2, 1, 5, this, 'lightgray', upTruckImage, 0),
+      new CuadraditoVertical('6', 4, 2, 1, 5, this, 'lightgray', upTruckImage),
 
     ];
 

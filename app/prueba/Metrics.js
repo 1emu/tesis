@@ -20,5 +20,6 @@ export default class Metrics extends React.Component {
 
     this.TILE_SHADOW_DEPTH = 6;
     this.TILE_BORDER_RADIUS = this.TILE_SIZE * 0.27;
+    this.MAX_SPACE_IN_BETWEEN_TILES = this.TILE_SIZE * 0.1;
   }
 }
