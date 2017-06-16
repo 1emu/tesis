@@ -1,17 +1,21 @@
 import {observable, autorun} from "mobx";
 
 export default class Cuadradito {
+  DEFAULT_IMG = require('./img/empty.png');
+
   @observable x;
   @observable y;
 
-
-  constructor(id, x = 0, y = 0, width, height, tablero, backgroundColor) {
+  constructor(id, x = 0, y = 0, width, height, tablero, backgroundColor, image = null) {
     this.id = id;
     this.tablero = tablero;
-    this.backgroundColor = backgroundColor;
+
     this.setPosition(x * this.tablero.metrics.TILE_SIZE, y * this.tablero.metrics.TILE_SIZE);
     this.setDimensions(width, height, this.tablero.metrics.TILE_SIZE);
     this.maxSpaceInBetween = this.tablero.metrics.TILE_SIZE * 0.1;
+
+    this.backgroundColor = backgroundColor;
+    this.image = (image ? image : this.DEFAULT_IMG);
   }
 
   setPosition(x, y) {

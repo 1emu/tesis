@@ -20,18 +20,24 @@ export default class Tablero {
 
   generarCuadraditos() {
     let cuadraditosColors = randomcolor({hue: 'green', count: 6, luminosity: 'bright'});
+    let image = require('./img/car_top_view_fat.png');
+    let leftCarImage = require('./img/horizontal_left_car_2.png');
+    let rightCarImage = require('./img/horizontal_right_car_2.png');
+    let upCarImage = require('./img/vertical_up_car_2.png');
+    let downCarImage = require('./img/vertical_down_car_2.png');
+    let upTruckImage = require('./img/vertical_up_truck.png');
 
     this.cuadraditos = [
-      new Cuadradito('1', 0, 2, 2, 1, this, cuadraditosColors[0]),
-      new Cuadradito('2', 1, 3, 1, 2, this, cuadraditosColors[1]),
-      new Cuadradito('3', 3, 1, 2, 1, this, cuadraditosColors[2]),
-      new Cuadradito('4', 2, 3, 2, 1, this, cuadraditosColors[3]),
-      new Cuadradito('5', 3, 5, 1, 2, this, cuadraditosColors[4]),
-      new Cuadradito('6', 4, 2, 1, 5, this, cuadraditosColors[5]),
+      new Cuadradito('1', 0, 2, 2, 1, this, cuadraditosColors[0], rightCarImage),
+      new Cuadradito('2', 1, 3, 1, 2, this, cuadraditosColors[1], downCarImage),
+      new Cuadradito('3', 3, 1, 2, 1, this, cuadraditosColors[2], leftCarImage),
+      new Cuadradito('4', 2, 3, 2, 1, this, cuadraditosColors[3], leftCarImage),
+      new Cuadradito('5', 3, 5, 1, 2, this, cuadraditosColors[4], upCarImage),
+      new Cuadradito('6', 4, 2, 1, 5, this, cuadraditosColors[5], upTruckImage),
 
     ];
 
-    this.cuadraditos.push(new CuadraditoGanador('ganador', 2, 5, 1, 1, this, 'red'));
+    this.cuadraditos.push(new CuadraditoGanador('ganador', 2, 5, 1, 1, this, 'red', image));
   }
 
   generarBumpers(){
