@@ -10,7 +10,7 @@ export default class Cuadradito {
     this.id = id;
     this.tablero = tablero;
 
-    this.setPosition(x * this.tablero.metrics.TILE_SIZE, y * this.tablero.metrics.TILE_SIZE);
+    this.setInitialPosition(x * this.tablero.metrics.TILE_SIZE, y * this.tablero.metrics.TILE_SIZE);
     this.setDimensions(width, height, this.tablero.metrics.TILE_SIZE);
     this.maxSpaceInBetween = this.tablero.metrics.TILE_SIZE * 0.1;
 
@@ -21,6 +21,11 @@ export default class Cuadradito {
   }
 
   setPosition(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  setInitialPosition(x, y){
     this.x = x;
     this.y = y;
   }

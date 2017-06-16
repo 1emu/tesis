@@ -3,6 +3,8 @@ import Magneto from "./Magneto"
 import VictoryGarden from "./VictoryGarden"
 import CuadraditoGanador from './CuadraditoGanador';
 import randomcolor from 'randomcolor';
+import CuadraditoHorizontal from './CuadraditoHorizontal';
+import CuadraditoVertical from './CuadraditoVertical';
 
 export default class Tablero {
 
@@ -19,7 +21,7 @@ export default class Tablero {
   }
 
   generarCuadraditos() {
-    let cuadraditosColors = randomcolor({hue: 'green', count: 6, luminosity: 'bright'});
+    let cuadraditosColors = randomcolor({count: 6, luminosity: 'bright'});
     let image = require('./img/car_top_view_fat.png');
     let leftCarImage = require('./img/horizontal_left_car_2.png');
     let rightCarImage = require('./img/horizontal_right_car_2.png');
@@ -28,12 +30,12 @@ export default class Tablero {
     let upTruckImage = require('./img/vertical_up_truck.png');
 
     this.cuadraditos = [
-      new Cuadradito('1', 0, 2, 2, 1, this, cuadraditosColors[0], rightCarImage),
-      new Cuadradito('2', 1, 3, 1, 2, this, cuadraditosColors[1], downCarImage),
-      new Cuadradito('3', 3, 1, 2, 1, this, cuadraditosColors[2], leftCarImage),
-      new Cuadradito('4', 2, 3, 2, 1, this, cuadraditosColors[3], leftCarImage),
-      new Cuadradito('5', 3, 5, 1, 2, this, cuadraditosColors[4], upCarImage),
-      new Cuadradito('6', 4, 2, 1, 5, this, 'lightgray', upTruckImage, 0),
+      new CuadraditoHorizontal('1', 0, 2, 2, 1, this, cuadraditosColors[0], rightCarImage),
+      new CuadraditoVertical('2', 1, 3, 1, 2, this, cuadraditosColors[1], downCarImage),
+      new CuadraditoHorizontal('3', 3, 1, 2, 1, this, cuadraditosColors[2], leftCarImage),
+      new CuadraditoHorizontal('4', 2, 3, 2, 1, this, cuadraditosColors[3], leftCarImage),
+      new CuadraditoVertical('5', 3, 5, 1, 2, this, cuadraditosColors[4], upCarImage),
+      new CuadraditoVertical('6', 4, 2, 1, 5, this, 'lightgray', upTruckImage, 0),
 
     ];
 
