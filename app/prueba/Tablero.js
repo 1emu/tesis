@@ -33,7 +33,7 @@ export default class Tablero {
       new Cuadradito('3', 3, 1, 2, 1, this, cuadraditosColors[2], leftCarImage),
       new Cuadradito('4', 2, 3, 2, 1, this, cuadraditosColors[3], leftCarImage),
       new Cuadradito('5', 3, 5, 1, 2, this, cuadraditosColors[4], upCarImage),
-      new Cuadradito('6', 4, 2, 1, 5, this, cuadraditosColors[5], upTruckImage),
+      new Cuadradito('6', 4, 2, 1, 5, this, 'lightgray', upTruckImage, 0),
 
     ];
 

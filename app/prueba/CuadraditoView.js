@@ -13,14 +13,21 @@ export default class CuadraditoView extends Component {
   render() {
 
     return (
-        <Animated.Image
-            {...this._panResponder.panHandlers}
-            style={{width: this.props.cuadradito.width, height: this.props.cuadradito.height, backgroundColor: this.props.cuadradito.backgroundColor,
-              left: this._currentX(), top: this._currentY(), position: 'absolute', transform: [{rotate: '0deg'}, {scale: this.state.scale}]
-              }}
 
-            source={this.props.cuadradito.image}
-          />
+      <Animated.View {...this._panResponder.panHandlers}
+                     style={{width: this.props.cuadradito.width, height: this.props.cuadradito.height, left: this._currentX(), top: this._currentY(),
+                       position: 'absolute',
+                       transform: [{rotate: '0deg'}, {scale: this.state.scale}]
+                     }}
+      >
+        <Image source={this.props.cuadradito.image}
+               style={{width: this.props.cuadradito.width, height: this.props.cuadradito.height,
+                 borderRadius: this.props.cuadradito.borderRadius, borderWidth: 0, borderColor: 'black',
+                 backgroundColor: this.props.cuadradito.backgroundColor,
+                 overflow: 'hidden',
+
+        }}/>
+      </Animated.View>
     )
   }
 
@@ -60,7 +67,7 @@ export default class CuadraditoView extends Component {
   _scaleDown() {
     Animated.spring(
       this.state.scale,
-      {toValue: 0.9, friction: 3}
+      {toValue: 0.96, friction: 3}
     ).start();
   }
 

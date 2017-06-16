@@ -19,6 +19,6 @@ export default class Metrics extends React.Component {
     this.BOARD_HEIGHT = Math.floor((this.DEVICE_HEIGHT-this.BOARD_MARGIN) / this.TILE_SIZE) * this.TILE_SIZE;
 
     this.TILE_SHADOW_DEPTH = 6;
-    this.TILE_BORDER_RADIUS = this.TILE_SIZE * 0.1;
+    this.TILE_BORDER_RADIUS = this.TILE_SIZE * 0.27;
   }
 }
