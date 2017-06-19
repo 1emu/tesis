@@ -71,7 +71,13 @@ export default class CarImage {
     }
   };
 
+  static defaultImage() {
+    return require('./img/empty.png');
+  }
+
   static for(vehicle, color, orientation) {
-    return this.imageHash()[vehicle][color][orientation];
+    let images = this.imageHash();
+    let image = images[vehicle] && images[vehicle][color] && images[vehicle][color][orientation];
+    return image || this.defaultImage();
   }
 }

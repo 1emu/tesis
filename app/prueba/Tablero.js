@@ -23,12 +23,6 @@ export default class Tablero {
 
   generarCuadraditos() {
     let cuadraditosColors = randomcolor({count: 6, luminosity: 'bright'});
-    let image = require('./img/car_top_view_fat.png');
-    let leftCarImage = require('./img/horizontal_left_car_2.png');
-    let rightCarImage = require('./img/horizontal_right_car_2.png');
-    let upCarImage = require('./img/vertical_up_car_2.png');
-    let downCarImage = require('./img/vertical_down_car_2.png');
-    let upTruckImage = require('./img/vertical_up_truck.png');
 
     this.cuadraditos = [
       new CuadraditoHorizontal('1', 0, 2, 2, 1, this, cuadraditosColors[0], CarImage.for('car', 'blue', 'left')),
