@@ -5,6 +5,7 @@ import CuadraditoGanador from './CuadraditoGanador';
 import randomcolor from 'randomcolor';
 import CuadraditoHorizontal from './CuadraditoHorizontal';
 import CuadraditoVertical from './CuadraditoVertical';
+import CarImage from "./CarImages";
 
 export default class Tablero {
 
@@ -30,16 +31,15 @@ export default class Tablero {
     let upTruckImage = require('./img/vertical_up_truck.png');
 
     this.cuadraditos = [
-      new CuadraditoHorizontal('1', 0, 2, 2, 1, this, cuadraditosColors[0], rightCarImage),
-      new CuadraditoVertical('2', 1, 3, 1, 2, this, cuadraditosColors[1], downCarImage),
-      new CuadraditoHorizontal('3', 3, 1, 2, 1, this, cuadraditosColors[2], leftCarImage),
-      new CuadraditoHorizontal('4', 2, 3, 2, 1, this, cuadraditosColors[3], leftCarImage),
-      new CuadraditoVertical('5', 3, 5, 1, 2, this, cuadraditosColors[4], upCarImage),
-      new CuadraditoVertical('6', 4, 2, 1, 5, this, 'lightgray', upTruckImage),
-
+      new CuadraditoHorizontal('1', 0, 2, 2, 1, this, cuadraditosColors[0], CarImage.for('car', 'blue', 'left')),
+      new CuadraditoVertical('2', 1, 3, 1, 2, this, cuadraditosColors[1], CarImage.for('car', 'pink', 'up')),
+      new CuadraditoHorizontal('3', 3, 1, 2, 1, this, cuadraditosColors[2], CarImage.for('car', 'green', 'left')),
+      new CuadraditoHorizontal('4', 2, 3, 2, 1, this, cuadraditosColors[3], CarImage.for('car', 'yellow', 'left')),
+      new CuadraditoVertical('5', 3, 5, 1, 2, this, cuadraditosColors[4], CarImage.for('car', 'grey', 'up')),
+      new CuadraditoVertical('6', 4, 2, 1, 3, this, 'lightgray', CarImage.for('truck', 'purple', 'up')),
     ];
 
-    this.cuadraditos.push(new CuadraditoGanador('ganador', 2, 5, 1, 1, this, 'red', image));
+    this.cuadraditos.push(new CuadraditoGanador('ganador', 2, 5, 1, 2, this, 'red', CarImage.for('car', 'orange', 'up')));
   }
 
   generarBumpers(){
