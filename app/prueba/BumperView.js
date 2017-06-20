@@ -11,7 +11,7 @@ export default class BumperView extends Component{
   render() {
     return (
         <View
-            style={{width: this.props.cuadradito.width, height: this.props.cuadradito.height, backgroundColor: this.props.cuadradito.backgroundColor,
+            style={{width: this.props.cuadradito.width, height: this.props.cuadradito.height, backgroundColor: 'grey',
               left: this._currentX(), top: this._currentY(), position: 'absolute'
               }}
         />
