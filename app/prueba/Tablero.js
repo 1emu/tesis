@@ -18,29 +18,29 @@ export default class Tablero {
     this.colisionables = this.cuadraditos.concat(this.bumpers);
 
     this.generarMagnetos();
-    this.victoryGarden = new VictoryGarden('victoryGarden', 2, 0, 1, 1, this);
+    this.victoryGarden = new VictoryGarden('victoryGarden', 6, 2, 1, 1, this);
   }
 
   generarCuadraditos() {
     let cuadraditosColors = randomcolor({count: 6, luminosity: 'bright'});
 
     this.cuadraditos = [
-      new CuadraditoHorizontal('1', 0, 2, 2, 1, this, cuadraditosColors[0], CarImage.for('car', 'blue', 'left')),
+      new CuadraditoHorizontal('1', 0, 1, 2, 1, this, cuadraditosColors[0], CarImage.for('car', 'blue', 'left')),
       new CuadraditoVertical('2', 1, 3, 1, 2, this, cuadraditosColors[1], CarImage.for('car', 'pink', 'up')),
       new CuadraditoHorizontal('3', 3, 1, 2, 1, this, cuadraditosColors[2], CarImage.for('car', 'green', 'left')),
       new CuadraditoHorizontal('4', 2, 3, 2, 1, this, cuadraditosColors[3], CarImage.for('car', 'yellow', 'left')),
-      new CuadraditoVertical('5', 3, 5, 1, 2, this, cuadraditosColors[4], CarImage.for('car', 'grey', 'up')),
+      new CuadraditoVertical('5', 3, 4, 1, 2, this, cuadraditosColors[4], CarImage.for('car', 'grey', 'up')),
       new CuadraditoVertical('6', 4, 2, 1, 3, this, 'lightgray', CarImage.for('truck', 'purple', 'up')),
     ];
 
-    this.cuadraditos.push(new CuadraditoGanador('ganador', 2, 5, 1, 2, this, 'red', CarImage.for('car', 'orange', 'up')));
+    this.cuadraditos.push(new CuadraditoGanador('ganador', 0, 2, 2, 1, this, 'red', CarImage.for('car', 'red', 'right')));
   }
 
   generarBumpers(){
     let bumperColors = randomcolor({hue: 'monochrome', seed: 1, count: 1});
     this.bumpers = [
-      new Cuadradito('b1', 0, 0, 2, 1, this, bumperColors[0]),
-      new Cuadradito('b2', 3, 0, 2, 1, this, bumperColors[0])
+      new Cuadradito('b1', 6, 0, 1, 2, this, bumperColors[0]),
+      new Cuadradito('b2', 6, 3, 1, 3, this, bumperColors[0])
     ];
   }
 

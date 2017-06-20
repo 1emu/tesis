@@ -17,7 +17,7 @@ export default class VictoryGardenView extends Component {
           borderColor: 'white'
         }}>
         <View style={styles.container}>
-          <Text style={styles.headline}> | {'\n'} | {'\n'} | {'\n'} | {'\n'} | {'\n'} | {'\n'}</Text>
+          <Text style={styles.headline}> - - - - </Text>
         </View>
       </View>
     )

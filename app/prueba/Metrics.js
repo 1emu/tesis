@@ -14,9 +14,10 @@ export default class Metrics extends React.Component {
     this.IS_ANDROID = Platform.OS === 'android';
 
     this.BOARD_MARGIN = 20;
+    this.BOARD_MARGIN_TOP = 100;
     this.BOARD_WIDTH = this.DEVICE_WIDTH - this.BOARD_MARGIN;
-    this.TILE_SIZE = this.BOARD_WIDTH * 0.2;
-    this.BOARD_HEIGHT = Math.floor((this.DEVICE_HEIGHT-this.BOARD_MARGIN) / this.TILE_SIZE) * this.TILE_SIZE;
+    this.TILE_SIZE = this.BOARD_WIDTH / 7;
+    this.BOARD_HEIGHT = this.TILE_SIZE * 6;
 
     this.TILE_SHADOW_DEPTH = 6;
     this.TILE_BORDER_RADIUS = this.TILE_SIZE * 0.27;

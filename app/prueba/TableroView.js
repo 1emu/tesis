@@ -19,9 +19,10 @@ export default class TableroView extends Component {
   render() {
     let height = this.metrics.BOARD_HEIGHT;
     let width = this.metrics.BOARD_WIDTH;
-    let boardmargin = this.metrics.BOARD_MARGIN;
+    let boardMarginTop = this.metrics.BOARD_MARGIN_TOP;
+    let boardMargin = this.metrics.BOARD_MARGIN/2;
     return (
-      <View style={{backgroundColor: 'lightgrey', height: height, width: width, top: boardmargin, left: boardmargin/2}}>
+      <View style={{backgroundColor: 'lightgrey', height: height, width: width, top: boardMarginTop, left: boardMargin}}>
         <VictoryGardenView key='victoryGarden' victoryGarden={this.tablero.victoryGarden}/>
         <BumpersView bumpers={this.tablero.bumpers} />
         <CuadraditosView cuadraditos={this.tablero.cuadraditos} />
