@@ -9,7 +9,7 @@ export default class RushHourLevel extends React.Component {
 
   constructor(props){
     super(props);
-    this.tablero = new InicializadorDeTablero(props.levelNumber).obtenerTablero(props);
+    this.tablero = new InicializadorDeTablero(props.levelNumber).obtenerTablero(props.metrics);
     autorun(() => this.transitionToSuccessScreen());
   }
 
@@ -18,7 +18,7 @@ export default class RushHourLevel extends React.Component {
       <View style={scene.container}>
         <Text>Nivel {this.props.levelNumber}</Text>
 
-        <TableroView navigator={this.props.navigator} metrics={this.props.metrics} tablero={this.tablero} levelNumber={this.props.levelNumber} title="rush-hour-lvl"/>
+        <TableroView metrics={this.props.metrics} tablero={this.tablero}/>
       </View>
     );
   }

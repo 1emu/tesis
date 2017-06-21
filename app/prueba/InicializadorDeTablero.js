@@ -13,8 +13,8 @@ export default class InicializadorDeTablero {
     this.contadorID = 0;
   }
 
-  obtenerTablero(props) {
-    let nuevoTablero = new Tablero(props);
+  obtenerTablero(metrics) {
+    let nuevoTablero = new Tablero(metrics);
     let vehiculos = this.generarVehiculos(nuevoTablero);
     nuevoTablero.ubicarVehiculos(vehiculos);
     return nuevoTablero;

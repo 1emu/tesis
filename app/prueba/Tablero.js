@@ -6,10 +6,8 @@ import {observable} from "mobx";
 export default class Tablero {
   @observable playerHasWon = false;
 
-  constructor(props) {
-    this.navigator = props.navigator;
-    this.metrics = props.metrics;
-    this.levelNumber = props.levelNumber;
+  constructor(metrics) {
+    this.metrics = metrics;
 
     this.generarBumpers();
     this.colisionables = this.bumpers;
