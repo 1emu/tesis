@@ -4,11 +4,12 @@ import AutoVertical from "./AutoVertical";
 import CamionVertical from "./CamionVertical";
 import AutoGanador from "./AutoGanador";
 import CamionHorizontal from "./CamionHorizontal";
+import RushHourLevels from './RushHourLevels';
 
 export default class InicializadorDeTablero {
 
-  constructor(configDeTablero) {
-    this.configDeTablero = configDeTablero;
+  constructor(levelNumber) {
+    this.configDeTablero = RushHourLevels.getLevelConfig(levelNumber);
     this.contadorID = 0;
   }
 
@@ -20,7 +21,7 @@ export default class InicializadorDeTablero {
   }
 
   generarVehiculos(tablero) {
-    let vehiculos = this.configDeTablero.map((configDeVehiculo) => {
+    return this.configDeTablero.configuracionDeAutitos.map((configDeVehiculo) => {
       switch (configDeVehiculo.tipo) {
         case 'hc':
           return new AutoHorizontal(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, configDeVehiculo.color, tablero);
@@ -34,8 +35,6 @@ export default class InicializadorDeTablero {
           return new AutoGanador(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, tablero);
       }
     });
-
-    return vehiculos;
   }
 
   generarId() {

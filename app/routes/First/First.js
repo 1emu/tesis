@@ -13,46 +13,17 @@ export default class First extends React.Component {
       <View style={scene.container}>
         <Text>FIRST</Text>
 
-        <TouchableHighlight onPress={this.navSecond.bind(this)}>
-          <Text>Navigate to second screen</Text>
-        </TouchableHighlight>
-
-        <TouchableHighlight onPress={this.navAnimatedBars.bind(this)}>
-          <Text>Navigate to animated bars</Text>
-        </TouchableHighlight>
-
-        <TouchableHighlight onPress={this.tiles.bind(this)}>
-          <Text>Navigate to tiles</Text>
-        </TouchableHighlight>
-
-        <TouchableHighlight onPress={this.pruebaSanti.bind(this)}>
-          <Text>Navigate to prueba de santi</Text>
+        <TouchableHighlight onPress={this.chooseLevel.bind(this)}>
+          <Text>Nivel 1</Text>
         </TouchableHighlight>
       </View>
     );
   }
 
-  navSecond() {
+  chooseLevel() {
     this.props.navigator.push({
-      id: 'second'
-    })
-  }
-
-  navAnimatedBars() {
-    this.props.navigator.push({
-      id: 'animatedBars'
-    })
-  }
-
-  tiles() {
-    this.props.navigator.push({
-      id: 'tiles'
-    })
-  }
-
-  pruebaSanti() {
-    this.props.navigator.push({
-      id: 'prueba'
-    })
+      id: 'rush-hour-lvl',
+      levelNumber: 1
+    });
   }
 }

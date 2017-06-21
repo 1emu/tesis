@@ -7,10 +7,8 @@ import {Navigator} from 'react-native-deprecated-custom-components';
 
 
 import First from './routes/First/First'
-import Second from './routes/Second/Second'
-import AnimatedBars from './routes/AnimatedBars/AnimatedBars'
-import Tiles from './routes/Tiles/Tiles'
-import TableroView from './prueba/TableroView'
+import RushHourLevel from './prueba/RushHourLevel';
+import RushHourSuccessScreen from './prueba/RushHourSuccessScreen';
 
 export default class Navigation extends React.Component {
   constructor(props) {
@@ -21,7 +19,7 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <Navigator
-        initialRoute={{id: 'prueba'}}
+        initialRoute={{id: 'first'}}
         renderScene={this.navigatorRenderScene}
         metrics={this.metrics}/> // este es el this de Navigation
     );
@@ -31,14 +29,10 @@ export default class Navigation extends React.Component {
     switch (route.id) {
       case 'first':
         return (<First navigator={navigator} title="first"/>);
-      case 'second':
-        return (<Second navigator={navigator} title="second"/>);
-      case 'animatedBars':
-        return (<AnimatedBars navigator={navigator} title="animatedBars"/>);
-      case 'tiles':
-        return (<Tiles navigator={navigator} title="tiles"/>);
-      case 'prueba':
-        return (<TableroView navigator={navigator} metrics={this.metrics} title="prueba"/>); // este es el this de Navigator
+      case 'rush-hour-lvl':
+        return (<RushHourLevel navigator={navigator} metrics={this.metrics} levelNumber={route.levelNumber}/>); // este es el this de Navigator
+      case 'rush-hour-success-screen':
+        return (<RushHourSuccessScreen navigator={navigator} metrics={this.metrics} actualLevelNumber={route.levelNumber} nextLevelNumber={route.nextLevelNumber}/>); // este es el this de Navigator
     }
   }
 

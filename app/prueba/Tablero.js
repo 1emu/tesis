@@ -1,18 +1,15 @@
-import Cuadradito from "./Cuadradito"
 import Magneto from "./Magneto"
 import VictoryGarden from "./VictoryGarden"
-import CuadraditoGanador from './AutoGanador';
-import randomcolor from 'randomcolor';
-import CuadraditoHorizontal from './CuadraditoHorizontal';
-import CuadraditoVertical from './CuadraditoVertical';
-import CarImage from "./CarImages";
 import Bumper from "./Bumper";
+import {observable} from "mobx";
 
 export default class Tablero {
+  @observable playerHasWon = false;
 
   constructor(props) {
     this.navigator = props.navigator;
     this.metrics = props.metrics;
+    this.levelNumber = props.levelNumber;
 
     this.generarBumpers();
     this.colisionables = this.bumpers;
@@ -92,7 +89,7 @@ export default class Tablero {
 
   checkWinCondition(cuadradito){
     if(this.victoryGarden.contains(cuadradito)){
-      this.navigator.push({id: 'first'});
+      this.playerHasWon = true;
     }
   }
 }
