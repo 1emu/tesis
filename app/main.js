@@ -13,8 +13,6 @@ class Main extends Component {
     };
 
     render() {
-      console.log('hegiht', Metrics.DEVICE_HEIGHT);
-      console.log('board width', Metrics.BOARD_WIDTH);
         return (
             <Navigation/>
         )
