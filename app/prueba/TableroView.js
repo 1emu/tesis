@@ -16,7 +16,7 @@ export default class TableroView extends Component {
     let height = Metrics.BOARD_HEIGHT;
     let width = Metrics.BOARD_WIDTH;
     let boardMarginTop = Metrics.BOARD_MARGIN_TOP;
-    let boardMargin = Metrics.BOARD_MARGIN/2;
+    let boardMargin = Metrics.BOARD_MARGIN * 0.5;
 
     return (
       <View style={{backgroundColor: 'lightgrey', height: height, width: width, top: boardMarginTop, left: boardMargin}}>
