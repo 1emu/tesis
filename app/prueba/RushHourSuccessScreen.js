@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from "react";
 import {View, Text, TouchableHighlight} from "react-native";
 import scene from "../styles/scene"
+import Button from 'apsl-react-native-button'
 
 export default class RushHourSuccessScreen extends React.Component {
 
@@ -9,14 +10,13 @@ export default class RushHourSuccessScreen extends React.Component {
       <View style={scene.container}>
         <Text>Nivel {this.props.actualLevelNumber} finalizado</Text>
 
-        <TouchableHighlight onPress={() => {this.chooseLevel(this.props.actualLevelNumber)}}>
+        <Button style={{backgroundColor: 'green'}}  onPress={() => {this.chooseLevel(this.props.actualLevelNumber)}}>
           <Text>Replay: Nivel {this.props.actualLevelNumber}</Text>
-        </TouchableHighlight>
+        </Button>
 
-        <TouchableHighlight onPress={() => {this.chooseLevel(this.props.nextLevelNumber)}}>
+        <Button style={{backgroundColor: 'green'}}  onPress={() => {this.chooseLevel(this.props.nextLevelNumber)}}>
           <Text>Next: Nivel {this.props.nextLevelNumber}</Text>
-        </TouchableHighlight>
-
+        </Button>
       </View>
     );
   }
