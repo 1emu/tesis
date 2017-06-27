@@ -1,26 +1,32 @@
-/* @flow */
-
-import React, {Component} from 'react';
 import {Dimensions, Platform} from 'react-native';
+var {width, height} = Dimensions.get('window');
 
-export default class Metrics extends React.Component {
+const DEVICE_HEIGHT = height;
+const DEVICE_WIDTH = width;
+const IS_ANDROID = Platform.OS === 'android';
 
-  constructor(props) {
-    super(props);
-    let {width, height} = Dimensions.get('window');
-    this.DEVICE_HEIGHT = height;
-    this.DEVICE_WIDTH = width;
+const BOARD_MARGIN = 20;
+const BOARD_MARGIN_TOP = 100;
+const BOARD_WIDTH = DEVICE_WIDTH - BOARD_MARGIN;
+const TILE_SIZE = BOARD_WIDTH / 7;
+const BOARD_HEIGHT = TILE_SIZE * 6;
 
-    this.IS_ANDROID = Platform.OS === 'android';
+const TILE_SHADOW_DEPTH = 6;
+const TILE_BORDER_RADIUS = TILE_SIZE * 0.27;
+const MAX_SPACE_IN_BETWEEN_TILES = TILE_SIZE * 0.1;
 
-    this.BOARD_MARGIN = 20;
-    this.BOARD_MARGIN_TOP = 100;
-    this.BOARD_WIDTH = this.DEVICE_WIDTH - this.BOARD_MARGIN;
-    this.TILE_SIZE = this.BOARD_WIDTH / 7;
-    this.BOARD_HEIGHT = this.TILE_SIZE * 6;
+export default {
+  DEVICE_HEIGHT,
+  DEVICE_WIDTH,
+  IS_ANDROID,
 
-    this.TILE_SHADOW_DEPTH = 6;
-    this.TILE_BORDER_RADIUS = this.TILE_SIZE * 0.27;
-    this.MAX_SPACE_IN_BETWEEN_TILES = this.TILE_SIZE * 0.1;
-  }
-}
+  BOARD_MARGIN,
+  BOARD_MARGIN_TOP,
+  BOARD_WIDTH,
+  TILE_SIZE,
+  BOARD_HEIGHT,
+
+  TILE_SHADOW_DEPTH,
+  TILE_BORDER_RADIUS,
+  MAX_SPACE_IN_BETWEEN_TILES,
+};

@@ -1,4 +1,5 @@
 import {observable, autorun} from "mobx";
+import Metrics from './Metrics';
 
 export default class Cuadradito {
   DEFAULT_IMG = require('./img/empty.png');
@@ -10,9 +11,9 @@ export default class Cuadradito {
     this.id = id;
     this.tablero = tablero;
 
-    this.setInitialPosition(x * this.tablero.metrics.TILE_SIZE, y * this.tablero.metrics.TILE_SIZE);
-    this.setDimensions(width, height, this.tablero.metrics.TILE_SIZE);
-    this.maxSpaceInBetween = this.tablero.metrics.MAX_SPACE_IN_BETWEEN_TILES;
+    this.setInitialPosition(x * Metrics.TILE_SIZE, y * Metrics.TILE_SIZE);
+    this.setDimensions(width, height, Metrics.TILE_SIZE);
+    this.maxSpaceInBetween = Metrics.MAX_SPACE_IN_BETWEEN_TILES;
 
     this.image = (image ? image : this.DEFAULT_IMG);
   }

@@ -10,11 +10,13 @@ import Metrics from './prueba/Metrics';
 class Main extends Component {
     constructor(){
       super();
-      this.metrics = new Metrics();
     };
+
     render() {
+      console.log('hegiht', Metrics.DEVICE_HEIGHT);
+      console.log('board width', Metrics.BOARD_WIDTH);
         return (
-            <Navigation metrics={this.metrics}/>
+            <Navigation/>
         )
     }
 }

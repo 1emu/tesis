@@ -5,12 +5,13 @@ import TableroView from './TableroView';
 import style from './RushHourLevelStyle'
 import {autorun} from 'mobx';
 import InicializadorDeTablero from './InicializadorDeTablero';
+import Metrics from './Metrics';
 
 export default class RushHourLevel extends React.Component {
 
   constructor(props) {
     super(props);
-    this.tablero = new InicializadorDeTablero(props.levelNumber).obtenerTablero(props.metrics);
+    this.tablero = new InicializadorDeTablero(props.levelNumber).obtenerTablero();
     autorun(() => this.transitionToSuccessScreen());
   }
 
@@ -21,7 +22,7 @@ export default class RushHourLevel extends React.Component {
 
       <View style={style.container}>
         <LevelNavBarView text={levelTitle}/>
-        <TableroView metrics={this.props.metrics} tablero={this.tablero}/>
+        <TableroView tablero={this.tablero}/>
       </View>
     );
   }
