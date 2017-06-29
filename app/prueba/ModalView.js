@@ -16,12 +16,6 @@ export default class ModalView extends Component {
 
   _hideModal = () => this.setState({ isModalVisible: false })
 
-  constructor(props) {
-    super(props);
-    this.modal = this.props.modal
-    autorun(() => this.toggleModal());
-  }
-
   render() {
     return (
       <View style={{ flex: 1 }}>
@@ -40,9 +34,5 @@ export default class ModalView extends Component {
 
       </View>
     )
-  }
-
-  toggleModal() {
-    console.log('esta detectando el cambio!', this.modal.isOpen);
   }
 }
