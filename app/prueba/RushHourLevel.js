@@ -1,12 +1,13 @@
 import React, {Component, PropTypes} from 'react';
-import {View, Text} from 'react-native';
-import LevelNavBarView from './LevelNavBarView';
-import TableroView from './TableroView';
+import {View} from 'react-native';
 import style from './RushHourLevelStyle'
 import {autorun} from 'mobx';
+import LevelNavBarView from './LevelNavBarView';
+import TableroView from './TableroView';
 import InicializadorDeTablero from './InicializadorDeTablero';
-import Metrics from './Metrics';
+import {observer} from "mobx-react/native"
 
+@observer
 export default class RushHourLevel extends React.Component {
 
   constructor(props) {
