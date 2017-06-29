@@ -21,7 +21,7 @@ export default class LevelMenuModal extends Component {
       <View >
 
         <Button onPress={() => this._showModal()} style={style.showModalBtn}>
-          <Text>Show Modal</Text>
+          <Text>Menu</Text>
         </Button>
         <Modal isVisible={this.state.isModalVisible}>
           <View style={style.modalContent}>

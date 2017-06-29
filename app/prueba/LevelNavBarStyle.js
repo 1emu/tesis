@@ -5,6 +5,8 @@ import Metrics from './Metrics';
 const style = StyleSheet.create({
   container: {
     alignSelf: "flex-start",
+    flexDirection: 'row',
+    justifyContent: "space-between",
     height: Metrics.NAV_BAR_HEIGHT,
     width: Metrics.NAV_BAR_WIDTH,
     backgroundColor: '#295246',
