@@ -17,12 +17,10 @@ export default class RushHourLevel extends React.Component {
   }
 
   render() {
-    let levelTitle = 'Nivel ' + this.props.levelNumber;
-
     return (
 
       <View style={style.container}>
-        <LevelNavBarView text={levelTitle}/>
+        <LevelNavBarView navigator={this.props.navigator} levelNumber={this.props.levelNumber} />
         <TableroView tablero={this.tablero}/>
       </View>
     );

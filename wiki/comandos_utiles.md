@@ -14,4 +14,6 @@ Si tenes problemas con el abd
 
 abd logcat
 
+adb logcat *:S ReactNative:V ReactNativeJS:V
+
 (logea gato!!!)

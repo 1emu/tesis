@@ -5,7 +5,7 @@ const DEVICE_HEIGHT = height;
 const DEVICE_WIDTH = width;
 const IS_ANDROID = Platform.OS === 'android';
 
-const NAV_BAR_HEIGHT = DEVICE_HEIGHT * 0.2;
+const NAV_BAR_HEIGHT = DEVICE_HEIGHT * 0.07;
 const NAV_BAR_WIDTH = DEVICE_WIDTH;
 
 const BOARD_MARGIN = 20;
