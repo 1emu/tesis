@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {View, Image, PanResponder, Animated, Text} from 'react-native';
-import Button from 'apsl-react-native-button';
 import {observer} from 'mobx-react/native'
 import {autorun} from 'mobx';
 import Modal from 'react-native-modal';
@@ -20,14 +19,15 @@ export default class LevelMenuModal extends Component {
   _hideModal = () => this.setState({ isModalVisible: false })
 
   _replay() {
-    // aca habria que decirle al nivel o al tablero que vuelva a su estado inicial.
-    _hideModal = () => this.setState({ isModalVisible: false })
+    // aca habria que decirle al nivel o al tablero que vuelva a su estado inicial. Y no volver a crear una scene.
+    this._hideModal();
+    this.props.navigator.push({id: 'rush-hour-lvl', levelNumber: this.props.levelNumber});
   }
 
   _levelSelectionMenu() {
     // hace falta destruir esta escena?
     //  this.props.navigator.push({id: 'rush-hour-level-selection-screen'});
-    _hideModal = () => this.setState({ isModalVisible: false })
+    this._hideModal();
   }
 
   render() {
