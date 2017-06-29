@@ -5,6 +5,9 @@ const DEVICE_HEIGHT = height;
 const DEVICE_WIDTH = width;
 const IS_ANDROID = Platform.OS === 'android';
 
+const NAV_BAR_HEIGHT = DEVICE_HEIGHT * 0.2;
+const NAV_BAR_WIDTH = DEVICE_WIDTH;
+
 const BOARD_MARGIN = 20;
 const BOARD_MARGIN_TOP = 100;
 const BOARD_WIDTH = DEVICE_WIDTH - BOARD_MARGIN;
@@ -18,6 +21,8 @@ const MAX_SPACE_IN_BETWEEN_TILES = TILE_SIZE * 0.1;
 export default {
   DEVICE_HEIGHT,
   DEVICE_WIDTH,
+  NAV_BAR_HEIGHT,
+  NAV_BAR_WIDTH,
   IS_ANDROID,
 
   BOARD_MARGIN,

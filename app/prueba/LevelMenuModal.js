@@ -4,9 +4,9 @@ import Button from 'apsl-react-native-button';
 import {observer} from 'mobx-react/native'
 import {autorun} from 'mobx';
 import Modal from 'react-native-modal';
-
+import style from './LevelMenuModalStyle'
 @observer
-export default class ModalView extends Component {
+export default class LevelMenuModal extends Component {
 
   state = {
     isModalVisible: false
@@ -18,16 +18,16 @@ export default class ModalView extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View >
 
-        <Button onPress={() => this._showModal()}>
+        <Button onPress={() => this._showModal()} style={style.showModalBtn}>
           <Text>Show Modal</Text>
         </Button>
         <Modal isVisible={this.state.isModalVisible}>
-          <View style={{ flex: 1 }}>
+          <View style={style.modalContent}>
             <Text>Hello!</Text>
-            <Button onPress={() => this._hideModal()}>
-              <Text>Hide Modal</Text>
+            <Button onPress={() => this._hideModal()} style={style.modalBtn}>
+              <Text style={style.modalBtnText}>Volver</Text>
             </Button>
           </View>
         </Modal>

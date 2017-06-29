@@ -1,25 +1,19 @@
 import {StyleSheet, Dimensions} from "react-native";
 
-var {width, height} = Dimensions.get('window');
+import Metrics from './Metrics';
 
 const style = StyleSheet.create({
   container: {
     alignSelf: "flex-start",
-    height: height * 0.2,
-    width: width,
+    height: Metrics.NAV_BAR_HEIGHT,
+    width: Metrics.NAV_BAR_WIDTH,
     backgroundColor: '#295246',
   },
 
   content: {
     color: '#ffffff'
-  },
-
-  btn: {
-    margin: 10,
-    backgroundColor: "#3B5998",
-    color: "white",
-    padding: 10
   }
+
 });
 
 export default style;
