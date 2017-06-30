@@ -10,11 +10,11 @@ import Metrics from './prueba/Metrics';
 class Main extends Component {
     constructor(){
       super();
-      this.metrics = new Metrics();
     };
+
     render() {
         return (
-            <Navigation metrics={this.metrics}/>
+            <Navigation/>
         )
     }
 }

@@ -1,4 +1,5 @@
 import {observable} from "mobx";
+import Metrics from './Metrics';
 
 export default class VictoryTile {
   @observable backgroundColor;
@@ -6,8 +7,8 @@ export default class VictoryTile {
   constructor(id, x = 0, y = 0, widthEnCuadraditos, heightEnCuadraditos, tablero) {
     this.id = id;
     this.backgroundColor = 'lightgrey';
-    this.setDimensions(widthEnCuadraditos, heightEnCuadraditos, tablero.metrics.TILE_SIZE);
-    this.setPosition(x * tablero.metrics.TILE_SIZE, y * tablero.metrics.TILE_SIZE);
+    this.setDimensions(widthEnCuadraditos, heightEnCuadraditos, Metrics.TILE_SIZE);
+    this.setPosition(x * Metrics.TILE_SIZE, y * Metrics.TILE_SIZE);
   }
 
   setPosition(x, y) {

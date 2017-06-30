@@ -1,10 +1,9 @@
 /**
  * Created by jp on 2/5/2017.
  */
-import React, {Component, PropTypes} from "react";
-import {View, Text, TouchableHighlight} from "react-native";
-
-import scene from "../../styles/scene"
+import React, {Component, PropTypes} from 'react';
+import {View, Text, TouchableHighlight} from 'react-native';
+import scene from '../../styles/scene'
 
 export default class First extends React.Component {
 

@@ -1,14 +1,13 @@
 import Magneto from "./Magneto"
 import VictoryGarden from "./VictoryGarden"
 import Bumper from "./Bumper";
+import Metrics from './Metrics';
 import {observable} from "mobx";
 
 export default class Tablero {
   @observable playerHasWon = false;
 
-  constructor(metrics) {
-    this.metrics = metrics;
-
+  constructor() {
     this.generarBumpers();
     this.colisionables = this.bumpers;
 
@@ -31,9 +30,9 @@ export default class Tablero {
   generarMagnetos() {
     this.magnetitos = [];
 
-    let width = this.metrics.BOARD_WIDTH;
-    let height = this.metrics.BOARD_HEIGHT;
-    let tileSize = this.metrics.TILE_SIZE;
+    let width = Metrics.BOARD_WIDTH;
+    let height = Metrics.BOARD_HEIGHT;
+    let tileSize = Metrics.TILE_SIZE;
 
     for(i = 0; i < width; i = i + tileSize){
       for (j = 0; j < height; j = j + tileSize) {
@@ -56,7 +55,7 @@ export default class Tablero {
 
   movementLimitRight(cuadradito, x) {
     let cuadraditosToTheRight = this.otherCuadraditosAtTheSameHeightSpan(cuadradito).filter((other) => { return other.x >= cuadradito.xMax() });
-    let candidateMinimums = [x + cuadradito.width, this.metrics.BOARD_WIDTH].concat(cuadraditosToTheRight.map((other) => { return other.x }));
+    let candidateMinimums = [x + cuadradito.width, Metrics.BOARD_WIDTH].concat(cuadraditosToTheRight.map((other) => { return other.x }));
     return Math.min(...candidateMinimums) - cuadradito.width;
   }
 
@@ -68,7 +67,7 @@ export default class Tablero {
 
   movementLimitBottom(cuadradito, y) {
     let cuadraditosBelow = this.otherCuadraditosAtTheSameWidthSpan(cuadradito).filter((other) => { return other.y >= cuadradito.yMax() });
-    let candidateMinimums = [y + cuadradito.height, this.metrics.BOARD_HEIGHT].concat(cuadraditosBelow.map((other) => { return other.y }));
+    let candidateMinimums = [y + cuadradito.height, Metrics.BOARD_HEIGHT].concat(cuadraditosBelow.map((other) => { return other.y }));
     return Math.min(...candidateMinimums) - cuadradito.height;
   }
 
