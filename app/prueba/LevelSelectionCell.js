@@ -13,8 +13,7 @@ export default class LevelSelectionCell extends Component {
     return(
       <TouchableHighlight onPress={() => { this.chooseLevel() }}>
         <View>
-          <Text>{`${this.level.levelNumber} - ${this.level.difficulty}`}</Text>
-          { this.levelCompletedTick() }
+          <Text>{`${this.level.levelNumber} - ${this.level.difficulty}       ${this.levelCompletedTick()}`}</Text>
         </View>
       </TouchableHighlight>
     )
@@ -22,7 +21,9 @@ export default class LevelSelectionCell extends Component {
 
   levelCompletedTick() {
     if (PlayerResults.levelCompleted(this.level.levelNumber)) {
-      return <Text> Completed </Text>
+      return '☑'
+    } else {
+      return ''
     }
   }
 
