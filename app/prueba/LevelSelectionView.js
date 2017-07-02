@@ -1,11 +1,11 @@
 /**
  * Created by jp on 2/5/2017.
  */
-import React, {Component, PropTypes} from 'react';
-import {View, Text, TouchableHighlight, ListView} from 'react-native';
+import React, {Component} from 'react';
+import {View, ListView} from 'react-native';
 import scene from '../styles/scene';
 import RushHourLevels from './RushHourLevels';
-import PlayerResults from './PlayerResults';
+import LevelSelectionCell from "./LevelSelectionCell";
 
 export default class LevelSelectionView extends Component {
   constructor(props) {
@@ -18,41 +18,9 @@ export default class LevelSelectionView extends Component {
     return (
       <View style={scene.container}>
         <ListView dataSource={this.dataSource} initialListSize={30}
-          renderRow={(levelData) => <LevelCell navigator={this.props.navigator} level={levelData}/>}
+          renderRow={(levelData) => <LevelSelectionCell navigator={this.props.navigator} level={levelData}/>}
         />
       </View>
     );
-  }
-}
-
-class LevelCell extends Component {
-  constructor(props) {
-    super(props);
-    this.navigator = props.navigator;
-    this.level = props.level
-  }
-
-  render() {
-    return(
-      <TouchableHighlight onPress={() => { this.chooseLevel() }}>
-        <View>
-          <Text>{`${this.level.levelNumber} - ${this.level.difficulty}`}</Text>
-          { this.levelCompletedTick() }
-        </View>
-      </TouchableHighlight>
-    )
-  }
-
-  levelCompletedTick() {
-     if (PlayerResults.levelCompleted(this.level.levelNumber)) {
-       return <Text> Completed </Text>
-     }
-  }
-
-  chooseLevel() {
-    this.props.navigator.push({
-      id: 'rush-hour-lvl',
-      levelNumber: this.level.levelNumber
-    });
   }
 }
