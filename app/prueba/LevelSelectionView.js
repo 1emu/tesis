@@ -3,11 +3,11 @@
  */
 import React, {Component, PropTypes} from 'react';
 import {View, Text, TouchableHighlight, ListView} from 'react-native';
-import scene from '../../styles/scene';
-import RushHourLevels from '../../prueba/RushHourLevels';
-import PlayerResults from "../../prueba/PlayerResults";
+import scene from '../styles/scene';
+import RushHourLevels from './RushHourLevels';
+import PlayerResults from './PlayerResults';
 
-export default class First extends Component {
+export default class LevelSelectionView extends Component {
   constructor(props) {
     super(props);
     let ds = new ListView.DataSource({rowHasChanged: (a,b) => a !== b });

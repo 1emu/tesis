@@ -9,6 +9,7 @@ import Metrics from '../app/prueba/Metrics'
 import First from './routes/First/First'
 import RushHourLevel from './prueba/RushHourLevel';
 import RushHourSuccessScreen from './prueba/RushHourSuccessScreen';
+import LevelSelectionView from "./prueba/LevelSelectionView";
 
 export default class Navigation extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <Navigator
-        initialRoute={{id: 'first'}}
+        initialRoute={{id: 'rush-hour-level-selection'}}
         renderScene={this.navigatorRenderScene}
       /> // este es el this de Navigation
     );
@@ -32,6 +33,8 @@ export default class Navigation extends React.Component {
         return (<RushHourLevel navigator={navigator} levelNumber={route.levelNumber}/>); // este es el this de Navigator
       case 'rush-hour-success-screen':
         return (<RushHourSuccessScreen navigator={navigator} actualLevelNumber={route.levelNumber} nextLevelNumber={route.nextLevelNumber}/>); // este es el this de Navigator
+      case 'rush-hour-level-selection':
+        return (<LevelSelectionView navigator={navigator}/>);
     }
   }
 
