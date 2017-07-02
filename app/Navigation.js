@@ -19,7 +19,7 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <Navigator
-        initialRoute={{id: 'rush-hour-level-selection'}}
+        initialRoute={{id: 'first'}}
         renderScene={this.navigatorRenderScene}
       /> // este es el this de Navigation
     );

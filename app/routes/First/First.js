@@ -2,57 +2,34 @@
  * Created by jp on 2/5/2017.
  */
 import React, {Component, PropTypes} from 'react';
-import {View, Text, TouchableHighlight, ListView} from 'react-native';
-import scene from '../../styles/scene';
-import RushHourLevels from '../../prueba/RushHourLevels';
-import PlayerResults from "../../prueba/PlayerResults";
+import {View, Text, TouchableHighlight} from 'react-native';
+import scene from '../../styles/scene'
 
-export default class First extends Component {
-  constructor(props) {
-    super(props);
-    let ds = new ListView.DataSource({rowHasChanged: (a,b) => a !== b });
-    this.dataSource = ds.cloneWithRows(RushHourLevels.LEVELS);
-  }
+export default class First extends React.Component {
 
   render() {
     return (
       <View style={scene.container}>
-        <ListView dataSource={this.dataSource} initialListSize={30}
-          renderRow={(levelData) => <LevelCell navigator={this.props.navigator} level={levelData}/>}
-        />
+        <Text>RUSH HOUR</Text>
+
+        <TouchableHighlight onPress={this.startPlaying.bind(this)}>
+          <Text>Comenzar</Text>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={this.chooseLevel.bind(this)}>
+          <Text>Elegir nivel</Text>
+        </TouchableHighlight>
       </View>
     );
   }
-}
 
-class LevelCell extends Component {
-  constructor(props) {
-    super(props);
-    this.navigator = props.navigator;
-    this.level = props.level
-  }
-
-  render() {
-    return(
-      <TouchableHighlight onPress={() => { this.chooseLevel() }}>
-        <View>
-          <Text>{`${this.level.levelNumber} - ${this.level.difficulty}`}</Text>
-          { this.levelCompletedTick() }
-        </View>
-      </TouchableHighlight>
-    )
-  }
-
-  levelCompletedTick() {
-     if (PlayerResults.levelCompleted(this.level.levelNumber)) {
-       return <Text> Completed </Text>
-     }
+  startPlaying() {
+    this.props.navigator.push({
+      id: 'rush-hour-lvl',
+      levelNumber: 1
+    });
   }
 
   chooseLevel() {
-    this.props.navigator.push({
-      id: 'rush-hour-lvl',
-      levelNumber: this.level.levelNumber
-    });
+    this.props.navigator.push({id: 'rush-hour-level-selection'});
   }
 }
