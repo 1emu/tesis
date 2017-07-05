@@ -10,19 +10,26 @@ export default class First extends React.Component {
   render() {
     return (
       <View style={scene.container}>
-        <Text>FIRST</Text>
+        <Text>RUSH HOUR</Text>
 
+        <TouchableHighlight onPress={this.startPlaying.bind(this)}>
+          <Text>Comenzar</Text>
+        </TouchableHighlight>
         <TouchableHighlight onPress={this.chooseLevel.bind(this)}>
-          <Text>Nivel 1</Text>
+          <Text>Elegir nivel</Text>
         </TouchableHighlight>
       </View>
     );
   }
 
-  chooseLevel() {
+  startPlaying() {
     this.props.navigator.push({
       id: 'rush-hour-lvl',
       levelNumber: 1
     });
+  }
+
+  chooseLevel() {
+    this.props.navigator.push({id: 'rush-hour-level-selection'});
   }
 }

@@ -40,6 +40,6 @@ export default class RushHourSuccessScreen extends React.Component {
 
   _levelSelectionMenu() {
     // hace falta destruir esta escena?
-    //  this.props.navigator.push({id: 'rush-hour-level-selection-screen'});
+    this.props.navigator.push({id: 'rush-hour-level-selection'});
   }
 }
