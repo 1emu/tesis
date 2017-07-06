@@ -1,4 +1,5 @@
 export const DIFFICULTY = {BEGINNER: 'BEGINNER', INTERMEDIATE: 'INTERMEDIATE', ADVANCED: 'ADVANCED', EXPERT: 'EXPERT'};
+export const MAX_LEVEL_NUMBER = 40;
 
 export default class RushHourLevels {
 
@@ -657,7 +658,7 @@ export default class RushHourLevels {
       difficulty: DIFFICULTY.EXPERT
     },
     {
-      levelNumber: 40,
+      levelNumber: MAX_LEVEL_NUMBER,
       configuracionDeAutitos: [
         {tipo: 'vt', color: 'yellow', x: 0, y: 0},
         {tipo: 'hc', color: 'green', x: 1, y: 0},
