@@ -3,7 +3,6 @@
  */
 import React, {Component} from 'react';
 import {View, ListView} from 'react-native';
-import scene from '../styles/scene';
 import RushHourLevels from './RushHourLevels';
 import LevelSelectionCell from './LevelSelectionCell';
 import style from './LevelSelectionStyle';

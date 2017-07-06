@@ -3,21 +3,23 @@
  */
 import React, {Component, PropTypes} from 'react';
 import {View, Text, TouchableHighlight} from 'react-native';
-import scene from '../../styles/scene'
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import style from '../../styles/scene'
 
 export default class First extends React.Component {
 
   render() {
     return (
-      <View style={scene.container}>
+      <View style={style.container}>
         <Text>RUSH HOUR</Text>
 
-        <TouchableHighlight onPress={this.startPlaying.bind(this)}>
-          <Text>Comenzar</Text>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={this.chooseLevel.bind(this)}>
-          <Text>Elegir nivel</Text>
-        </TouchableHighlight>
+        <Icon.Button name="play-circle-filled" size={30} style={style.btn} onPress={() => this.startPlaying()}>
+          <Text style={style.btnText}>Comenzar</Text>
+        </Icon.Button>
+
+        <Icon.Button name="list" size={30} style={style.btn} onPress={() => this.chooseLevel()}>
+          <Text style={style.btnText}>Elegir nivel</Text>
+        </Icon.Button>
       </View>
     );
   }
