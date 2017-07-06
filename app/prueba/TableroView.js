@@ -13,16 +13,19 @@ export default class TableroView extends Component {
   }
 
   render() {
-    let height = Metrics.BOARD_HEIGHT;
     let width = Metrics.BOARD_WIDTH;
+    let height = Metrics.BOARD_HEIGHT;
+    let boardMargin = Metrics.BOARD_MARGIN;
+    let outerHeight = Metrics.BOARD_HEIGHT + boardMargin * 2;
     let boardMarginTop = Metrics.BOARD_MARGIN_TOP;
-    let boardMargin = Metrics.BOARD_MARGIN * 0.5;
 
     return (
-      <View style={{backgroundColor: 'lightgrey', height: height, width: width, top: boardMarginTop, left: boardMargin}}>
-        <VictoryGardenView key='victoryGarden' victoryGarden={this.tablero.victoryGarden}/>
-        <BumpersView bumpers={this.tablero.bumpers} />
-        <CuadraditosView cuadraditos={this.tablero.cuadraditos} />
+      <View style={{backgroundColor: 'grey', height: outerHeight, width: width, top: boardMarginTop}}>
+        <View style={{backgroundColor: 'lightgrey', height: height, width: width, top: boardMargin, left: boardMargin}}>
+          <VictoryGardenView key='victoryGarden' victoryGarden={this.tablero.victoryGarden}/>
+          <BumpersView bumpers={this.tablero.bumpers} />
+          <CuadraditosView cuadraditos={this.tablero.cuadraditos} />
+        </View>
       </View>
     )
   }
