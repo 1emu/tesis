@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import Metrics from './Metrics'
 
 const style = StyleSheet.create({
 
@@ -11,9 +12,9 @@ const style = StyleSheet.create({
 
   btn: {
     flexDirection: 'column',
-    width: 100,
-    height: 100,
-    margin: 10,
+    width: Metrics.LEVEL_SELECTION_BUTTON_WIDTH,
+    height: Metrics.LEVEL_SELECTION_BUTTON_WIDTH,
+    margin: Metrics.LEVEL_SELECTION_BUTTON_MARGIN,
     borderColor: '#3e9184',
     alignItems: 'center',
     justifyContent: 'space-around',

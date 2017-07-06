@@ -11,8 +11,8 @@ import style from './LevelSelectionStyle';
 export default class LevelSelectionView extends Component {
   constructor(props) {
     super(props);
-    let ds = new ListView.DataSource({rowHasChanged: (a, b) => a !== b});
-    this.dataSource = ds.cloneWithRows(RushHourLevels.LEVELS);
+    let dataSource = new ListView.DataSource({rowHasChanged: (a, b) => a !== b});
+    this.dataSource = dataSource.cloneWithRows(RushHourLevels.LEVELS);
   }
 
   render() {
