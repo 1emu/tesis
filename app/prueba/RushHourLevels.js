@@ -222,7 +222,7 @@ export default class RushHourLevels {
         {tipo: 'wc', x: 2, y: 2},
         {tipo: 'vc', color: 'dkgreen', x: 4, y: 2},
         {tipo: 'vc', color: 'black', x: 5, y: 2},
-        {tipo: 'hc', color: 'brown', x: 2, y: 3},
+        {tipo: 'hc', color: 'grey', x: 2, y: 3},
         {tipo: 'vc', color: 'yellow', x: 2, y: 4},
         {tipo: 'hc', color: 'brown', x: 4, y: 4},
         {tipo: 'hc', color: 'moss', x: 0, y: 5},
