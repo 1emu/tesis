@@ -11,7 +11,7 @@ export default class First extends React.Component {
   render() {
     return (
       <View style={style.container}>
-        <Text>RUSH HOUR</Text>
+        <Text style={style.title}>RUSH HOUR</Text>
 
         <Icon.Button name="play-circle-filled" size={30} style={style.btn} onPress={() => this.startPlaying()}>
           <Text style={style.btnText}>Comenzar</Text>
