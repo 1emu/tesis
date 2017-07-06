@@ -1,4 +1,5 @@
 import {AsyncStorage} from "react-native";
+import RushHourLevels from "./RushHourLevels";
 
 var results = [];
 
@@ -15,5 +16,10 @@ export default class PlayerResults {
 
   static levelCompleted(level) {
     return results.includes(level)
+  }
+
+  static firstLevelPending() {
+    let pending = RushHourLevels.LEVELS.find((level) => !this.levelCompleted(level.levelNumber)) || RushHourLevels.LEVELS.slice(-1).pop();
+    return pending.levelNumber;
   }
 }

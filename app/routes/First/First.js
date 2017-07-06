@@ -1,12 +1,14 @@
 /**
  * Created by jp on 2/5/2017.
  */
-import React, {Component, PropTypes} from 'react';
-import {View, Text, TouchableHighlight} from 'react-native';
+import React, {Component} from 'react';
+import {View, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import style from '../../styles/scene'
+import PlayerResults from "../../prueba/PlayerResults";
 
-export default class First extends React.Component {
+
+export default class First extends Component {
 
   render() {
     return (
@@ -27,7 +29,7 @@ export default class First extends React.Component {
   startPlaying() {
     this.props.navigator.push({
       id: 'rush-hour-lvl',
-      levelNumber: 1
+      levelNumber: PlayerResults.firstLevelPending()
     });
   }
 
