@@ -28,6 +28,13 @@ export default class LevelMenuModal extends Component {
     this._hideModal();
   }
 
+  _transitionToMainMenu() {
+    this.props.navigator.resetTo({id: 'first'});
+    this._hideModal();
+  }
+
+
+
   render() {
     return (
       <View >
@@ -46,6 +53,9 @@ export default class LevelMenuModal extends Component {
             </Icon.Button>
             <Icon.Button name="list" size={25} style={style.modalBtn} onPress={() => this._levelSelectionMenu()} >
               <Text style={style.modalBtnText}>Seleccion de niveles</Text>
+            </Icon.Button>
+            <Icon.Button name="arrow-back" size={25} style={style.modalBtn} onPress={() => this._transitionToMainMenu()} >
+              <Text style={style.modalBtnText}>Menu Principal</Text>
             </Icon.Button>
           </View>
         </Modal>

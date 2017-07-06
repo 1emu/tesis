@@ -14,9 +14,9 @@ export default class LevelNavBarView extends Component {
 
     return (
     <View>
-      <View style={style.container}>
+      <View style={style.navBar}>
         <LevelMenuModal navigator={this.props.navigator} levelNumber={this.props.levelNumber}/>
-        <Text style={style.content}>{this.title}</Text>
+        <Text style={style.title}>{this.title}</Text>
       </View>
     </View>
     )

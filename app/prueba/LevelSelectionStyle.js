@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 const style = StyleSheet.create({
 
   list: {
-    backgroundColor: '#295246',
+    backgroundColor: '#3e9184',
     justifyContent: 'center',
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -14,22 +14,22 @@ const style = StyleSheet.create({
     width: 100,
     height: 100,
     margin: 10,
-    borderColor: '#295246',
+    borderColor: '#3e9184',
     alignItems: 'center',
     justifyContent: 'space-around',
   },
 
   btnBeginner: {
-    backgroundColor: '#3e9184',
+    backgroundColor: '#64963a',
   },
   btnIntermediate: {
-    backgroundColor: '#c5ca65',
+    backgroundColor: '#d4b727',
   },
   btnAdvanced: {
-    backgroundColor: '#91440f',
+    backgroundColor: '#bb7722',
   },
   btnExpert: {
-    backgroundColor: '#5e0809',
+    backgroundColor: '#710809',
   },
 
   btnTextContainer: {

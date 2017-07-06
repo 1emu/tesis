@@ -4,7 +4,6 @@
 import React, {Component, PropTypes} from 'react';
 import {StyleSheet, View, Text, TouchableHighlight} from 'react-native';
 import {Navigator} from 'react-native-deprecated-custom-components';
-import Metrics from '../app/prueba/Metrics'
 
 import First from './routes/First/First'
 import RushHourLevelView from './prueba/RushHourLevelView';

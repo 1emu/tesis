@@ -1,8 +1,8 @@
-import {StyleSheet, Dimensions} from "react-native";
-
-import Metrics from './Metrics';
+import {StyleSheet} from 'react-native';
+import Metrics from './Metrics'
 
 const style = StyleSheet.create({
+
   navBar: {
     alignSelf: "flex-start",
     flexDirection: 'row',
@@ -18,7 +18,16 @@ const style = StyleSheet.create({
     color: '#ffffff',
     fontSize: 20,
     fontWeight: 'bold',
-  }
+  },
+
+  backBtn: {
+    backgroundColor: "#3e9184",
+  },
+
+  backBtnTxt: {
+    color: '#ffffff',
+    fontSize: 16,
+  },
 
 });
 
