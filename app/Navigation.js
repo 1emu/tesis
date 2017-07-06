@@ -7,8 +7,8 @@ import {Navigator} from 'react-native-deprecated-custom-components';
 import Metrics from '../app/prueba/Metrics'
 
 import First from './routes/First/First'
-import RushHourLevel from './prueba/RushHourLevel';
-import RushHourSuccessScreen from './prueba/RushHourSuccessScreen';
+import RushHourLevelView from './prueba/RushHourLevelView';
+import RushHourSuccessScreenView from './prueba/RushHourSuccessScreenView';
 import LevelSelectionView from "./prueba/LevelSelectionView";
 
 export default class Navigation extends React.Component {
@@ -30,9 +30,9 @@ export default class Navigation extends React.Component {
       case 'first':
         return (<First navigator={navigator} title="first"/>);
       case 'rush-hour-lvl':
-        return (<RushHourLevel navigator={navigator} levelNumber={route.levelNumber}/>); // este es el this de Navigator
+        return (<RushHourLevelView navigator={navigator} levelNumber={route.levelNumber}/>); // este es el this de Navigator
       case 'rush-hour-success-screen':
-        return (<RushHourSuccessScreen navigator={navigator} actualLevelNumber={route.levelNumber} nextLevelNumber={route.nextLevelNumber}/>); // este es el this de Navigator
+        return (<RushHourSuccessScreenView navigator={navigator} actualLevelNumber={route.levelNumber} nextLevelNumber={route.nextLevelNumber}/>); // este es el this de Navigator
       case 'rush-hour-level-selection':
         return (<LevelSelectionView navigator={navigator}/>);
     }

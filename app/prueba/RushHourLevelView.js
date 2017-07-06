@@ -9,7 +9,7 @@ import {observer} from "mobx-react/native"
 import PlayerResults from "./PlayerResults";
 
 @observer
-export default class RushHourLevel extends React.Component {
+export default class RushHourLevelView extends React.Component {
 
   constructor(props) {
     super(props);

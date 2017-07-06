@@ -3,7 +3,7 @@ import {View, Text, TouchableHighlight} from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import style from "./RushHourSuccessScreenStyle"
 
-export default class RushHourSuccessScreen extends React.Component {
+export default class RushHourSuccessScreenView extends React.Component {
 
   render() {
     return (
@@ -28,18 +28,17 @@ export default class RushHourSuccessScreen extends React.Component {
   }
 
   chooseLevel(levelNumber) {
-    this.props.navigator.push({
+    this.props.navigator.resetTo({
       id: 'rush-hour-lvl',
       levelNumber: levelNumber
     });
   }
 
   replayLevel() {
-    this.props.navigator.pop();
+    this.chooseLevel(this.props.actualLevelNumber);
   }
 
   _levelSelectionMenu() {
-    // hace falta destruir esta escena?
-    this.props.navigator.push({id: 'rush-hour-level-selection'});
+    this.props.navigator.resetTo({id: 'rush-hour-level-selection'});
   }
 }

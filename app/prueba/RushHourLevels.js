@@ -1,4 +1,4 @@
-const DIFFICULTY = {BEGINNER: 'BEGINNER', INTERMEDIATE: 'INTERMEDIATE', ADVANCED: 'ADVANCED', EXPERT: 'EXPERT'};
+export const DIFFICULTY = {BEGINNER: 'BEGINNER', INTERMEDIATE: 'INTERMEDIATE', ADVANCED: 'ADVANCED', EXPERT: 'EXPERT'};
 
 export default class RushHourLevels {
 
@@ -681,5 +681,3 @@ export default class RushHourLevels {
     return this.LEVELS[levelNumber - 1];
   }
 }
-
-

@@ -5,7 +5,7 @@ const scene = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#910D1A',
+    backgroundColor: '#295246',
   },
 
   title: {

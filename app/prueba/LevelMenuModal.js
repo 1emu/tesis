@@ -19,14 +19,12 @@ export default class LevelMenuModal extends Component {
   _hideModal = () => this.setState({ isModalVisible: false })
 
   _replay() {
-    this.props.navigator.push({id: 'rush-hour-lvl', levelNumber: this.props.levelNumber});
-    // aca habria que decirle al nivel o al tablero que vuelva a su estado inicial. Y no volver a crear una scene.
+    this.props.navigator.resetTo({id: 'rush-hour-lvl', levelNumber: this.props.levelNumber});
     this._hideModal();
   }
 
   _levelSelectionMenu() {
-    // hace falta destruir esta escena?
-    this.props.navigator.push({id: 'rush-hour-level-selection'});
+    this.props.navigator.resetTo({id: 'rush-hour-level-selection'});
     this._hideModal();
   }
 
