@@ -1,12 +1,13 @@
 import React, {Component, PropTypes} from 'react';
 import {View} from 'react-native';
-import style from './RushHourLevelStyle'
 import {autorun} from 'mobx';
+import {observer} from "mobx-react/native"
+import Orientation from 'react-native-orientation';
 import LevelNavBarView from './LevelNavBarView';
 import TableroView from './TableroView';
 import InicializadorDeTablero from './InicializadorDeTablero';
-import {observer} from "mobx-react/native"
 import PlayerResults from "./PlayerResults";
+import style from './RushHourLevelStyle'
 
 @observer
 export default class RushHourLevelView extends React.Component {
@@ -16,6 +17,11 @@ export default class RushHourLevelView extends React.Component {
     this.tablero = new InicializadorDeTablero(props.levelNumber).obtenerTablero();
     autorun(() => this.transitionToSuccessScreen());
   }
+
+  componentWillMount() {
+    Orientation.lockToPortrait();
+  }
+
 
   render() {
     return (

@@ -4,6 +4,7 @@
 import React, {Component, PropTypes} from 'react';
 import {StyleSheet, View, Text, TouchableHighlight} from 'react-native';
 import {Navigator} from 'react-native-deprecated-custom-components';
+import Orientation from 'react-native-orientation';
 
 import RushHourMainView from './rush-hour/RushHourMainView'
 import RushHourLevelView from './rush-hour/RushHourLevelView';
@@ -18,10 +19,19 @@ export default class Navigation extends React.Component {
     super();
   }
 
+  componentWillMount() {
+    const initial = Orientation.getInitialOrientation();
+    if (initial === 'LANDSCAPE') {
+      console.log('landscape orientation detected');
+      Orientation.lockToPortrait();
+      console.log('changed to portrait');
+    }
+  }
+
   render() {
     return (
       <Navigator
-        initialRoute={{id: 'zoologic-lvl', levelNumber: 1}}
+        initialRoute={{id: 'game-selection'}}
         renderScene={this.navigatorRenderScene}
       />
     );

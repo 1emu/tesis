@@ -4,11 +4,16 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Orientation from 'react-native-orientation';
 import style from './RushHourMainStyle'
 import PlayerResults from "./PlayerResults";
 
 
 export default class RushHourMainView extends Component {
+
+  componentWillMount() {
+    Orientation.unlockAllOrientations();
+  }
 
   render() {
     return (
