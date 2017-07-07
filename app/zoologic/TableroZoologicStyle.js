@@ -1,4 +1,4 @@
-import {StyleSheet} from "react-native";
+import {StyleSheet} from 'react-native';
 
 const style = StyleSheet.create({
   container: {
@@ -7,6 +7,11 @@ const style = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'grey',
   },
+
+  grid: {
+    flex: 1,
+    backgroundColor: 'lightgrey',
+  }
 
 });
 

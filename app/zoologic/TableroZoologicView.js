@@ -16,7 +16,7 @@ export default class TableroZoologicView extends Component {
 
     return (
       <View style={style.container}>
-        <View style={{backgroundColor: 'lightgrey', height: outerHeight, width: width, left: boardMargin}}>
+        <View style={style.grid}>
         </View>
       </View>
     )

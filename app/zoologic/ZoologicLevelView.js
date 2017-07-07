@@ -19,7 +19,7 @@ export default class ZoologicLevelView extends React.Component {
     return (
       <View style={style.container}>
         <LevelNavBarView navigator={this.props.navigator} levelNumber={this.props.levelNumber}/>
-        <TableroZoologicView/>
+        <TableroZoologicView style={style.tablero}/>
       </View>
     );
   }
