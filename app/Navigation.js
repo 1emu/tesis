@@ -11,6 +11,7 @@ import RushHourSuccessScreenView from './rush-hour/RushHourSuccessScreenView';
 import LevelSelectionView from "./rush-hour/LevelSelectionView";
 import MetaformsMainView from './metaforms/MetaformsMainView';
 import GameSelectionView from './rush-hour/GameSelectionView';
+import MetaformsLevelView from './metaforms/MetaformsLevelView';
 
 export default class Navigation extends React.Component {
   constructor(props) {
@@ -22,7 +23,7 @@ export default class Navigation extends React.Component {
       <Navigator
         initialRoute={{id: 'game-selection'}}
         renderScene={this.navigatorRenderScene}
-      /> // este es el this de Navigation
+      />
     );
   }
 
@@ -43,6 +44,8 @@ export default class Navigation extends React.Component {
 
       case 'metaforms-main':
         return (<MetaformsMainView navigator={navigator}/>);
+      case 'metaforms-lvl':
+        return (<MetaformsLevelView navigator={navigator} levelNumber={1}/>);
     }
   }
 

@@ -5,7 +5,7 @@ import React, {Component} from "react";
 import {AppRegistry} from "react-native";
 
 import Navigation from "./Navigation"
-import Metrics from './rush-hour/Metrics';
+import Metrics from './Metrics';
 import PlayerResults from "./rush-hour/PlayerResults";
 
 class Main extends Component {

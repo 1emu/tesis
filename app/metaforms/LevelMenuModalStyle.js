@@ -4,22 +4,24 @@ import Metrics from '../Metrics';
 
 const style = StyleSheet.create({
 
-  container: {
+  showModalBtn: {
+    backgroundColor: "#c6afb5",
+  },
+
+  showModalBtnTxt: {
+    color: '#161616',
+    fontSize: 16,
+  },
+
+  modalContent: {
     flex: 1,
-    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: "space-around",
-    backgroundColor: '#3e9184'
+    backgroundColor: '#c6afb5'
   },
 
-  content: {
-    color: '#ffffff',
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-
-  btn: {
-    backgroundColor: "#295246",
+  modalBtn: {
+    backgroundColor: "#f7ffb8",
     width: Metrics.DEVICE_WIDTH * 0.6,
     alignItems: 'center',
     justifyContent: "space-between",
@@ -27,8 +29,8 @@ const style = StyleSheet.create({
     paddingLeft: 10
   },
 
-  btnText: {
-    color: '#ffffff',
+  modalBtnText: {
+    color: '#161616',
     fontWeight: 'bold',
     fontSize: 18,
   }

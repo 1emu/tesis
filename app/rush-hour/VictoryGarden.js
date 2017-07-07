@@ -1,5 +1,5 @@
 import {observable} from "mobx";
-import Metrics from './Metrics';
+import Metrics from '../Metrics';
 
 export default class VictoryTile {
   @observable backgroundColor;

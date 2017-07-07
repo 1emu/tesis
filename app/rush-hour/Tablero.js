@@ -1,7 +1,7 @@
 import Magneto from "./Magneto"
 import VictoryGarden from "./VictoryGarden"
 import Bumper from "./Bumper";
-import Metrics from './Metrics';
+import Metrics from '../Metrics';
 import {observable} from "mobx";
 
 export default class Tablero {

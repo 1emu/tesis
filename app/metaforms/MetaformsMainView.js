@@ -18,10 +18,6 @@ export default class MetaformsMainView extends Component {
           <Text style={style.btnText}>Comenzar</Text>
         </Icon.Button>
 
-        <Icon.Button name="list" size={30} color={this.iconColor} style={style.btn} onPress={() => this.chooseLevel()}>
-          <Text style={style.btnText}>Elegir nivel</Text>
-        </Icon.Button>
-
         <Icon.Button name="arrow-back" size={30} color={this.iconColor} style={style.btn} onPress={() => this.goToGameSelection()}>
           <Text style={style.btnText}>Volver</Text>
         </Icon.Button>
@@ -30,11 +26,7 @@ export default class MetaformsMainView extends Component {
   }
 
   startPlaying() {
-    this.props.navigator.push({id: 'metaforms-level'});
-  }
-
-  chooseLevel() {
-    this.props.navigator.push({id: 'metaforms-level'});
+    this.props.navigator.push({id: 'metaforms-lvl'});
   }
 
   goToGameSelection() {

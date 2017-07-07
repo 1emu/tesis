@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import VictoryGardenView from './VictoryGardenView';
 import CuadraditosView from './CuadraditosView';
 import BumpersView from './BumpersView';
-import Metrics from './Metrics';
+import Metrics from '../Metrics';
 
 
 export default class TableroView extends Component {

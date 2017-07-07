@@ -1,5 +1,5 @@
 import {observable, autorun} from "mobx";
-import Metrics from './Metrics';
+import Metrics from '../Metrics';
 
 export default class Cuadradito {
   DEFAULT_IMG = require('./img/empty.png');

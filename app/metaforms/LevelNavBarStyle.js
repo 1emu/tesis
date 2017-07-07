@@ -1,8 +1,8 @@
-import {StyleSheet} from 'react-native';
-import Metrics from '../Metrics'
+import {StyleSheet, Dimensions} from "react-native";
+
+import Metrics from '../Metrics';
 
 const style = StyleSheet.create({
-
   navBar: {
     alignSelf: "flex-start",
     flexDirection: 'row',
@@ -10,24 +10,15 @@ const style = StyleSheet.create({
     justifyContent: "space-between",
     height: Metrics.NAV_BAR_HEIGHT,
     width: Metrics.NAV_BAR_WIDTH,
-    backgroundColor: '#295246',
+    backgroundColor: '#f7ffb8',
     paddingRight: 10,
   },
 
   title: {
-    color: '#ffffff',
+    color: '#161616',
     fontSize: 20,
     fontWeight: 'bold',
-  },
-
-  backBtn: {
-    backgroundColor: "#3e9184",
-  },
-
-  backBtnTxt: {
-    color: '#ffffff',
-    fontSize: 16,
-  },
+  }
 
 });
 
