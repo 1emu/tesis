@@ -4,10 +4,15 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Orientation from 'react-native-orientation';
 import style from './ZoologicMainStyle'
 
 export default class ZoologicMainView extends Component {
   iconColor = '#161616';
+
+  componentWillMount() {
+    Orientation.unlockAllOrientations();
+  }
 
   render() {
     return (
@@ -26,7 +31,7 @@ export default class ZoologicMainView extends Component {
   }
 
   startPlaying() {
-    this.props.navigator.push({id: 'zoologic-lvl'});
+    this.props.navigator.resetTo({id: 'zoologic-lvl', levelNumber: 1});
   }
 
   goToGameSelection() {
