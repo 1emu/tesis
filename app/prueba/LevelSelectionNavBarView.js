@@ -22,6 +22,6 @@ export default class LevelSelectionNavBarView extends Component {
   }
 
   _goBack() {
-    this.props.navigator.resetTo({id: 'first'});
+    this.props.navigator.resetTo({id: 'rush-hour-main'});
   }
 }

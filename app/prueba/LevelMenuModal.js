@@ -29,7 +29,7 @@ export default class LevelMenuModal extends Component {
   }
 
   _transitionToMainMenu() {
-    this.props.navigator.resetTo({id: 'first'});
+    this.props.navigator.resetTo({id: 'rush-hour-main'});
     this._hideModal();
   }
 

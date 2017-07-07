@@ -5,10 +5,12 @@ import React, {Component, PropTypes} from 'react';
 import {StyleSheet, View, Text, TouchableHighlight} from 'react-native';
 import {Navigator} from 'react-native-deprecated-custom-components';
 
-import First from './routes/First/First'
+import RushHourMainView from './prueba/RushHourMainView'
 import RushHourLevelView from './prueba/RushHourLevelView';
 import RushHourSuccessScreenView from './prueba/RushHourSuccessScreenView';
 import LevelSelectionView from "./prueba/LevelSelectionView";
+import MetaformsMainView from './prueba/MetaformsMainView';
+import GameSelectionView from './prueba/GameSelectionView';
 
 export default class Navigation extends React.Component {
   constructor(props) {
@@ -18,7 +20,7 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <Navigator
-        initialRoute={{id: 'first'}}
+        initialRoute={{id: 'game-selection'}}
         renderScene={this.navigatorRenderScene}
       /> // este es el this de Navigation
     );
@@ -26,14 +28,21 @@ export default class Navigation extends React.Component {
 
   navigatorRenderScene(route, navigator) {
     switch (route.id) {
-      case 'first':
-        return (<First navigator={navigator} title="first"/>);
+
+      case 'game-selection':
+        return (<GameSelectionView navigator={navigator} />);
+
+      case 'rush-hour-main':
+        return (<RushHourMainView navigator={navigator} />);
       case 'rush-hour-lvl':
         return (<RushHourLevelView navigator={navigator} levelNumber={route.levelNumber}/>); // este es el this de Navigator
       case 'rush-hour-success-screen':
         return (<RushHourSuccessScreenView navigator={navigator} actualLevelNumber={route.levelNumber} nextLevelNumber={route.nextLevelNumber}/>); // este es el this de Navigator
       case 'rush-hour-level-selection':
         return (<LevelSelectionView navigator={navigator}/>);
+
+      case 'metaforms-main':
+        return (<MetaformsMainView navigator={navigator}/>);
     }
   }
 

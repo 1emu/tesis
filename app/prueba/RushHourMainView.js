@@ -4,11 +4,11 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import style from '../../styles/scene'
-import PlayerResults from "../../prueba/PlayerResults";
+import style from './RushHourMainStyle'
+import PlayerResults from "./PlayerResults";
 
 
-export default class First extends Component {
+export default class RushHourMainView extends Component {
 
   render() {
     return (
@@ -21,6 +21,10 @@ export default class First extends Component {
 
         <Icon.Button name="list" size={30} style={style.btn} onPress={() => this.chooseLevel()}>
           <Text style={style.btnText}>Elegir nivel</Text>
+        </Icon.Button>
+
+        <Icon.Button name="arrow-back" size={30} style={style.btn} onPress={() => this.goToGameSelection()}>
+          <Text style={style.btnText}>Volver</Text>
         </Icon.Button>
       </View>
     );
@@ -35,5 +39,9 @@ export default class First extends Component {
 
   chooseLevel() {
     this.props.navigator.push({id: 'rush-hour-level-selection'});
+  }
+
+  goToGameSelection() {
+    this.props.navigator.resetTo({id: 'game-selection'});
   }
 }
