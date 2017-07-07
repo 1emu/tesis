@@ -11,7 +11,6 @@ export default class LevelNavBarView extends Component {
   }
 
   render() {
-
     return (
     <View>
       <View style={style.navBar}>

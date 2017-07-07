@@ -19,16 +19,14 @@ export default class LevelMenuModal extends Component {
   _hideModal = () => this.setState({ isModalVisible: false })
 
   _replay() {
-    this.props.navigator.resetTo({id: 'metaforms-lvl', levelNumber: this.props.levelNumber});
+    this.props.navigator.resetTo({id: 'zoologic-lvl', levelNumber: this.props.levelNumber});
     this._hideModal();
   }
 
   _transitionToMainMenu() {
-    this.props.navigator.resetTo({id: 'metaforms-main'});
+    this.props.navigator.resetTo({id: 'zoologic-main'});
     this._hideModal();
   }
-
-
 
   render() {
     return (

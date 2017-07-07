@@ -15,8 +15,8 @@ export default class GameSelectionView extends Component {
           <Text style={style.rushHourBtnText}>RUSH HOUR</Text>
         </Button>
 
-        <Button style={style.metaformsBtn} onPress={() => this._goToMetaforms()}>
-          <Text style={style.metaformsBtnText}>METAFORMS</Text>
+        <Button style={style.zoologicBtn} onPress={() => this._goToZoologic()}>
+          <Text style={style.zoologicBtnText}>ZOOLOGIC</Text>
         </Button>
       </View>
     );
@@ -26,7 +26,7 @@ export default class GameSelectionView extends Component {
     this.props.navigator.push({id: 'rush-hour-main'});
   }
 
-  _goToMetaforms() {
-    this.props.navigator.push({id: 'metaforms-main'});
+  _goToZoologic() {
+    this.props.navigator.push({id: 'zoologic-main'});
   }
 }

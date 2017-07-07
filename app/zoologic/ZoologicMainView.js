@@ -4,15 +4,15 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import style from './MetaformsMainStyle'
+import style from './ZoologicMainStyle'
 
-export default class MetaformsMainView extends Component {
+export default class ZoologicMainView extends Component {
   iconColor = '#161616';
 
   render() {
     return (
       <View style={style.container}>
-        <Text style={style.title}>METAFORMS</Text>
+        <Text style={style.title}>ZOOLOGIC</Text>
 
         <Icon.Button name="play-circle-filled" size={30} color={this.iconColor} style={style.btn} onPress={() => this.startPlaying()}>
           <Text style={style.btnText}>Comenzar</Text>
@@ -26,7 +26,7 @@ export default class MetaformsMainView extends Component {
   }
 
   startPlaying() {
-    this.props.navigator.push({id: 'metaforms-lvl'});
+    this.props.navigator.push({id: 'zoologic-lvl'});
   }
 
   goToGameSelection() {

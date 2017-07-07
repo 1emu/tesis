@@ -27,13 +27,13 @@ const style = StyleSheet.create({
     fontSize: 18,
   },
 
-  metaformsBtn: {
+  zoologicBtn: {
     alignSelf: 'center',
     backgroundColor: "#f7ffb8",
     width: Metrics.DEVICE_WIDTH * 0.6,
   },
 
-  metaformsBtnText: {
+  zoologicBtnText: {
     color: '#161616',
     fontWeight: 'bold',
     fontSize: 18,
