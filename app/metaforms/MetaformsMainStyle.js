@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native";
-import Metrics from './Metrics';
+import Metrics from '../rush-hour/Metrics';
 
 const style = StyleSheet.create({
   container: {

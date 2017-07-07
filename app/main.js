@@ -5,8 +5,8 @@ import React, {Component} from "react";
 import {AppRegistry} from "react-native";
 
 import Navigation from "./Navigation"
-import Metrics from './prueba/Metrics';
-import PlayerResults from "./prueba/PlayerResults";
+import Metrics from './rush-hour/Metrics';
+import PlayerResults from "./rush-hour/PlayerResults";
 
 class Main extends Component {
     constructor(){

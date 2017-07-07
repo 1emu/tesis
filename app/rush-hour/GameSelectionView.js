@@ -6,7 +6,7 @@ import {View, Text} from 'react-native';
 import Button from 'apsl-react-native-button';
 import style from './GameSelectionStyle'
 
-export default class MetaformsMainView extends Component {
+export default class GameSelectionView extends Component {
 
   render() {
     return (
