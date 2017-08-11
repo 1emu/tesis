@@ -28,7 +28,7 @@ export default class Tablero {
   }
 
   generarMagnetos() {
-    this.magnetitos = [];
+    this.imanes = [];
 
     let width = Metrics.BOARD_WIDTH;
     let height = Metrics.BOARD_HEIGHT;
@@ -36,7 +36,7 @@ export default class Tablero {
 
     for(i = 0; i < width; i = i + tileSize){
       for (j = 0; j < height; j = j + tileSize) {
-        this.magnetitos.push(new Magneto('' + i + j, i, j))
+        this.imanes.push(new Magneto('' + i + j, i, j))
       }
     }
   }
@@ -78,7 +78,7 @@ export default class Tablero {
   }
 
   getClosestMagneto(cuadradito) {
-    let magnetines = this.magnetitos.sort((magneto1, magneto2) => {
+    let magnetines = this.imanes.sort((magneto1, magneto2) => {
       return magneto1.distanceTo(cuadradito) - magneto2.distanceTo(cuadradito);
     });
     return magnetines[0]

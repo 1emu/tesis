@@ -46,21 +46,6 @@ export default class Cuadradito {
   }
 
   pushTowards(x, y) {
-    // let newX, newY;
-    // if (x >= this.x) {
-    //   //Estoy empujandolo a la derecha
-    //   newX = this.tablero.movementLimitRight(this, x);
-    // } else {
-    //   //Estoy empujandolo a la izquierda
-    //   newX = this.tablero.movementLimitLeft(this, x);
-    // }
-    // if (y >= this.y) {
-    //   //Estoy empujandolo hacia abajo
-    //   newY = this.tablero.movementLimitBottom(this, y);
-    // } else {
-    //   //Estoy empujandolo hacia arriba
-    //   newY = this.tablero.movementLimitTop(this, y);
-    // }
     this.setPosition(x, y);
   }
 
