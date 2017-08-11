@@ -3,7 +3,7 @@ import {View, Image, PanResponder, Animated} from 'react-native';
 import {observer} from 'mobx-react/native'
 
 @observer
-export default class CuadraditoView extends Component {
+export default class ZoologicPieceView extends Component {
   constructor(props) {
     super(props);
     this._setupPanResponder();
@@ -22,7 +22,7 @@ export default class CuadraditoView extends Component {
                         width: width, height: height, left: this._currentX(), top: this._currentY(),
                         position: 'absolute',
                         transform: [{rotate: '0deg'}, {scale: this.state.scale}],
-                        backgroundColor: this.props.color
+                        backgroundColor: this.props.cuadradito.id
                       }}
                       source={this.props.cuadradito.image}
       />

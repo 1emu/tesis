@@ -1,4 +1,4 @@
-import {observable, autorun} from "mobx";
+import {observable, autorun} from 'mobx';
 import Metrics from '../Metrics';
 
 export default class Cuadradito {
@@ -23,7 +23,7 @@ export default class Cuadradito {
     this.y = y;
   }
 
-  setInitialPosition(x, y){
+  setInitialPosition(x, y) {
     this.x = x;
     this.y = y;
   }
@@ -68,12 +68,12 @@ export default class Cuadradito {
     this.setPosition(newX, newY);
   }
 
-  snapYoAss(){
+  snapYoAss() {
     let closestMagneto = this.tablero.getClosestMagneto(this);
     this.setPosition(closestMagneto.x, closestMagneto.y);
   }
 
-  checkWinCondition(){
+  checkWinCondition() {
     // smile and wave
   }
 }

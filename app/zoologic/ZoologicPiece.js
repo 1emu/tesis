@@ -1,18 +1,18 @@
 import {observable, autorun} from "mobx";
 import Metrics from '../Metrics';
 
-export default class Cuadradito {
+export default class ZoologicPiece {
   DEFAULT_IMG = require('../rush-hour/img/empty.png');
 
   @observable x;
   @observable y;
 
-  constructor(id, x = 0, y = 0, width, height, imanes, image = null) {
+  constructor(id, x = 0, y = 0, imanes, image = null) {
     this.id = id;
     this.imanes = imanes;
     this.setInitialPosition(x, y);
     this.setPosition(x, y);
-    this.setDimensions(width, height);
+    this.setDimensions(Metrics.TILE_SIZE, Metrics.TILE_SIZE);
     this.maxSpaceInBetween = 0;
 
     this.image = (image ? image : this.DEFAULT_IMG);
