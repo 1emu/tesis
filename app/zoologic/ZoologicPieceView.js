@@ -22,7 +22,7 @@ export default class ZoologicPieceView extends Component {
                         width: width, height: height, left: this._currentX(), top: this._currentY(),
                         position: 'absolute',
                         transform: [{rotate: '0deg'}, {scale: this.state.scale}],
-                        backgroundColor: this.props.cuadradito.id
+                        backgroundColor: this.props.cuadradito.type
                       }}
                       source={this.props.cuadradito.image}
       />

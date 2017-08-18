@@ -12,7 +12,7 @@ export default class ShapeBarView extends Component {
     return (
       <View
         style={{
-          width: this.props.shapeBar.width, height: this.props.shapeBar.height, backgroundColor: this.props.shapeBar.backgroundColor,
+          width: this.props.piecesBar.width, height: this.props.piecesBar.height, backgroundColor: this.props.piecesBar.backgroundColor,
           left: this._currentX(), top: this._currentY(), position: 'absolute',
           borderColor: 'white'
         }}>
@@ -21,11 +21,11 @@ export default class ShapeBarView extends Component {
   }
 
   _currentX() {
-    return this.props.shapeBar.x;
+    return this.props.piecesBar.x;
   }
 
   _currentY() {
-    return this.props.shapeBar.y;
+    return this.props.piecesBar.y;
   }
 
 }

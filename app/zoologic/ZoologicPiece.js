@@ -7,14 +7,13 @@ export default class ZoologicPiece {
   @observable x;
   @observable y;
 
-  constructor(id, x = 0, y = 0, imanes, image = null) {
-    this.id = id;
+  constructor(type, x = 0, y = 0, imanes, image = null) {
+    this.type = type;
     this.imanes = imanes;
     this.setInitialPosition(x, y);
     this.setPosition(x, y);
     this.setDimensions(Metrics.TILE_SIZE, Metrics.TILE_SIZE);
     this.maxSpaceInBetween = 0;
-
     this.image = (image ? image : this.DEFAULT_IMG);
   }
 
@@ -51,7 +50,7 @@ export default class ZoologicPiece {
 
   snapYoAss(){
     let magnetInContact = this.getMagnetInContact();
-    if (magnetInContact) {
+    if (magnetInContact.allows(this.type)) {
       this.setPosition(magnetInContact.x - this.width/2, magnetInContact.y - this.height/2)
     } else {
       this.setPosition(this.initialX, this.initialY);
@@ -65,4 +64,5 @@ export default class ZoologicPiece {
   getMagnetInContact() {
     return this.imanes.find((iman) => this.isInContactWithMagnet(iman))
   }
+
 }
