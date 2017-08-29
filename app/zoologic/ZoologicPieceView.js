@@ -11,30 +11,28 @@ export default class ZoologicPieceView extends Component {
   }
 
   render() {
-
-    const width = this.props.cuadradito.width;
-    const height = this.props.cuadradito.height;
+    const width = this.props.piece.width;
+    const height = this.props.piece.height;
 
     return (
-
       <Animated.Image {...this._panResponder.panHandlers}
                       style={{
                         width: width, height: height, left: this._currentX(), top: this._currentY(),
                         position: 'absolute',
                         transform: [{rotate: '0deg'}, {scale: this.state.scale}],
-                        backgroundColor: this.props.cuadradito.type
+                        backgroundColor: this.props.piece.type.backgroundColor
                       }}
-                      source={this.props.cuadradito.image}
+                      source={this.props.piece.type.image}
       />
     )
   }
 
   _currentX() {
-    return this.props.cuadradito.x;
+    return this.props.piece.x;
   }
 
   _currentY() {
-    return this.props.cuadradito.y;
+    return this.props.piece.y;
   }
 
   _setupPanResponder() {
@@ -52,12 +50,12 @@ export default class ZoologicPieceView extends Component {
       onPanResponderMove: (evt, gestureState) => {
         let newX = this.gestureStartX + gestureState.dx;
         let newY = this.gestureStartY + gestureState.dy;
-        this.props.cuadradito.pushTowards(newX, newY);
+        this.props.piece.pushTowards(newX, newY);
       },
       onPanResponderRelease: (e, gestureState) => {
-        this.props.cuadradito.snapYoAss();
+        this.props.piece.snapYoAss();
         this._scaleUp();
-        // this.props.cuadradito.checkWinCondition();
+        // this.props.piece.checkWinCondition();
       }
     });
   }

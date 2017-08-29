@@ -1,6 +1,7 @@
 import ZoologicLevels from './ZoologicLevels';
 import ZoologicSquare from './ZoologicSquare';
 import Metrics from '../Metrics';
+import ZoologicPieceTypeGenerator from './ZoologicPieceTypeGenerator'
 
 export default class ZoologicSquaresInitializer {
 
@@ -32,28 +33,28 @@ export default class ZoologicSquaresInitializer {
     return new ZoologicSquare(i, j, type, squareNumber, squares);
   }
 
-
-
   getType(squareNumber) {
     switch (this.configDeTablero.squares.charAt(squareNumber)) {
-      case 'R':
-        return 'red';
-      case 'G':
-        return 'green';
-      case 'B':
-        return 'blue';
-      case 'P':
-        return 'purple';
-      case 'Y':
-        return 'yellow';
+      case 'M':
+        return ZoologicPieceTypeGenerator.MOUSE();
       case 'C':
-        return 'cyan';
+        return ZoologicPieceTypeGenerator.CAT();
+      case 'D':
+        return ZoologicPieceTypeGenerator.DOG();
+      case 'B':
+        return ZoologicPieceTypeGenerator.BULLDOG();
+      case 'F':
+        return ZoologicPieceTypeGenerator.FISH();
+      case 'H':
+        return ZoologicPieceTypeGenerator.CHEESE();
+      case 'O':
+        return ZoologicPieceTypeGenerator.BONE();
+      case 'L':
+        return ZoologicPieceTypeGenerator.BULL();
       case 'A':
-        return 'gray';
-      case 'W':
-        return 'white';
-      default:
-        return 'black';
+        return ZoologicPieceTypeGenerator.ANTS();
+      case 'X':
+        return ZoologicPieceTypeGenerator.BLANK();
     }
   }
 }

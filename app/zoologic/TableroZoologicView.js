@@ -8,6 +8,7 @@ import ZoologicPiece from './ZoologicPiece';
 import ZoologicPieceView from './ZoologicPieceView';
 import ZoologicSquareView from './ZoologicSquareView';
 import ZoologicSquaresInitializer from './ZoologicSquaresInitializer';
+import ZoologicPieceTypeGenerator from './ZoologicPieceTypeGenerator';
 
 export default class TableroZoologicView extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ export default class TableroZoologicView extends Component {
             <ZoologicSquareView key={square.key} square={square}/>
           )}
           {this.pieces.map((piece, index) =>
-            <ZoologicPieceView key={'piece'+index} cuadradito={piece}/>
+            <ZoologicPieceView key={'piece'+index} piece={piece}/>
           )}
         </View>
       </View>
@@ -38,11 +39,11 @@ export default class TableroZoologicView extends Component {
     let initialY = Metrics.ZOOLOGIC_PIECES_BAR_PADDING;
 
     this.pieces = [
-      new ZoologicPiece('cyan', piecesX, initialY, this.squares),
-      new ZoologicPiece('cyan', piecesX, initialY, this.squares),
-      new ZoologicPiece('yellow', piecesX, Metrics.TILE_SIZE + piecesX * 2, this.squares),
-      new ZoologicPiece('blue', piecesX, Metrics.TILE_SIZE * 2 + piecesX * 3, this.squares),
-      new ZoologicPiece('purple', piecesX, Metrics.TILE_SIZE * 3 + piecesX * 4, this.squares)
+      new ZoologicPiece(ZoologicPieceTypeGenerator.MOUSE(), piecesX, initialY, this.squares),
+      new ZoologicPiece(ZoologicPieceTypeGenerator.CAT(), piecesX, Metrics.TILE_SIZE + piecesX * 2, this.squares),
+      new ZoologicPiece(ZoologicPieceTypeGenerator.DOG(), piecesX, Metrics.TILE_SIZE * 2 + piecesX * 3, this.squares),
+      new ZoologicPiece(ZoologicPieceTypeGenerator.BULLDOG(), piecesX, Metrics.TILE_SIZE * 3 + piecesX * 4, this.squares)
+
     ]
   }
 }

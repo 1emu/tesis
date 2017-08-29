@@ -2,19 +2,19 @@ import {observable, autorun} from "mobx";
 import Metrics from '../Metrics';
 
 export default class ZoologicPiece {
-  DEFAULT_IMG = require('../rush-hour/img/empty.png');
+  DEFAULT_IMG = require('./img/empty.png');
 
   @observable x;
   @observable y;
 
-  constructor(type, x = 0, y = 0, imanes, image = null) {
+  constructor(type, x = 0, y = 0, imanes) {
     this.type = type;
     this.imanes = imanes;
     this.setInitialPosition(x, y);
     this.setPosition(x, y);
     this.setDimensions(Metrics.TILE_SIZE, Metrics.TILE_SIZE);
     this.maxSpaceInBetween = 0;
-    this.image = (image ? image : this.DEFAULT_IMG);
+    console.log('piece type: ' + JSON.stringify(this.type));
   }
 
   setInitialPosition(x, y) {
@@ -50,7 +50,7 @@ export default class ZoologicPiece {
 
   snapYoAss(){
     let magnetInContact = this.getMagnetInContact();
-    if (magnetInContact.allows(this.type)) {
+    if (magnetInContact && magnetInContact.allows(this.type)) {
       this.setPosition(magnetInContact.x - this.width/2, magnetInContact.y - this.height/2)
     } else {
       this.setPosition(this.initialX, this.initialY);

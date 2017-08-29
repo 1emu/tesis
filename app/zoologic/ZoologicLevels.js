@@ -7,11 +7,11 @@ export default class ZoologicLevels {
     {
       levelNumber: 1,
       squares:
-      'YWXXX' +
-      'XXXWC' +
-      'XWCXX' +
+      'MXCXX' +
+      'XDXBX' +
       'XXXXX' +
-      'XXXWA'
+      'HXOXX' +
+      'XXLXA'
       ,
       difficulty: DIFFICULTY.BEGINNER
     }
