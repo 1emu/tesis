@@ -12,7 +12,6 @@ export default class ZoologicSquare {
     this.squareNumber = squareNumber;
     this.squares = squares;
     this.storedPiece = null;
-    console.log('sqare type: ' + JSON.stringify(this.type));
   }
 
   allows(pieceType) {
@@ -24,13 +23,11 @@ export default class ZoologicSquare {
   }
 
   store(piece) {
-    console.log('receiving ', piece.type.knownType);
     if (this.storedPiece) throw new Error('Received piece but already had one. Receiver: ' + JSON.stringify(this) + '. Received: ' + piece);
     this.storedPiece = piece;
   }
 
   partWays() {
-    console.log('being abandoned by', this.storedPiece.type.knownType);
     this.storedPiece = null;
   }
 

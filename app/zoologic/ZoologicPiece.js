@@ -59,12 +59,10 @@ export default class ZoologicPiece {
   }
 
   _receive(squareInContact) {
-    console.log('occupying ', squareInContact.type.knownType);
     this.containingSquare = squareInContact;
   }
 
   _partWays() {
-    console.log('abandoning ', this.containingSquare.type.knownType);
     this.containingSquare = null;
   }
 
