@@ -9,8 +9,8 @@ export default class ZoologicImage {
       CHEESE: require('./img/Cheese.png'),
       FISH: require('./img/Fish.png'),
       BONE: require('./img/Bone.png'),
-      BULL: require('./img/empty.png'),
-      ANTS: require('./img/empty.png'),
+      BULL: require('./img/Bull.png'),
+      ANTS: require('./img/Ants.png'),
       BLANK: require('./img/empty.png')
     }
   }

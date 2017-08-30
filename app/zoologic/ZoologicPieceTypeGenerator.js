@@ -33,7 +33,7 @@ export default class ZoologicPieceTypeGenerator {
   }
 
   static BLANK() {
-    return new ZoologicPieceType(KNOWN_TYPE.BLANK, [], Object.keys(KNOWN_TYPE), ZoologicImage.for(KNOWN_TYPE.BLANK), 'black');
+    return new ZoologicPieceType(KNOWN_TYPE.BLANK, [], Object.keys(KNOWN_TYPE), ZoologicImage.for(KNOWN_TYPE.BLANK), 'white');
   }
 
   static BULL() {
