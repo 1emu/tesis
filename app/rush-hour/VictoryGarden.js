@@ -44,8 +44,8 @@ export default class VictoryTile {
   }
 
   contains(cuadradito){
-    let occupyingXSpan = this.isOccupyingXSpan(cuadradito.x, cuadradito._xMax());
-    let occupyingYSpan = this.isOccupyingYSpan(cuadradito.y, cuadradito._yMax());
+    let occupyingXSpan = this.isOccupyingXSpan(cuadradito.x, cuadradito.xMax());
+    let occupyingYSpan = this.isOccupyingYSpan(cuadradito.y, cuadradito.yMax());
     return occupyingXSpan && occupyingYSpan;
   }
 }
