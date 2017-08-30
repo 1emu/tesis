@@ -17,7 +17,7 @@ export default class ZoologicPieceTypeGenerator {
   }
 
   static BULLDOG() {
-    return new ZoologicPieceType(KNOWN_TYPE.BULLDOG, [KNOWN_TYPE.BONE, KNOWN_TYPE.CAT, KNOWN_TYPE.DOG], [], ZoologicImage.for(KNOWN_TYPE.BULLDOG), 'orange');
+    return new ZoologicPieceType(KNOWN_TYPE.BULLDOG, [KNOWN_TYPE.BONE, KNOWN_TYPE.CAT, KNOWN_TYPE.DOG, KNOWN_TYPE.BULLDOG], [], ZoologicImage.for(KNOWN_TYPE.BULLDOG), 'orange');
   }
 
   static CHEESE() {
