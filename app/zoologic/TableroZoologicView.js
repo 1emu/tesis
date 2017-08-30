@@ -40,6 +40,7 @@ export default class TableroZoologicView extends Component {
 
     this.pieces = [
       new ZoologicPiece(ZoologicPieceTypeGenerator.MOUSE(), piecesX, initialY, this.squares),
+      new ZoologicPiece(ZoologicPieceTypeGenerator.MOUSE(), piecesX, initialY, this.squares),
       new ZoologicPiece(ZoologicPieceTypeGenerator.CAT(), piecesX, Metrics.TILE_SIZE + piecesX * 2, this.squares),
       new ZoologicPiece(ZoologicPieceTypeGenerator.DOG(), piecesX, Metrics.TILE_SIZE * 2 + piecesX * 3, this.squares),
       new ZoologicPiece(ZoologicPieceTypeGenerator.BULLDOG(), piecesX, Metrics.TILE_SIZE * 3 + piecesX * 4, this.squares)

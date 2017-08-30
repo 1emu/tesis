@@ -2,60 +2,85 @@ import {observable, autorun} from 'mobx';
 import Metrics from '../Metrics';
 
 export default class ZoologicSquare {
-  DEFAULT_IMG = require('./img/empty.png');
-
   constructor(x = 0, y = 0, type, squareNumber, squares) {
     this.x = x;
     this.y = y;
     this.width = Metrics.ZOOLOGIC_SQUARE_SIZE;
     this.height = Metrics.ZOOLOGIC_SQUARE_SIZE;
     this.type = type;
-    this.generateKey(x, y);
+    this._generateKey(x, y);
     this.squareNumber = squareNumber;
     this.squares = squares;
+    this.storedPiece = null;
     console.log('sqare type: ' + JSON.stringify(this.type));
   }
 
   allows(pieceType) {
-    let thisAllowsOnTop = this.type.allowsOnTop(pieceType);
-    let neighboursDontAllow = this.getNeighbours().map(square => square.canBeAdjacentTo(pieceType)).includes(false);
-    return thisAllowsOnTop && !neighboursDontAllow;
+    return this._allowsOnTop(pieceType) && this._neighboursAllowIt(pieceType);
   }
 
   canBeAdjacentTo(pieceType) {
-    return this.type.canBeAdjacentTo(pieceType);
+    return this.type.canBeAdjacentTo(pieceType) && this._storedPieceAllowsIt(pieceType);
   }
 
-  allowsOnTop(pieceType) {
+  store(piece) {
+    console.log('receiving ', piece.type.knownType);
+    if (this.storedPiece) throw new Error('Received piece but already had one. Receiver: ' + JSON.stringify(this) + '. Received: ' + piece);
+    this.storedPiece = piece;
+  }
+
+  partWays() {
+    console.log('being abandoned by', this.storedPiece.type.knownType);
+    this.storedPiece = null;
+  }
+
+  _allowsOnTop(pieceType) {
+    return this._theSquareTypeAllowsIt(pieceType) && this._theSquareIsFree();
+  }
+
+  _neighboursAllowIt(pieceType) {
+    let thereIsAConflictingNeighbour = this._getNeighbours().map(square => square.canBeAdjacentTo(pieceType)).includes(false);
+    return !thereIsAConflictingNeighbour;
+  }
+
+  _theSquareIsFree() {
+    return !this.storedPiece;
+  }
+
+  _theSquareTypeAllowsIt(pieceType) {
     return this.type.allowsOnTop(pieceType);
   }
 
-  generateKey(i, j) {
+  _generateKey(i, j) {
     this.key = 'square-' + i + '-' + j;
   }
 
-  getNeighbours() {
-    let neighbours = [this.leftNeighbour(), this.rightNeighbour(), this.topNeighbour(), this.bottomNeighbour()];
+  _getNeighbours() {
+    let neighbours = [this._leftNeighbour(), this._rightNeighbour(), this._topNeighbour(), this._bottomNeighbour()];
     return neighbours.filter(x => x);
   }
 
-  leftNeighbour() {
+  _leftNeighbour() {
     if ([0, 5, 10, 15, 20].includes(this.squareNumber)) return null;
     return this.squares[this.squareNumber - 1];
   }
 
-  rightNeighbour() {
+  _rightNeighbour() {
     if ([4, 9, 14, 19, 24].includes(this.squareNumber)) return null;
     return this.squares[this.squareNumber + 1];
   }
 
-  topNeighbour() {
+  _topNeighbour() {
     if (this.squareNumber < 5) return null;
     return this.squares[this.squareNumber - 5];
   }
 
-  bottomNeighbour() {
+  _bottomNeighbour() {
     if (this.squareNumber >= 20) return null;
     return this.squares[this.squareNumber + 5];
+  }
+
+  _storedPieceAllowsIt(pieceType) {
+    return this.storedPiece ? this.storedPiece.canBeAdjacentTo(pieceType) : true;
   }
 }

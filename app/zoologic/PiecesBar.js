@@ -44,8 +44,8 @@ export default class ShapeBar {
   }
 
   contains(cuadradito){
-    let occupyingXSpan = this.isOccupyingXSpan(cuadradito.x, cuadradito.xMax());
-    let occupyingYSpan = this.isOccupyingYSpan(cuadradito.y, cuadradito.yMax());
+    let occupyingXSpan = this.isOccupyingXSpan(cuadradito.x, cuadradito._xMax());
+    let occupyingYSpan = this.isOccupyingYSpan(cuadradito.y, cuadradito._yMax());
     return occupyingXSpan && occupyingYSpan;
   }
 }
