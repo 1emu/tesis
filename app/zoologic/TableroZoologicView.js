@@ -13,7 +13,7 @@ import ZoologicPieceTypeGenerator from './ZoologicPieceTypeGenerator';
 export default class TableroZoologicView extends Component {
   constructor(props) {
     super(props);
-    this.squares = new ZoologicSquaresInitializer(1).getSquares();
+    this.squares = new ZoologicSquaresInitializer(1).getBoard().squares;
     this.generarCuadraditos();
     this.piecesBar = new PiecesBar('piecesBar', 0, 0, Metrics.ZOOLOGIC_PIECES_BAR_WIDTH, Metrics.DEVICE_HEIGHT - Metrics.NAV_BAR_HEIGHT);
   }

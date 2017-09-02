@@ -1,40 +1,39 @@
 import ZoologicLevels from './ZoologicLevels';
 import ZoologicSquare from './ZoologicSquare';
-import Metrics from '../Metrics';
 import ZoologicPieceTypeGenerator from './ZoologicPieceTypeGenerator'
+import ZooologicBoard from './ZoologicBoard'
+
+const MAX_SQUARES_IN_BOARD = 5;
+const MATRIX_SIZE = MAX_SQUARES_IN_BOARD * 2;
 
 export default class ZoologicSquaresInitializer {
-
   constructor(levelNumber) {
     this.configDeTablero = ZoologicLevels.getLevelConfig(levelNumber);
   }
 
-  getSquares() {
-    squares = [];
-
-    let tileSize = Metrics.TILE_SIZE;
-    let startX = Metrics.ZOOLOGIC_PIECES_BAR_WIDTH + Metrics.TILE_SIZE / 2 + 20;
-    let startY = Metrics.NAV_BAR_HEIGHT + Metrics.TILE_SIZE / 2 + 50;
+  getBoard() {
+    let board = new ZooologicBoard();
     let squareNumber = 0;
 
-    for (i = startX; i <= startX + 4 * tileSize; i = i + tileSize) {
-      for (j = startY; j <= startY + 4 * tileSize; j = j + tileSize) {
-        let square = this.getSquare(squareNumber, j, i, squares);
-        squares.push(square);
-        squareNumber++;
+    for (let y = 0; y < MATRIX_SIZE; y = y + 1) {
+      for (let x = 0; x < MATRIX_SIZE; x = x + 1) {
+        if (this.matrixPositionAvailable(x, y, board) && this.typeDefinedForPosition(x, y)) {
+          board.addSquare(this.getSquare(squareNumber, x, y, board));
+          squareNumber++;
+        }
       }
     }
 
-    return squares;
+    return board;
   }
 
-  getSquare(squareNumber, i, j, squares) {
-    let type = this.getType(squareNumber);
-    return new ZoologicSquare(i, j, type, squareNumber, squares);
+  getSquare(squareNumber, x, y, board) {
+    let type = this.getType(x, y);
+    return new ZoologicSquare(x, y, type, squareNumber, board);
   }
 
-  getType(squareNumber) {
-    switch (this.configDeTablero.squares.charAt(squareNumber)) {
+  getType(x, y) {
+    switch (this.getRawType(x, y)) {
       case 'M':
         return ZoologicPieceTypeGenerator.MOUSE();
       case 'C':
@@ -56,6 +55,18 @@ export default class ZoologicSquaresInitializer {
       case 'X':
         return ZoologicPieceTypeGenerator.BLANK();
     }
+  }
+
+  getRawType(x, y) {
+    return this.configDeTablero.squares.charAt(x + y * MATRIX_SIZE);
+  }
+
+  typeDefinedForPosition(x, y) {
+    return this.getRawType(x, y) !== '-'
+  }
+
+  matrixPositionAvailable(x, y, board) {
+    return !board.squares.some((square) => { return square.occupies(x, y) })
   }
 }
 
