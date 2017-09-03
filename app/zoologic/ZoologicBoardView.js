@@ -4,17 +4,15 @@ import Metrics from '../Metrics';
 import style from './ZoologicBoardStyle'
 import PiecesBar from './PiecesBar';
 import PiecesBarView from './PiecesBarView';
-import ZoologicPiece from './ZoologicPiece';
 import ZoologicPieceView from './ZoologicPieceView';
 import ZoologicSquareView from './ZoologicSquareView';
-import ZoologicSquaresInitializer from './ZoologicSquaresInitializer';
-import ZoologicPieceTypeGenerator from './ZoologicPieceTypeGenerator';
 
 export default class ZoologicBoardView extends Component {
   constructor(props) {
     super(props);
-    this.squares = new ZoologicSquaresInitializer(1).getBoard().squares;
-    this.generarCuadraditos();
+    this.board = this.props.board;
+    this.squares = this.board.squares;
+    this.pieces = this.board.pieces;
     this.piecesBar = new PiecesBar('piecesBar', 0, 0, Metrics.ZOOLOGIC_PIECES_BAR_WIDTH, Metrics.DEVICE_HEIGHT - Metrics.NAV_BAR_HEIGHT);
   }
 
@@ -32,20 +30,6 @@ export default class ZoologicBoardView extends Component {
         </View>
       </View>
     )
-  }
-
-  generarCuadraditos() {
-    let piecesX = Metrics.ZOOLOGIC_PIECES_BAR_PADDING;
-    let initialY = Metrics.ZOOLOGIC_PIECES_BAR_PADDING;
-
-    this.pieces = [
-      new ZoologicPiece(ZoologicPieceTypeGenerator.MOUSE(), piecesX, initialY, this.squares),
-      new ZoologicPiece(ZoologicPieceTypeGenerator.MOUSE(), piecesX, initialY, this.squares),
-      new ZoologicPiece(ZoologicPieceTypeGenerator.CAT(), piecesX, Metrics.TILE_SIZE + piecesX * 2, this.squares),
-      new ZoologicPiece(ZoologicPieceTypeGenerator.DOG(), piecesX, Metrics.TILE_SIZE * 2 + piecesX * 3, this.squares),
-      new ZoologicPiece(ZoologicPieceTypeGenerator.BULLDOG(), piecesX, Metrics.TILE_SIZE * 3 + piecesX * 4, this.squares)
-
-    ]
   }
 }
 

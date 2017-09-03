@@ -2,11 +2,13 @@ import ZoologicLevels from './ZoologicLevels';
 import ZoologicSquare from './ZoologicSquare';
 import ZoologicPieceTypeGenerator from './ZoologicPieceTypeGenerator'
 import ZooologicBoard from './ZoologicBoard'
+import Metrics from "../Metrics";
+import ZoologicPiece from "./ZoologicPiece";
 
 const MAX_SQUARES_IN_BOARD = 5;
 const MATRIX_SIZE = MAX_SQUARES_IN_BOARD * 2;
 
-export default class ZoologicSquaresInitializer {
+export default class ZoologicBoardInitializer {
   constructor(levelNumber) {
     this.configDeTablero = ZoologicLevels.getLevelConfig(levelNumber);
   }
@@ -14,6 +16,13 @@ export default class ZoologicSquaresInitializer {
   getBoard() {
     let board = new ZooologicBoard();
 
+    this.setUpBoardSquares(board);
+    this.setUpPieces(board);
+
+    return board;
+  }
+
+  setUpBoardSquares(board) {
     for (let y = 0; y < MATRIX_SIZE; y = y + 1) {
       for (let x = 0; x < MATRIX_SIZE; x = x + 1) {
         if (this.matrixPositionAvailable(x, y, board) && this.typeDefinedForPosition(x, y)) {
@@ -21,8 +30,17 @@ export default class ZoologicSquaresInitializer {
         }
       }
     }
+  }
 
-    return board;
+  setUpPieces(board) {
+    let piecesX = Metrics.ZOOLOGIC_PIECES_BAR_PADDING;
+    let initialY = Metrics.ZOOLOGIC_PIECES_BAR_PADDING;
+
+    board.addPiece(new ZoologicPiece(ZoologicPieceTypeGenerator.MOUSE(), piecesX, initialY, board));
+    board.addPiece(new ZoologicPiece(ZoologicPieceTypeGenerator.MOUSE(), piecesX, initialY, board));
+    board.addPiece(new ZoologicPiece(ZoologicPieceTypeGenerator.CAT(), piecesX, Metrics.TILE_SIZE + piecesX * 2, board));
+    board.addPiece(new ZoologicPiece(ZoologicPieceTypeGenerator.DOG(), piecesX, Metrics.TILE_SIZE * 2 + piecesX * 3, board));
+    board.addPiece(new ZoologicPiece(ZoologicPieceTypeGenerator.BULLDOG(), piecesX, Metrics.TILE_SIZE * 3 + piecesX * 4, board));
   }
 
   getSquare(x, y, board) {

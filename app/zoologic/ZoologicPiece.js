@@ -5,9 +5,9 @@ export default class ZoologicPiece {
   @observable x;
   @observable y;
 
-  constructor(type, x = 0, y = 0, squares) {
+  constructor(type, x = 0, y = 0, board) {
     this.type = type;
-    this.squares = squares;
+    this.squares = board.squares;
     this._setInitialPosition(x, y);
     this._setPosition(x, y);
     this._setDimensions(Metrics.TILE_SIZE, Metrics.TILE_SIZE);

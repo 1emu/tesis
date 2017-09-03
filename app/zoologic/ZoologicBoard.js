@@ -1,10 +1,15 @@
 export default class ZoologicBoard {
   constructor() {
     this.squares = [];
+    this.pieces = [];
   }
 
   addSquare(square) {
     this.squares.push(square);
+  }
+
+  addPiece(piece) {
+    this.pieces.push(piece)
   }
 
   getNeighboursFor(square) {
