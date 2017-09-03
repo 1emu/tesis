@@ -33,23 +33,25 @@ export default class ZoologicBoardInitializer {
   }
 
   setUpPieces(board) {
+    let piecesTypes = this.configDeTablero.pieces;
     let piecesX = Metrics.ZOOLOGIC_PIECES_BAR_PADDING;
     let initialY = Metrics.ZOOLOGIC_PIECES_BAR_PADDING;
+    let pieceNumber = 0;
 
-    board.addPiece(new ZoologicPiece(ZoologicPieceTypeGenerator.MOUSE(), piecesX, initialY, board));
-    board.addPiece(new ZoologicPiece(ZoologicPieceTypeGenerator.MOUSE(), piecesX, initialY, board));
-    board.addPiece(new ZoologicPiece(ZoologicPieceTypeGenerator.CAT(), piecesX, Metrics.TILE_SIZE + piecesX * 2, board));
-    board.addPiece(new ZoologicPiece(ZoologicPieceTypeGenerator.DOG(), piecesX, Metrics.TILE_SIZE * 2 + piecesX * 3, board));
-    board.addPiece(new ZoologicPiece(ZoologicPieceTypeGenerator.BULLDOG(), piecesX, Metrics.TILE_SIZE * 3 + piecesX * 4, board));
+    piecesTypes.forEach((pieceType) => {
+      let yPos = initialY + Metrics.TILE_SIZE * pieceNumber + Metrics.ZOOLOGIC_PIECES_BAR_PADDING * pieceNumber;
+      board.addPiece(new ZoologicPiece(this.parseType(pieceType), piecesX, yPos, board));
+      pieceNumber = pieceNumber + 1;
+    });
   }
 
   getSquare(x, y, board) {
-    let type = this.getType(x, y);
+    let type = this.parseType(this.getRawType(x, y));
     return new ZoologicSquare(x, y, type, board);
   }
 
-  getType(x, y) {
-    switch (this.getRawType(x, y)) {
+  parseType(rawType) {
+    switch (rawType) {
       case 'M':
         return ZoologicPieceTypeGenerator.MOUSE();
       case 'C':
