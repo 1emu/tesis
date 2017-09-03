@@ -14,7 +14,6 @@ export default class ZoologicSquare {
     this.type = type;
     this._generateKey(this.x, this.y);
     this.board = board;
-    this.squares = board.squares;
     this.storedPiece = null;
   }
 

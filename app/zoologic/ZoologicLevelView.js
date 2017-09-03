@@ -4,7 +4,7 @@ import {autorun} from 'mobx';
 import {observer} from "mobx-react/native"
 import style from './ZoologicLevelStyle'
 import LevelNavBarView from './LevelNavBarView';
-import TableroZoologicView from './TableroZoologicView';
+import ZoologicBoardView from "./ZoologicBoardView";
 
 @observer
 export default class ZoologicLevelView extends React.Component {
@@ -18,7 +18,7 @@ export default class ZoologicLevelView extends React.Component {
     return (
       <View style={style.container}>
         <LevelNavBarView navigator={this.props.navigator} levelNumber={this.props.levelNumber} />
-        <TableroZoologicView/>
+        <ZoologicBoardView/>
       </View>
     );
   }

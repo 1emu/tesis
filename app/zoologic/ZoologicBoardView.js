@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View} from 'react-native';
 import Metrics from '../Metrics';
-import style from './TableroZoologicStyle'
+import style from './ZoologicBoardStyle'
 import PiecesBar from './PiecesBar';
 import PiecesBarView from './PiecesBarView';
 import ZoologicPiece from './ZoologicPiece';
@@ -10,7 +10,7 @@ import ZoologicSquareView from './ZoologicSquareView';
 import ZoologicSquaresInitializer from './ZoologicSquaresInitializer';
 import ZoologicPieceTypeGenerator from './ZoologicPieceTypeGenerator';
 
-export default class TableroZoologicView extends Component {
+export default class ZoologicBoardView extends Component {
   constructor(props) {
     super(props);
     this.squares = new ZoologicSquaresInitializer(1).getBoard().squares;
