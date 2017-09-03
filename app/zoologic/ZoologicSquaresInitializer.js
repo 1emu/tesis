@@ -13,13 +13,11 @@ export default class ZoologicSquaresInitializer {
 
   getBoard() {
     let board = new ZooologicBoard();
-    let squareNumber = 0;
 
     for (let y = 0; y < MATRIX_SIZE; y = y + 1) {
       for (let x = 0; x < MATRIX_SIZE; x = x + 1) {
         if (this.matrixPositionAvailable(x, y, board) && this.typeDefinedForPosition(x, y)) {
-          board.addSquare(this.getSquare(squareNumber, x, y, board));
-          squareNumber++;
+          board.addSquare(this.getSquare(x, y, board));
         }
       }
     }
@@ -27,9 +25,9 @@ export default class ZoologicSquaresInitializer {
     return board;
   }
 
-  getSquare(squareNumber, x, y, board) {
+  getSquare(x, y, board) {
     let type = this.getType(x, y);
-    return new ZoologicSquare(x, y, type, squareNumber, board);
+    return new ZoologicSquare(x, y, type, board);
   }
 
   getType(x, y) {
