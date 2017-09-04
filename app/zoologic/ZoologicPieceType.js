@@ -16,6 +16,10 @@ export default class ZoologicPieceType {
     return this.allowedOnTop.includes(zoologicPieceType.knownType);
   }
 
+  expectsAPieceOnTop() {
+    return !(this.allowedOnTop.length === 0)
+  }
+
 };
 
 

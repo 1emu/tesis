@@ -45,6 +45,11 @@ export default class ZoologicSquare {
   store(piece) {
     if (this.storedPiece) throw new Error('Received piece but already had one. Receiver: ' + JSON.stringify(this) + '. Received: ' + piece);
     this.storedPiece = piece;
+    this.board.evaluateWinCondition();
+  }
+
+  completeForWin() {
+    return !this.type.expectsAPieceOnTop() || this.storedPiece
   }
 
   partWays() {
