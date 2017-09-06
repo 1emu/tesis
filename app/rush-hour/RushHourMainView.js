@@ -16,15 +16,15 @@ export default class RushHourMainView extends Component {
         <Text style={style.title}>RUSH HOUR</Text>
 
         <Icon.Button name="play-circle-filled" size={30} style={style.btn} onPress={() => this.startPlaying()}>
-          <Text style={style.btnText}>Comenzar</Text>
+          <Text style={style.btnText}>COMENZAR</Text>
         </Icon.Button>
 
         <Icon.Button name="list" size={30} style={style.btn} onPress={() => this.chooseLevel()}>
-          <Text style={style.btnText}>Elegir nivel</Text>
+          <Text style={style.btnText}>ELEGIR NIVEL</Text>
         </Icon.Button>
 
         <Icon.Button name="arrow-back" size={30} style={style.btn} onPress={() => this.goToGameSelection()}>
-          <Text style={style.btnText}>Volver</Text>
+          <Text style={style.btnText}>VOLVER</Text>
         </Icon.Button>
       </View>
     );

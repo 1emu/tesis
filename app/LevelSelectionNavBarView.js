@@ -13,9 +13,9 @@ export default class LevelSelectionNavBarView extends Component {
     return (
       <View style={this.props.style.navBar}>
         <Icon.Button name="arrow-back" size={20} color={this.props.iconColor}  style={this.props.style.backBtn} onPress={() => this._goBack()}>
-          <Text style={this.props.style.backBtnTxt}>Menu Principal</Text>
+          <Text style={this.props.style.backBtnTxt}>MENU PRINCIPAL</Text>
         </Icon.Button>
-        <Text style={this.props.style.title}>Selección de niveles</Text>
+        <Text style={this.props.style.title}>NIVELES</Text>
       </View>
     )
   }

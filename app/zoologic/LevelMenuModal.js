@@ -14,9 +14,9 @@ export default class LevelMenuModal extends Component {
     isModalVisible: false
   }
 
-  _showModal = () => this.setState({ isModalVisible: true })
+  _showModal = () => this.setState({ isModalVisible: true });
 
-  _hideModal = () => this.setState({ isModalVisible: false })
+  _hideModal = () => this.setState({ isModalVisible: false });
 
   _replay() {
     this.props.navigator.resetTo({id: 'zoologic-lvl', levelNumber: this.props.levelNumber});
@@ -33,19 +33,19 @@ export default class LevelMenuModal extends Component {
       <View >
 
         <Icon.Button name="menu" size={20} color={modalStyle.iconColor} style={modalStyle.style.showModalBtn} onPress={() => this._showModal()}>
-          <Text style={modalStyle.style.showModalBtnTxt}>Opciones</Text>
+          <Text style={modalStyle.style.showModalBtnTxt}>OPCIONES</Text>
         </Icon.Button>
 
         <Modal isVisible={this.state.isModalVisible}>
           <View style={modalStyle.style.modalContent}>
             <Icon.Button name="play-arrow" size={25} color={modalStyle.iconColor} style={modalStyle.style.modalBtn} onPress={() => this._hideModal()} >
-              <Text style={modalStyle.style.modalBtnText}>Reanudar</Text>
+              <Text style={modalStyle.style.modalBtnText}>REANUDAR</Text>
             </Icon.Button>
             <Icon.Button name="replay" size={25} color={modalStyle.iconColor} style={modalStyle.style.modalBtn} onPress={() => this._replay()} >
-              <Text style={modalStyle.style.modalBtnText}>Reiniciar</Text>
+              <Text style={modalStyle.style.modalBtnText}>REINICIAR</Text>
             </Icon.Button>
             <Icon.Button name="arrow-back" size={25} color={modalStyle.iconColor} style={modalStyle.style.modalBtn} onPress={() => this._transitionToMainMenu()} >
-              <Text style={modalStyle.style.modalBtnText}>Menu Principal</Text>
+              <Text style={modalStyle.style.modalBtnText}>MENU PRINCIPAL</Text>
             </Icon.Button>
           </View>
         </Modal>

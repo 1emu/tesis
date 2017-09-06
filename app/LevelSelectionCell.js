@@ -20,7 +20,7 @@ export default class LevelSelectionCell extends Component {
       <Button style={[levelSelectionStyle.btn, btnColor]} onPress={() => {this.chooseLevel()}}>
         <View style={levelSelectionStyle.btnTextContainer}>
           <Icon name="play-circle-filled" size={30} color={this.props.style.iconColor}/>
-          <Text style={levelSelectionStyle.btnText}>Nivel {`${this.level.levelNumber}`}</Text>
+          <Text style={levelSelectionStyle.btnText}>NIVEL {`${this.level.levelNumber}`}</Text>
         </View>
         <View style={levelSelectionStyle.levelCompletedContainer}>
           {this.levelCompletedTick()}
