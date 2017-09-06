@@ -13,10 +13,10 @@ import GameSelectionView from './rush-hour/GameSelectionView';
 import ZoologicLevelView from './zoologic/ZoologicLevelView';
 import ZoologicSuccessScreenView from './zoologic/ZoologicSuccessScreenView';
 import LevelSelectionView from './LevelSelectionView';
-import zoologicStyle from './zoologic/ZoologicLevelSelectionStyle'
-import rushHourStyle from './rush-hour/RushHourLevelSelectionStyle'
 import ZoologicLevels from './zoologic/ZoologicLevels';
 import RushHourLevels from './rush-hour/RushHourLevels';
+import zoologicStyle from './zoologic/ZoologicLevelSelectionStyle'
+import rushHourStyle from './rush-hour/RushHourLevelSelectionStyle'
 
 export default class Navigation extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <Navigator
-        initialRoute={{id: 'rush-hour-level-selection', levelNumber: 1}}
+        initialRoute={{id: 'game-selection', levelNumber: 1}}
         renderScene={this.navigatorRenderScene}
       />
     );

@@ -45,7 +45,7 @@ export default class LevelSelectionCell extends Component {
   }
 
   buttonColor() {
-    let levelSelectionStyle = this.props.style.levelSelectionStyle;
+    let levelSelectionStyle = this.props.style;
 
     switch(this.level.difficulty) {
       case DIFFICULTY.BEGINNER:

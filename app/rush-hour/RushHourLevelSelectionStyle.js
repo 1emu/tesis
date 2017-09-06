@@ -1,10 +1,13 @@
 import {StyleSheet} from 'react-native';
 import Metrics from '../Metrics'
+import RushHourColors from '../rush-hour/RushHourColors'
+
+
 
 const levelSelectionStyle = StyleSheet.create({
 
   list: {
-    backgroundColor: '#3e9184',
+    backgroundColor: RushHourColors.mid,
     justifyContent: 'center',
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -15,22 +18,22 @@ const levelSelectionStyle = StyleSheet.create({
     width: Metrics.LEVEL_SELECTION_BUTTON_WIDTH,
     height: Metrics.LEVEL_SELECTION_BUTTON_WIDTH,
     margin: Metrics.LEVEL_SELECTION_BUTTON_MARGIN,
-    borderColor: '#3e9184',
+    borderColor: RushHourColors.mid,
     alignItems: 'center',
     justifyContent: 'space-around',
   },
 
   btnBeginner: {
-    backgroundColor: '#64963a',
+    backgroundColor: RushHourColors.btnBeginner,
   },
   btnIntermediate: {
-    backgroundColor: '#d4b727',
+    backgroundColor: RushHourColors.btnIntermediate,
   },
   btnAdvanced: {
-    backgroundColor: '#bb7722',
+    backgroundColor: RushHourColors.btnAdvanced,
   },
   btnExpert: {
-    backgroundColor: '#710809',
+    backgroundColor: RushHourColors.btnExpert,
   },
 
   btnTextContainer: {
@@ -46,7 +49,7 @@ const levelSelectionStyle = StyleSheet.create({
   },
 
   btnText: {
-    color: '#ffffff',
+    color: RushHourColors.light,
     fontWeight: 'bold',
     fontSize: 16,
   },
@@ -62,28 +65,28 @@ const navBarStyle = StyleSheet.create({
     justifyContent: "space-between",
     height: Metrics.NAV_BAR_HEIGHT,
     width: Metrics.NAV_BAR_WIDTH,
-    backgroundColor: '#295246',
+    backgroundColor: RushHourColors.dark,
     paddingRight: 10,
   },
 
   title: {
-    color: '#ffffff',
+    color: RushHourColors.light,
     fontSize: 20,
     fontWeight: 'bold',
   },
 
   backBtn: {
-    backgroundColor: "#3e9184",
+    backgroundColor: RushHourColors.mid,
   },
 
   backBtnTxt: {
-    color: '#ffffff',
+    color: RushHourColors.light,
     fontSize: 16,
   },
 
 });
 
-const iconColor = '#ffffff';
+const iconColor = RushHourColors.light;
 
 export default {
   iconColor,

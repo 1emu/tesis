@@ -1,10 +1,11 @@
 import {StyleSheet} from 'react-native';
 import Metrics from '../Metrics'
+import ZoologicColors from '../zoologic/ZoologicColors'
 
 const levelSelectionStyle = StyleSheet.create({
 
   list: {
-    backgroundColor: '#f7ffb8',
+    backgroundColor: ZoologicColors.light,
     justifyContent: 'center',
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -15,22 +16,22 @@ const levelSelectionStyle = StyleSheet.create({
     width: Metrics.LEVEL_SELECTION_BUTTON_WIDTH,
     height: Metrics.LEVEL_SELECTION_BUTTON_WIDTH,
     margin: Metrics.LEVEL_SELECTION_BUTTON_MARGIN,
-    backgroundColor: '#f7ffb8',
+    backgroundColor: ZoologicColors.light,
     alignItems: 'center',
     justifyContent: 'space-around',
   },
 
   btnBeginner: {
-    backgroundColor: '#64963a',
+    backgroundColor: ZoologicColors.btnBeginner,
   },
   btnIntermediate: {
-    backgroundColor: '#d4b727',
+    backgroundColor: ZoologicColors.btnIntermediate,
   },
   btnAdvanced: {
-    backgroundColor: '#bb7722',
+    backgroundColor: ZoologicColors.btnAdvanced,
   },
   btnExpert: {
-    backgroundColor: '#710809',
+    backgroundColor: ZoologicColors.btnExpert,
   },
 
   btnTextContainer: {
@@ -46,7 +47,7 @@ const levelSelectionStyle = StyleSheet.create({
   },
 
   btnText: {
-    color: '#ffffff',
+    color: ZoologicColors.light,
     fontWeight: 'bold',
     fontSize: 16,
   },
@@ -62,28 +63,28 @@ const navBarStyle = StyleSheet.create({
     justifyContent: "space-between",
     height: Metrics.NAV_BAR_HEIGHT,
     width: Metrics.NAV_BAR_WIDTH,
-    backgroundColor: "#c6afb5",
+    backgroundColor: ZoologicColors.mid,
     paddingRight: 10,
   },
 
   title: {
-    color: '#000000',
+    color: ZoologicColors.dark,
     fontSize: 20,
     fontWeight: 'bold',
   },
 
   backBtn: {
-    backgroundColor: '#f7ffb8',
+    backgroundColor: ZoologicColors.light,
   },
 
   backBtnTxt: {
-    color: '#161616',
+    color: ZoologicColors.dark,
     fontSize: 16,
   },
 
 });
 
-const iconColor = '#161616';
+const iconColor = ZoologicColors.dark;
 
 export default {
   iconColor,
