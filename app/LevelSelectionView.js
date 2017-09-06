@@ -20,7 +20,7 @@ export default class LevelSelectionView extends Component {
         <LevelSelectionNavBarView navigator={this.props.navigator} style={this.props.style.navBarStyle} iconColor={this.props.style.iconColor} backRouteId={this.props.backRouteId}/>
         <ListView dataSource={this.dataSource} initialListSize={30}
                   contentContainerStyle={this.props.style.levelSelectionStyle.list}
-                  renderRow={(levelData) => <LevelSelectionCell navigator={this.props.navigator} level={levelData} routeId={this.props.levelSelectionRouteId} style={this.props.style.levelSelectionStyle}/>}
+                  renderRow={(levelData) => <LevelSelectionCell navigator={this.props.navigator} level={levelData} routeId={this.props.levelSelectionRouteId} style={this.props.style}/>}
         />
       </View>
     );

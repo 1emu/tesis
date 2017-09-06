@@ -1,15 +1,16 @@
 import {StyleSheet, Dimensions} from "react-native";
+import ZoologicColors from '../zoologic/ZoologicColors'
 
 import Metrics from '../Metrics';
 
 const style = StyleSheet.create({
 
   showModalBtn: {
-    backgroundColor: "#c6afb5",
+    backgroundColor: ZoologicColors.mid,
   },
 
   showModalBtnTxt: {
-    color: '#161616',
+    color: ZoologicColors.dark,
     fontSize: 16,
   },
 
@@ -17,11 +18,11 @@ const style = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: "space-around",
-    backgroundColor: '#c6afb5'
+    backgroundColor: ZoologicColors.mid
   },
 
   modalBtn: {
-    backgroundColor: "#f7ffb8",
+    backgroundColor: ZoologicColors.light,
     width: Metrics.DEVICE_WIDTH * 0.6,
     alignItems: 'center',
     justifyContent: "space-between",
@@ -30,11 +31,16 @@ const style = StyleSheet.create({
   },
 
   modalBtnText: {
-    color: '#161616',
+    color: ZoologicColors.dark,
     fontWeight: 'bold',
     fontSize: 18,
   }
 
 });
 
-export default style;
+const iconColor = ZoologicColors.dark;
+
+export default {
+  style,
+  iconColor
+};

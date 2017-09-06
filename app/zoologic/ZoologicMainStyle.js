@@ -1,5 +1,6 @@
 import {StyleSheet} from "react-native";
 import Metrics from '../Metrics';
+import ZoologicColors from './ZoologicColors';
 
 const style = StyleSheet.create({
   container: {
@@ -7,7 +8,7 @@ const style = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#f7ffb8',
+    backgroundColor: ZoologicColors.light,
   },
 
   title: {
@@ -16,7 +17,7 @@ const style = StyleSheet.create({
   },
 
   btn: {
-    backgroundColor: "#c6afb5",
+    backgroundColor: ZoologicColors.mid,
     width: Metrics.DEVICE_WIDTH * 0.6,
     alignItems: 'center',
     justifyContent: "center",
@@ -25,11 +26,16 @@ const style = StyleSheet.create({
   },
 
   btnText: {
-    color: '#161616',
+    color: ZoologicColors.dark,
     fontWeight: 'bold',
     fontSize: 18,
   }
 
 });
 
-export default style;
+const iconColor = ZoologicColors.dark;
+
+export default {
+  style,
+  iconColor
+};

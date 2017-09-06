@@ -1,6 +1,7 @@
 import {StyleSheet, Dimensions} from "react-native";
 
 import Metrics from '../Metrics';
+import ZoologicColors from './ZoologicColors';
 
 const style = StyleSheet.create({
   navBar: {
@@ -10,12 +11,12 @@ const style = StyleSheet.create({
     justifyContent: "space-between",
     height: Metrics.NAV_BAR_HEIGHT,
     width: Metrics.NAV_BAR_WIDTH,
-    backgroundColor: '#f7ffb8',
+    backgroundColor: ZoologicColors.light,
     paddingRight: 10,
   },
 
   title: {
-    color: '#161616',
+    color: ZoologicColors.dark,
     fontSize: 20,
     fontWeight: 'bold',
   }

@@ -14,15 +14,15 @@ export default class LevelSelectionCell extends Component {
   }
 
   render() {
-    let style = this.props.style;
+    let levelSelectionStyle = this.props.style.levelSelectionStyle;
     let btnColor = this.buttonColor();
     return (
-      <Button style={[style.btn, btnColor]} onPress={() => {this.chooseLevel()}}>
-        <View style={style.btnTextContainer}>
-          <Icon name="play-circle-filled" size={30} color='#ffffff'/>
-          <Text style={style.btnText}>Nivel {`${this.level.levelNumber}`}</Text>
+      <Button style={[levelSelectionStyle.btn, btnColor]} onPress={() => {this.chooseLevel()}}>
+        <View style={levelSelectionStyle.btnTextContainer}>
+          <Icon name="play-circle-filled" size={30} color={this.props.style.iconColor}/>
+          <Text style={levelSelectionStyle.btnText}>Nivel {`${this.level.levelNumber}`}</Text>
         </View>
-        <View style={style.levelCompletedContainer}>
+        <View style={levelSelectionStyle.levelCompletedContainer}>
           {this.levelCompletedTick()}
         </View>
       </Button>
@@ -32,7 +32,7 @@ export default class LevelSelectionCell extends Component {
   levelCompletedTick() {
     let tickView = null;
     if (PlayerResults.levelCompleted(this.level.levelNumber)) {
-      tickView = <Icon name="done" size={20} color='#ffffff'/>;
+      tickView = <Icon name="done" size={20} color={this.props.style.iconColor}/>;
     }
     return tickView;
   }
@@ -45,7 +45,7 @@ export default class LevelSelectionCell extends Component {
   }
 
   buttonColor() {
-    let levelSelectionStyle = this.props.style;
+    let levelSelectionStyle = this.props.style.levelSelectionStyle;
 
     switch(this.level.difficulty) {
       case DIFFICULTY.BEGINNER:

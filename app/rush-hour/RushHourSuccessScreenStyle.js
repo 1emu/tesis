@@ -1,5 +1,6 @@
 import {StyleSheet, Dimensions} from "react-native";
 
+import RushHourColors from '../rush-hour/RushHourColors'
 import Metrics from '../Metrics';
 
 const style = StyleSheet.create({
@@ -9,11 +10,11 @@ const style = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: "space-around",
-    backgroundColor: '#3e9184'
+    backgroundColor: RushHourColors.mid
   },
 
   content: {
-    color: '#ffffff',
+    color: RushHourColors.light,
     fontSize: 20,
     fontWeight: 'bold',
   },
@@ -28,7 +29,7 @@ const style = StyleSheet.create({
   },
 
   btnText: {
-    color: '#ffffff',
+    color: RushHourColors.light,
     fontWeight: 'bold',
     fontSize: 18,
   }

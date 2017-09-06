@@ -9,7 +9,7 @@ import RushHourMainView from './rush-hour/RushHourMainView'
 import RushHourLevelView from './rush-hour/RushHourLevelView';
 import RushHourSuccessScreenView from './rush-hour/RushHourSuccessScreenView';
 import ZoologicMainView from './zoologic/ZoologicMainView';
-import GameSelectionView from './rush-hour/GameSelectionView';
+import GameSelectionView from './GameSelectionView';
 import ZoologicLevelView from './zoologic/ZoologicLevelView';
 import ZoologicSuccessScreenView from './zoologic/ZoologicSuccessScreenView';
 import LevelSelectionView from './LevelSelectionView';
