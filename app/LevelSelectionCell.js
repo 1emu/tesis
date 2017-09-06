@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableHighlight} from 'react-native';
-import PlayerResults from './PlayerResults';
+import PlayerResults from './rush-hour/PlayerResults';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Button from 'apsl-react-native-button';
-import {DIFFICULTY} from './RushHourLevels'
-import btnsStyle from './LevelSelectionStyle';
+import {DIFFICULTY} from './rush-hour/RushHourLevels'
 
 export default class LevelSelectionCell extends Component {
   constructor(props) {
@@ -46,15 +45,17 @@ export default class LevelSelectionCell extends Component {
   }
 
   buttonColor() {
+    let levelSelectionStyle = this.props.style.levelSelectionStyle;
+
     switch(this.level.difficulty) {
       case DIFFICULTY.BEGINNER:
-        return btnsStyle.btnBeginner;
+        return levelSelectionStyle.btnBeginner;
       case DIFFICULTY.INTERMEDIATE:
-        return btnsStyle.btnIntermediate;
+        return levelSelectionStyle.btnIntermediate;
       case DIFFICULTY.ADVANCED:
-        return btnsStyle.btnAdvanced;
+        return levelSelectionStyle.btnAdvanced;
       case DIFFICULTY.EXPERT:
-        return btnsStyle.btnExpert;
+        return levelSelectionStyle.btnExpert;
     }
   }
 }

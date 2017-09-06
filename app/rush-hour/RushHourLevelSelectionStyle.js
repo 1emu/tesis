@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import Metrics from '../Metrics'
 
-const style = StyleSheet.create({
+const levelSelectionStyle = StyleSheet.create({
 
   list: {
     backgroundColor: '#3e9184',
@@ -53,4 +53,40 @@ const style = StyleSheet.create({
 
 });
 
-export default style;
+const navBarStyle = StyleSheet.create({
+
+  navBar: {
+    alignSelf: "flex-start",
+    flexDirection: 'row',
+    alignItems:'center',
+    justifyContent: "space-between",
+    height: Metrics.NAV_BAR_HEIGHT,
+    width: Metrics.NAV_BAR_WIDTH,
+    backgroundColor: '#295246',
+    paddingRight: 10,
+  },
+
+  title: {
+    color: '#ffffff',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+
+  backBtn: {
+    backgroundColor: "#3e9184",
+  },
+
+  backBtnTxt: {
+    color: '#ffffff',
+    fontSize: 16,
+  },
+
+});
+
+const iconColor = '#ffffff';
+
+export default {
+  iconColor,
+  levelSelectionStyle,
+  navBarStyle
+}
