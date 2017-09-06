@@ -12,6 +12,9 @@ import LevelSelectionView from "./rush-hour/LevelSelectionView";
 import ZoologicMainView from './zoologic/ZoologicMainView';
 import GameSelectionView from './rush-hour/GameSelectionView';
 import ZoologicLevelView from './zoologic/ZoologicLevelView';
+import ZoologicSuccessScreenView from './zoologic/ZoologicSuccessScreenView';
+import ZoologicLevelSelectionView from './zoologic/ZoologicLevelSelectionView';
+import zoologicStyle from './zoologic/ZoologicLevelSelectionStyle'
 
 export default class Navigation extends React.Component {
   constructor(props) {
@@ -21,15 +24,15 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <Navigator
-        initialRoute={{id: 'zoologic-lvl', levelNumber: 1}}
+        initialRoute={{id: 'zoologic-level-selection', levelNumber: 1}}
         renderScene={this.navigatorRenderScene}
       />
     );
   }
 
   navigatorRenderScene(route, navigator) {
+    console.log(JSON.stringify(route));
     switch (route.id) {
-
       case 'game-selection':
         return (<GameSelectionView navigator={navigator} />);
 
@@ -38,14 +41,18 @@ export default class Navigation extends React.Component {
       case 'rush-hour-lvl':
         return (<RushHourLevelView navigator={navigator} levelNumber={route.levelNumber}/>);
       case 'rush-hour-success-screen':
-        return (<RushHourSuccessScreenView navigator={navigator} actualLevelNumber={route.levelNumber} nextLevelNumber={route.nextLevelNumber}/>);
+        return (<RushHourSuccessScreenView navigator={navigator} actualLevelNumber={route.levelNumber}/>);
       case 'rush-hour-level-selection':
         return (<LevelSelectionView navigator={navigator}/>);
 
       case 'zoologic-main':
         return (<ZoologicMainView navigator={navigator}/>);
       case 'zoologic-lvl':
-        return (<ZoologicLevelView navigator={navigator} levelNumber={1}/>);
+        return (<ZoologicLevelView navigator={navigator} levelNumber={route.levelNumber}/>);
+      case 'zoologic-success-screen':
+        return (<ZoologicSuccessScreenView navigator={navigator} actualLevelNumber={route.levelNumber}/>);
+      case 'zoologic-level-selection':
+        return (<ZoologicLevelSelectionView navigator={navigator} levelSelectionRouteId="zoologic-lvl" backRouteId='zoologic-main' style={zoologicStyle}/>);
     }
   }
 

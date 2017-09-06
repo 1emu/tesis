@@ -11,6 +11,7 @@ const MATRIX_SIZE = MAX_SQUARES_IN_BOARD * 2;
 export default class ZoologicBoardInitializer {
   constructor(levelNumber) {
     this.configDeTablero = ZoologicLevels.getLevelConfig(levelNumber);
+    console.log('config del tablero ', JSON.stringify( this.configDeTablero));
   }
 
   getBoard() {

@@ -27,8 +27,7 @@ export default class ZoologicLevelView extends React.Component {
 
   transitionToSuccessScreen() {
     if(this.board.playerHasWon) {
-      // TODO use zoologic success screen
-      this.props.navigator.push({id: 'rush-hour-success-screen', levelNumber: this.props.levelNumber, nextLevelNumber: this.props.levelNumber + 1});
+      this.props.navigator.push({id: 'zoologic-success-screen', levelNumber: this.props.levelNumber});
     }
   }
 

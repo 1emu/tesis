@@ -1,11 +1,10 @@
 import React, {Component, PropTypes} from "react";
 import {View, Text, TouchableHighlight} from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {MAX_LEVEL_NUMBER} from './RushHourLevels'
-import style from "./RushHourSuccessScreenStyle"
+import {MAX_LEVEL_NUMBER} from './ZoologicLevels'
+import style from "./ZoologicSuccessScreenStyle"
 
-export default class RushHourSuccessScreenView extends React.Component {
-
+export default class ZoologicSuccessScreenView extends React.Component {
 
   render() {
     return (
@@ -40,7 +39,7 @@ export default class RushHourSuccessScreenView extends React.Component {
 
   chooseLevel(levelNumber) {
     this.props.navigator.resetTo({
-      id: 'rush-hour-lvl',
+      id: 'zoologic-lvl',
       levelNumber: levelNumber
     });
   }
@@ -50,6 +49,6 @@ export default class RushHourSuccessScreenView extends React.Component {
   }
 
   _levelSelectionMenu() {
-    this.props.navigator.resetTo({id: 'rush-hour-level-selection'});
+    this.props.navigator.resetTo({id: 'zoologic-level-selection'});
   }
 }
