@@ -1,5 +1,5 @@
-export const DIFFICULTY = {BEGINNER: 'BEGINNER', INTERMEDIATE: 'INTERMEDIATE', ADVANCED: 'ADVANCED', EXPERT: 'EXPERT'};
-export const MAX_LEVEL_NUMBER = 10;
+export const DIFFICULTY = {BEGINNER: 'BEGINNER', EASY: 'EASY', INTERMEDIATE: 'INTERMEDIATE', ADVANCED: 'ADVANCED', EXPERT: 'EXPERT'};
+export const MAX_LEVEL_NUMBER = 12;
 
 export default class ZoologicLevels {
 
@@ -163,6 +163,38 @@ export default class ZoologicLevels {
       '----------',
       pieces: ['O', 'C', 'C', 'H', 'D'],
       difficulty: DIFFICULTY.BEGINNER
+    },
+    {
+      levelNumber: 11,
+      squares:
+      '----------' +
+      '--XX------' +
+      '--XX------' +
+      '--CCXX----' +
+      '--CCXX----' +
+      '----XXDD--' +
+      '----XXDD--' +
+      '------XX--' +
+      '------XX--' +
+      '----------',
+      pieces: ['C', 'O', 'F', 'D'],
+      difficulty: DIFFICULTY.EASY
+    },
+    {
+      levelNumber: 12,
+      squares:
+      '----------' +
+      '--MM------' +
+      '--MM------' +
+      '--XXXX----' +
+      '--XXXX----' +
+      '----XXXX--' +
+      '----XXXX--' +
+      '----------' +
+      '----------' +
+      '----------',
+      pieces: ['D', 'F', 'O', 'C'],
+      difficulty: DIFFICULTY.EASY
     },
   ];
 

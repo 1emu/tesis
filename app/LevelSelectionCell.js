@@ -50,6 +50,8 @@ export default class LevelSelectionCell extends Component {
     switch(this.level.difficulty) {
       case DIFFICULTY.BEGINNER:
         return levelSelectionStyle.btnBeginner;
+      case DIFFICULTY.EASY:
+        return levelSelectionStyle.btnEasy;
       case DIFFICULTY.INTERMEDIATE:
         return levelSelectionStyle.btnIntermediate;
       case DIFFICULTY.ADVANCED:
