@@ -10,7 +10,7 @@ export default class ZoologicPiece {
     this.squares = board.squares;
     this._setInitialPosition(x, y);
     this._setPosition(x, y);
-    this._setDimensions(Metrics.TILE_SIZE, Metrics.TILE_SIZE);
+    this._setDimensions(Metrics.ZOOLOGIC_SQUARE_SIZE, Metrics.ZOOLOGIC_SQUARE_SIZE);
     this.maxSpaceInBetween = 0;
   }
 
