@@ -34,7 +34,7 @@ export default class ZoologicBoardInitializer {
   }
 
   setUpPieces(board) {
-    let piecesTypes = this.configDeTablero.pieces;
+    let piecesTypes = this.shuffle(this.configDeTablero.pieces);
     let initialY = Metrics.DEVICE_HEIGHT - Metrics.ZOOLOGIC_PIECES_BAR_HEIGHT + Metrics.ZOOLOGIC_PIECES_BAR_PADDING;
     let initialX = Metrics.ZOOLOGIC_PIECES_BAR_PADDING;
     let pieceNumber = 0;
@@ -88,6 +88,17 @@ export default class ZoologicBoardInitializer {
   matrixPositionAvailable(x, y, board) {
     return !board.squares.some((square) => { return square.occupies(x, y) })
   }
+
+  shuffle(array) {
+    let result = array.concat();
+      for (let i = result.length - 1; i > 0; i -= 1) {
+          let j = Math.floor(Math.random() * (i + 1));
+          let temp = result[i];
+          result[i] = result[j];
+          result[j] = temp;
+      }
+      return result;
+    }
 }
 
 
