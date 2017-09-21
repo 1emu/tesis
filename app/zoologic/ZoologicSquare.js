@@ -1,14 +1,13 @@
-import {observable, autorun} from 'mobx';
 import Metrics from '../Metrics';
 
 export default class ZoologicSquare {
   constructor(matrixX = 0, matrixY = 0, type, board) {
     this.matrixX = matrixX;
     this.matrixY = matrixY;
-    let startX = Metrics.ZOOLOGIC_PIECES_BAR_WIDTH + Metrics.TILE_SIZE / 2 + 20;
-    let startY = Metrics.NAV_BAR_HEIGHT + Metrics.TILE_SIZE / 2 + 50;
-    this.x = startX + matrixX * Metrics.TILE_SIZE/2;
-    this.y = startY + matrixY * Metrics.TILE_SIZE/2;
+    let startX = Metrics.ZOOLOGIC_SQUARE_SIZE / 2 + 20;
+    let startY = Metrics.NAV_BAR_HEIGHT + Metrics.ZOOLOGIC_SQUARE_SIZE / 4;
+    this.x = startX + matrixX * Metrics.ZOOLOGIC_SQUARE_SIZE/2;
+    this.y = startY + matrixY * Metrics.ZOOLOGIC_SQUARE_SIZE/2;
     this.width = Metrics.ZOOLOGIC_SQUARE_SIZE;
     this.height = Metrics.ZOOLOGIC_SQUARE_SIZE;
     this.type = type;
