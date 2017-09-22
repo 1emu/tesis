@@ -13,7 +13,7 @@ export default class ZoologicBoardView extends Component {
     this.board = this.props.board;
     this.squares = this.board.squares;
     this.pieces = this.board.pieces;
-    this.piecesBar = new PiecesBar('piecesBar', 0, 0, Metrics.ZOOLOGIC_PIECES_BAR_WIDTH, Metrics.DEVICE_HEIGHT - Metrics.NAV_BAR_HEIGHT);
+    this.piecesBar = new PiecesBar('piecesBar', 0, Metrics.DEVICE_HEIGHT - Metrics.ZOOLOGIC_PIECES_BAR_HEIGHT, Metrics.ZOOLOGIC_PIECES_BAR_WIDTH, Metrics.ZOOLOGIC_PIECES_BAR_HEIGHT);
   }
 
   render() {

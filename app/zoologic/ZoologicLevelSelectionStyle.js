@@ -24,6 +24,9 @@ const levelSelectionStyle = StyleSheet.create({
   btnBeginner: {
     backgroundColor: ZoologicColors.btnBeginner,
   },
+  btnEasy: {
+    backgroundColor: ZoologicColors.btnEasy,
+  },
   btnIntermediate: {
     backgroundColor: ZoologicColors.btnIntermediate,
   },

@@ -11,12 +11,16 @@ export default class ZoologicImage {
       BONE: require('./img/Bone.png'),
       BULL: require('./img/Bull.png'),
       ANTS: require('./img/Ants.png'),
-      BLANK: require('./img/empty.png')
+      BLANK: require('./img/Empty.png')
     }
   }
 
   static defaultImage() {
-    return require('./img/empty.png');
+    return require('./img/Empty.png');
+  }
+
+  static borderImage() {
+    return require('./img/Border.png');
   }
 
   static for(type) {

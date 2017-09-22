@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableHighlight} from 'react-native';
+import {View, Text} from 'react-native';
 import PlayerResults from './rush-hour/PlayerResults';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Button from 'apsl-react-native-button';
@@ -50,6 +50,8 @@ export default class LevelSelectionCell extends Component {
     switch(this.level.difficulty) {
       case DIFFICULTY.BEGINNER:
         return levelSelectionStyle.btnBeginner;
+      case DIFFICULTY.EASY:
+        return levelSelectionStyle.btnEasy;
       case DIFFICULTY.INTERMEDIATE:
         return levelSelectionStyle.btnIntermediate;
       case DIFFICULTY.ADVANCED:
