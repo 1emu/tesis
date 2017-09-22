@@ -10,7 +10,10 @@ export default class Tablero {
   constructor() {
     this.generarBumpers();
     this.colisionables = this.bumpers;
-
+    this.tileSize = Metrics.TILE_SIZE;
+    this.maxSpaceInBetweenTiles = Metrics.MAX_SPACE_IN_BETWEEN_TILES;
+    this.width = Metrics.BOARD_WIDTH;
+    this.height = Metrics.BOARD_HEIGHT;
     this.generarMagnetos();
     this.victoryGarden = new VictoryGarden('victoryGarden', 6, 2, 1, 1, this);
   }
@@ -30,12 +33,8 @@ export default class Tablero {
   generarMagnetos() {
     this.imanes = [];
 
-    let width = Metrics.BOARD_WIDTH;
-    let height = Metrics.BOARD_HEIGHT;
-    let tileSize = Metrics.TILE_SIZE;
-
-    for(i = 0; i < width; i = i + tileSize){
-      for (j = 0; j < height; j = j + tileSize) {
+    for(let i = 0; i < this.width; i = i + this.tileSize){
+      for (let j = 0; j < this.height; j = j + this.tileSize) {
         this.imanes.push(new Magneto('' + i + j, i, j))
       }
     }
@@ -55,7 +54,7 @@ export default class Tablero {
 
   movementLimitRight(cuadradito, x) {
     let cuadraditosToTheRight = this.otherCuadraditosAtTheSameHeightSpan(cuadradito).filter((other) => { return other.x >= cuadradito.xMax() });
-    let candidateMinimums = [x + cuadradito.width, Metrics.BOARD_WIDTH].concat(cuadraditosToTheRight.map((other) => { return other.x }));
+    let candidateMinimums = [x + cuadradito.width, this.width].concat(cuadraditosToTheRight.map((other) => { return other.x }));
     return Math.min(...candidateMinimums) - cuadradito.width;
   }
 
@@ -67,7 +66,7 @@ export default class Tablero {
 
   movementLimitBottom(cuadradito, y) {
     let cuadraditosBelow = this.otherCuadraditosAtTheSameWidthSpan(cuadradito).filter((other) => { return other.y >= cuadradito.yMax() });
-    let candidateMinimums = [y + cuadradito.height, Metrics.BOARD_HEIGHT].concat(cuadraditosBelow.map((other) => { return other.y }));
+    let candidateMinimums = [y + cuadradito.height, this.height].concat(cuadraditosBelow.map((other) => { return other.y }));
     return Math.min(...candidateMinimums) - cuadradito.height;
   }
 

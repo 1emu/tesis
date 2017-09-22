@@ -7,13 +7,13 @@ export default class Cuadradito {
   @observable x;
   @observable y;
 
-  constructor(id, x = 0, y = 0, width, height, tablero, image = null) {
+  constructor(id, xCoordinate = 0, yCoordinate = 0, widthInTiles, heightInTiles, board, image = null) {
     this.id = id;
-    this.tablero = tablero;
+    this.tablero = board;
 
-    this.setInitialPosition(x * Metrics.TILE_SIZE, y * Metrics.TILE_SIZE);
-    this.setDimensions(width, height, Metrics.TILE_SIZE);
-    this.maxSpaceInBetween = Metrics.MAX_SPACE_IN_BETWEEN_TILES;
+    this.setInitialPosition(xCoordinate * board.tileSize, yCoordinate * board.tileSize);
+    this.setDimensions(widthInTiles, heightInTiles, board.tileSize);
+    this.maxSpaceInBetween = board.maxSpaceInBetween;
 
     this.image = (image ? image : this.DEFAULT_IMG);
   }
