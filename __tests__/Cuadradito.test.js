@@ -4,7 +4,6 @@ import Tablero from '../app/rush-hour/Tablero';
 describe('Cuadradito Test', () => {
 
   describe('#creation', () => {
-
     let id = 'an id';
     let xCoord = 2;
     let yCoord = 3;
