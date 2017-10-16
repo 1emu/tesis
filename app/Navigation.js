@@ -5,18 +5,18 @@ import React, {Component, PropTypes} from 'react';
 import {StyleSheet, View, Text, TouchableHighlight} from 'react-native';
 import {Navigator} from 'react-native-deprecated-custom-components';
 
-import RushHourMainView from './rush-hour/RushHourMainView'
-import RushHourLevelView from './rush-hour/RushHourLevelView';
-import RushHourSuccessScreenView from './rush-hour/RushHourSuccessScreenView';
-import ZoologicMainView from './zoologic/ZoologicMainView';
+import RushHourMainView from './rush-hour/view/RushHourMainView'
+import RushHourLevelView from './rush-hour/view/RushHourLevelView';
+import RushHourSuccessScreenView from './rush-hour/view/RushHourSuccessScreenView';
+import ZoologicMainView from './zoologic/view/ZoologicMainView';
 import GameSelectionView from './GameSelectionView';
-import ZoologicLevelView from './zoologic/ZoologicLevelView';
-import ZoologicSuccessScreenView from './zoologic/ZoologicSuccessScreenView';
+import ZoologicLevelView from './zoologic/view/ZoologicLevelView';
+import ZoologicSuccessScreenView from './zoologic/view/ZoologicSuccessScreenView';
 import LevelSelectionView from './LevelSelectionView';
-import ZoologicLevels from './zoologic/ZoologicLevels';
-import RushHourLevels from './rush-hour/RushHourLevels';
-import zoologicStyle from './zoologic/ZoologicLevelSelectionStyle'
-import rushHourStyle from './rush-hour/RushHourLevelSelectionStyle'
+import ZoologicLevels from './zoologic/model/ZoologicLevels';
+import RushHourLevels from './rush-hour/model/RushHourLevels';
+import zoologicStyle from './zoologic/style/ZoologicLevelSelectionStyle'
+import rushHourStyle from './rush-hour/style/RushHourLevelSelectionStyle'
 
 export default class Navigation extends React.Component {
   constructor(props) {

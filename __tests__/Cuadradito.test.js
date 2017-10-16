@@ -1,7 +1,8 @@
-import Cuadradito from '../app/rush-hour/Cuadradito';
-import Tablero from '../app/rush-hour/Tablero';
+import RushHourPiece from '../app/rush-hour/model/RushHourPiece';
+import RushHourBoard from '../app/rush-hour/model/RushHourBoard';
+import Metrics from '../app/Metrics';
 
-describe('Cuadradito Test', () => {
+describe('RushHourPiece Test', () => {
 
   describe('#creation', () => {
     let id = 'an id';
@@ -9,8 +10,9 @@ describe('Cuadradito Test', () => {
     let yCoord = 3;
     let widthInTiles = 22;
     let heightInTiles = 33;
-    let board = new Tablero();
-    cuadradito = new Cuadradito(id, xCoord, yCoord, widthInTiles, heightInTiles, board);
+    let board = new RushHourBoard(Metrics.RUSH_HOUR_DIMENSIONS);
+
+    cuadradito = new RushHourPiece(id, xCoord, yCoord, widthInTiles, heightInTiles, board);
 
     test('it has an id', () => {
       expect(cuadradito.id).toEqual(id);
@@ -36,7 +38,7 @@ describe('Cuadradito Test', () => {
     });
 
     test('knows the board it belongs to', () => {
-      expect(cuadradito.tablero).toEqual(board);
+      expect(cuadradito.board).toEqual(board);
     });
 
 
