@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import style from '../style/RushHourLevelStyle'
 import {autorun} from 'mobx';
 import LevelNavBarView from './LevelNavBarView';
-import TableroView from './TableroView';
+import RushHourPieceView from './RushHourBoardView';
 import InicializadorDeTablero from '../model/RushHourBoardInitializer';
 import {observer} from "mobx-react/native"
 import PlayerResults from "../model/PlayerResults";
@@ -21,7 +21,7 @@ export default class RushHourLevelView extends React.Component {
     return (
       <View style={style.container}>
         <LevelNavBarView navigator={this.props.navigator} levelNumber={this.props.levelNumber} />
-        <TableroView board={this.board}/>
+        <RushHourPieceView board={this.board}/>
       </View>
     );
   }

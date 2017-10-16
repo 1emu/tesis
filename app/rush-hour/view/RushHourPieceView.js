@@ -3,7 +3,7 @@ import {View, Image, PanResponder, Animated} from 'react-native';
 import {observer} from 'mobx-react/native'
 
 @observer
-export default class CuadraditoView extends Component {
+export default class RushHourPieceView extends Component {
   constructor(props) {
     super(props);
     this._setupPanResponder();

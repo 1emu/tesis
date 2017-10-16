@@ -1,9 +1,7 @@
-import Cuadradito from '../app/rush-hour/model/Cuadradito';
 import RushHourBoard from '../app/rush-hour/model/RushHourBoard';
 import Metrics from '../app/Metrics';
 
 describe('RushHourBoard Test', () => {
-
 
   describe('#creation', () => {
     const boardWidth = Metrics.BOARD_WIDTH;
@@ -27,5 +25,6 @@ describe('RushHourBoard Test', () => {
     });
 
   });
+
 });
 

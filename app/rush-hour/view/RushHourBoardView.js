@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {View} from 'react-native';
 import VictoryGardenView from './VictoryGardenView';
-import CuadraditosView from './CuadraditosView';
+import VehiclesView from './VehiclesView';
 import BumpersView from './BumpersView';
 import Metrics from '../../Metrics';
 
 
-export default class TableroView extends Component {
+export default class RushHourBoardView extends Component {
   constructor(props) {
     super(props);
     this.board = props.board;
@@ -24,7 +24,7 @@ export default class TableroView extends Component {
         <View style={{backgroundColor: 'lightgrey', height: height, width: width, top: boardMargin, left: boardMargin}}>
           <VictoryGardenView key='victoryGarden' victoryGarden={this.board.victoryGarden}/>
           <BumpersView bumpers={this.board.bumpers} />
-          <CuadraditosView cuadraditos={this.board.cuadraditos} />
+          <VehiclesView cuadraditos={this.board.cuadraditos} />
         </View>
       </View>
     )

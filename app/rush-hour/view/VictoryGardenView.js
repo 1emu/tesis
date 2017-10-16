@@ -12,7 +12,7 @@ export default class VictoryGardenView extends Component {
     return (
       <View
         style={{
-          width: this.props.victoryGarden.width, height: this.props.victoryGarden.height, backgroundColor: this.props.victoryGarden.backgroundColor,
+          width: this.props.victoryGarden.width, height: this.props.victoryGarden.height, backgroundColor: 'lightgrey',
           left: this._currentX(), top: this._currentY(), position: 'absolute',
           borderColor: 'white'
         }}>

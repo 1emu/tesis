@@ -1,7 +1,8 @@
-import Cuadradito from '../app/rush-hour/model/Cuadradito';
+import RushHourPiece from '../app/rush-hour/model/RushHourPiece';
 import RushHourBoard from '../app/rush-hour/model/RushHourBoard';
+import Metrics from '../app/Metrics';
 
-describe('Cuadradito Test', () => {
+describe('RushHourPiece Test', () => {
 
   describe('#creation', () => {
     let id = 'an id';
@@ -10,7 +11,8 @@ describe('Cuadradito Test', () => {
     let widthInTiles = 22;
     let heightInTiles = 33;
     let board = new RushHourBoard(Metrics.RUSH_HOUR_DIMENSIONS);
-    cuadradito = new Cuadradito(id, xCoord, yCoord, widthInTiles, heightInTiles, board);
+
+    cuadradito = new RushHourPiece(id, xCoord, yCoord, widthInTiles, heightInTiles, board);
 
     test('it has an id', () => {
       expect(cuadradito.id).toEqual(id);

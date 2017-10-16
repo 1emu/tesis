@@ -3,7 +3,7 @@ import {View} from "react-native";
 import {observer} from "mobx-react/native"
 
 @observer
-export default class BumperView extends Component{
+export default class AreaView extends Component{
   constructor(props) {
     super(props);
   }
