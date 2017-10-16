@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import Metrics from './Metrics';
-import RushHourColors from './rush-hour/RushHourColors';
-import ZoologicColors from './zoologic/ZoologicColors';
+import RushHourColors from './rush-hour/style/RushHourColors';
+import ZoologicColors from './zoologic/style/ZoologicColors';
 
 const style = StyleSheet.create({
   container: {

@@ -1,13 +1,14 @@
-import Tablero from '../app/rush-hour/Tablero';
-import AutoGanador from "../app/rush-hour/AutoGanador";
-import CarImage from "../app/rush-hour/CarImages";
+import Tablero from '../app/rush-hour/model/Tablero';
+import AutoGanador from "../app/rush-hour/model/AutoGanador";
+import CarImage from "../app/rush-hour/model/CarImages";
+import Metrics from '../app/Metrics';
 
 describe('AutoGanador', () => {
     describe('#creation', () => {
         let id = 'an id';
         let xCoord = 2;
         let yCoord = 3;
-        let board = new Tablero();
+        let board = new Tablero(Metrics.RUSH_HOUR_DIMENSIONS);
         auto = new AutoGanador(id, xCoord, yCoord, board);
         board.ubicarVehiculos([auto]);
 

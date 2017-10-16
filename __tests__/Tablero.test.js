@@ -1,5 +1,5 @@
-import Cuadradito from '../app/rush-hour/Cuadradito';
-import Tablero from '../app/rush-hour/Tablero';
+import Cuadradito from '../app/rush-hour/model/Cuadradito';
+import Tablero from '../app/rush-hour/model/Tablero';
 import Metrics from '../app/Metrics';
 
 describe('Tablero Test', () => {
@@ -8,7 +8,7 @@ describe('Tablero Test', () => {
   describe('#creation', () => {
     const boardWidth = Metrics.BOARD_WIDTH;
     const boardHeight = Metrics.BOARD_HEIGHT;
-    let board = new Tablero();
+    let board = new Tablero(Metrics.RUSH_HOUR_DIMENSIONS);
 
     test('it has a width', () => {
       expect(board.width).toEqual(boardWidth);

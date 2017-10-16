@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
-import PlayerResults from './rush-hour/PlayerResults';
+import PlayerResults from './rush-hour/model/PlayerResults';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Button from 'apsl-react-native-button';
-import {DIFFICULTY} from './rush-hour/RushHourLevels'
+import {DIFFICULTY} from './rush-hour/model/RushHourLevels'
 
 export default class LevelSelectionCell extends Component {
   constructor(props) {
