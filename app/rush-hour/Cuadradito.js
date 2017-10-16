@@ -13,7 +13,7 @@ export default class Cuadradito {
 
     this.setInitialPosition(xCoordinate * board.tileSize, yCoordinate * board.tileSize);
     this.setDimensions(widthInTiles, heightInTiles, board.tileSize);
-    this.maxSpaceInBetween = board.maxSpaceInBetween;
+    this.maxSpaceInBetween = board.maxSpaceInBetweenTiles;
 
     this.image = (image ? image : this.DEFAULT_IMG);
   }

@@ -8,12 +8,13 @@ export default class Tablero {
   @observable playerHasWon = false;
 
   constructor() {
-    this.generarBumpers();
-    this.colisionables = this.bumpers;
     this.tileSize = Metrics.TILE_SIZE;
     this.maxSpaceInBetweenTiles = Metrics.MAX_SPACE_IN_BETWEEN_TILES;
     this.width = Metrics.BOARD_WIDTH;
     this.height = Metrics.BOARD_HEIGHT;
+
+    this.generarBumpers();
+    this.colisionables = this.bumpers;
     this.generarMagnetos();
     this.victoryGarden = new VictoryGarden('victoryGarden', 6, 2, 1, 1, this);
   }
