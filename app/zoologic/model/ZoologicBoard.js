@@ -3,9 +3,10 @@ import {observable} from 'mobx'
 export default class ZoologicBoard {
   @observable playerHasWon = false;
 
-  constructor() {
+  constructor(squareSize) {
     this.squares = [];
     this.pieces = [];
+    this.squareSize = squareSize;
   }
 
   addSquare(square) {

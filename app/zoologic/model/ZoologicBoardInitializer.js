@@ -15,7 +15,7 @@ export default class ZoologicBoardInitializer {
   }
 
   getBoard() {
-    let board = new ZooologicBoard();
+    let board = new ZooologicBoard(Metrics.ZOOLOGIC_SQUARE_SIZE);
 
     this.setUpBoardSquares(board);
     this.setUpPieces(board);

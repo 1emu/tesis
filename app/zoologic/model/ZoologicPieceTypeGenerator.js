@@ -5,7 +5,7 @@ import {KNOWN_TYPE} from './ZoologicKnownType';
 export default class ZoologicPieceTypeGenerator {
 
   static MOUSE() {
-    return new ZoologicPieceType(KNOWN_TYPE.MOUSE, [KNOWN_TYPE.CHEESE], [], ZoologicImage.for(KNOWN_TYPE.MOUSE), 'red');
+    return new ZoologicPieceType(KNOWN_TYPE.MOUSE, [KNOWN_TYPE.CHEESE, KNOWN_TYPE.CAT], [], ZoologicImage.for(KNOWN_TYPE.MOUSE), 'red');
   }
 
   static CAT() {
@@ -42,6 +42,25 @@ export default class ZoologicPieceTypeGenerator {
 
   static ANTS() {
     return new ZoologicPieceType(KNOWN_TYPE.ANTS, [], [KNOWN_TYPE.MOUSE, KNOWN_TYPE.CAT, KNOWN_TYPE.DOG, KNOWN_TYPE.BULLDOG], ZoologicImage.for(KNOWN_TYPE.ANTS), 'pink');
+  }
+
+  static ALL() {
+    return [
+      this.MOUSE(),
+      this.CAT(),
+      this.DOG(),
+      this.BULLDOG(),
+      this.CHEESE(),
+      this.FISH(),
+      this.BONE(),
+      this.BLANK(),
+      this.BULL(),
+      this.ANTS()
+    ]
+  }
+
+  static ALLBUT(arrayOfPieceTypes){
+    return this.ALL().filter(pieceType => !arrayOfPieceTypes.some(pt1 => pt1.knownType === pieceType.knownType));
   }
 
 }

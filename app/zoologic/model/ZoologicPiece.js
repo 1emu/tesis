@@ -1,5 +1,4 @@
-import {observable, autorun} from 'mobx';
-import Metrics from '../../Metrics';
+import {observable} from 'mobx';
 
 export default class ZoologicPiece {
   @observable x;
@@ -10,7 +9,7 @@ export default class ZoologicPiece {
     this.squares = board.squares;
     this._setInitialPosition(x, y);
     this._setPosition(x, y);
-    this._setDimensions(Metrics.ZOOLOGIC_SQUARE_SIZE, Metrics.ZOOLOGIC_SQUARE_SIZE);
+    this._setDimensions(board.squareSize, board.squareSize);
     this.maxSpaceInBetween = 0;
   }
 
