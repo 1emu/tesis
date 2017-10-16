@@ -1,9 +1,9 @@
 import Tablero from '../app/rush-hour/model/Tablero';
-import AutoGanador from "../app/rush-hour/model/AutoGanador";
-import CarImage from "../app/rush-hour/model/CarImages";
+import AutoGanador from "../app/rush-hour/model/WinningCar";
+import CarImage from "../app/rush-hour/img/CarImages";
 import Metrics from '../app/Metrics';
 
-describe('AutoGanador', () => {
+describe('WinningCar', () => {
     describe('#creation', () => {
         let id = 'an id';
         let xCoord = 2;

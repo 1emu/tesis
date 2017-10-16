@@ -1,4 +1,4 @@
-import CarImage from "./CarImages";
+import CarImage from "../img/CarImages";
 import Cuadradito from './Cuadradito';
 
 export default class VerticalVehicle extends Cuadradito {

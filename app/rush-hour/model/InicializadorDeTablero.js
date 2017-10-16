@@ -1,5 +1,5 @@
 import Tablero from "./Tablero";
-import AutoGanador from "./AutoGanador";
+import AutoGanador from "./WinningCar";
 import VerticalVehicle from "./VerticalVehicle";
 import HorizontalVehicle from './HorizontalVehicle';
 import RushHourLevels from './RushHourLevels';
