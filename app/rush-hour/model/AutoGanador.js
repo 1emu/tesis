@@ -1,10 +1,10 @@
-import CarImage from "./CarImages";
-import AutoHorizontal from "./AutoHorizontal";
+import HorizontalVehicle from "./HorizontalVehicle";
+import VehicleType from './VehicleType';
 
-export default class AutoGanador extends AutoHorizontal {
+export default class AutoGanador extends HorizontalVehicle {
 
   constructor(id, x = 0, y = 0, tablero) {
-    super(id, x, y, tablero, 'red', 'right');
+    super(id, x, y, tablero, 'red', 'right', VehicleType.car());
   }
 
   checkWinCondition() {

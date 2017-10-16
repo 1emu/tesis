@@ -1,11 +1,10 @@
 import Tablero from "./Tablero";
-import AutoHorizontal from "./AutoHorizontal";
-import AutoVertical from "./AutoVertical";
-import CamionVertical from "./CamionVertical";
 import AutoGanador from "./AutoGanador";
-import CamionHorizontal from "./CamionHorizontal";
+import VerticalVehicle from "./VerticalVehicle";
+import HorizontalVehicle from './HorizontalVehicle';
 import RushHourLevels from './RushHourLevels';
 import Metrics from '../../Metrics';
+import VehicleType from './VehicleType';
 
 export default class InicializadorDeTablero {
 
@@ -25,13 +24,13 @@ export default class InicializadorDeTablero {
     return this.configDeTablero.configuracionDeAutitos.map((configDeVehiculo) => {
       switch (configDeVehiculo.tipo) {
         case 'hc':
-          return new AutoHorizontal(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, tablero, configDeVehiculo.color);
+          return new HorizontalVehicle(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, tablero, configDeVehiculo.color, 'left', VehicleType.car());
         case 'vc':
-          return new AutoVertical(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, configDeVehiculo.color, tablero);
+          return new VerticalVehicle(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, tablero, configDeVehiculo.color, 'up', VehicleType.car());
         case 'ht':
-          return new CamionHorizontal(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, configDeVehiculo.color, tablero);
+          return new HorizontalVehicle(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, tablero, configDeVehiculo.color, 'left', VehicleType.truck());
         case 'vt':
-          return new CamionVertical(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, configDeVehiculo.color, tablero);
+          return new VerticalVehicle(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, tablero, configDeVehiculo.color, 'up', VehicleType.truck());
         case 'wc':
           return new AutoGanador(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, tablero);
       }
