@@ -3,7 +3,7 @@ import VictoryGarden from "./VictoryGarden"
 import Bumper from "./Bumper";
 import {observable} from "mobx";
 
-export default class Tablero {
+export default class RushHourBoard {
   @observable playerHasWon = false;
 
   constructor(dimensions) {

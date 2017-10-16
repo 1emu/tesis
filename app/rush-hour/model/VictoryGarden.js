@@ -4,7 +4,7 @@ import Metrics from '../../Metrics';
 export default class VictoryTile {
   @observable backgroundColor;
 
-  constructor(id, x = 0, y = 0, widthEnCuadraditos, heightEnCuadraditos, tablero) {
+  constructor(id, x = 0, y = 0, widthEnCuadraditos, heightEnCuadraditos, board) {
     this.id = id;
     this.backgroundColor = 'lightgrey';
     this.setDimensions(widthEnCuadraditos, heightEnCuadraditos, Metrics.TILE_SIZE);

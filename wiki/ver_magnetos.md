@@ -1,5 +1,5 @@
-agregar al render del tablero view
+agregar al render del board view
 
-{ this.tablero.magnetitos.map((magneto, index) => {
+{ this.board.magnetitos.map((magneto, index) => {
           return (<MagnetoView key={index} magneto={magneto}/>);
         })}

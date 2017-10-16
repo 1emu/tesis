@@ -1,4 +1,4 @@
-import Tablero from '../app/rush-hour/model/Tablero';
+import RushHourBoard from '../app/rush-hour/model/RushHourBoard';
 import AutoGanador from "../app/rush-hour/model/WinningCar";
 import CarImage from "../app/rush-hour/img/CarImages";
 import Metrics from '../app/Metrics';
@@ -8,7 +8,7 @@ describe('WinningCar', () => {
         let id = 'an id';
         let xCoord = 2;
         let yCoord = 3;
-        let board = new Tablero(Metrics.RUSH_HOUR_DIMENSIONS);
+        let board = new RushHourBoard(Metrics.RUSH_HOUR_DIMENSIONS);
         auto = new AutoGanador(id, xCoord, yCoord, board);
         board.ubicarVehiculos([auto]);
 
@@ -34,7 +34,7 @@ describe('WinningCar', () => {
          });
 
          test('knows the board it belongs to', () => {
-             expect(auto.tablero).toEqual(board);
+             expect(auto.board).toEqual(board);
          });
 
          test('its image is a red car', () => {

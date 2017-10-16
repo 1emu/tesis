@@ -1,4 +1,4 @@
-import Tablero from "./Tablero";
+import RushHourBoard from "./RushHourBoard";
 import AutoGanador from "./WinningCar";
 import VerticalVehicle from "./VerticalVehicle";
 import HorizontalVehicle from './HorizontalVehicle';
@@ -14,25 +14,25 @@ export default class InicializadorDeTablero {
   }
 
   obtenerTablero() {
-    let nuevoTablero = new Tablero(Metrics.RUSH_HOUR_DIMENSIONS);
+    let nuevoTablero = new RushHourBoard(Metrics.RUSH_HOUR_DIMENSIONS);
     let vehiculos = this.generarVehiculos(nuevoTablero);
     nuevoTablero.ubicarVehiculos(vehiculos);
     return nuevoTablero;
   }
 
-  generarVehiculos(tablero) {
+  generarVehiculos(board) {
     return this.configDeTablero.configuracionDeAutitos.map((configDeVehiculo) => {
       switch (configDeVehiculo.tipo) {
         case 'hc':
-          return new HorizontalVehicle(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, tablero, configDeVehiculo.color, 'left', VehicleType.car());
+          return new HorizontalVehicle(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, board, configDeVehiculo.color, 'left', VehicleType.car());
         case 'vc':
-          return new VerticalVehicle(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, tablero, configDeVehiculo.color, 'up', VehicleType.car());
+          return new VerticalVehicle(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, board, configDeVehiculo.color, 'up', VehicleType.car());
         case 'ht':
-          return new HorizontalVehicle(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, tablero, configDeVehiculo.color, 'left', VehicleType.truck());
+          return new HorizontalVehicle(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, board, configDeVehiculo.color, 'left', VehicleType.truck());
         case 'vt':
-          return new VerticalVehicle(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, tablero, configDeVehiculo.color, 'up', VehicleType.truck());
+          return new VerticalVehicle(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, board, configDeVehiculo.color, 'up', VehicleType.truck());
         case 'wc':
-          return new AutoGanador(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, tablero);
+          return new AutoGanador(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, board);
       }
     });
   }

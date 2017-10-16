@@ -9,7 +9,7 @@ export default class Cuadradito {
 
   constructor(id, xCoordinate = 0, yCoordinate = 0, widthInTiles, heightInTiles, board, image = null) {
     this.id = id;
-    this.tablero = board;
+    this.board = board;
 
     this.setInitialPosition(xCoordinate * board.tileSize, yCoordinate * board.tileSize);
     this.setDimensions(widthInTiles, heightInTiles, board.tileSize);
@@ -53,23 +53,23 @@ export default class Cuadradito {
     let newX, newY;
     if (x >= this.x) {
       //Estoy empujandolo a la derecha
-      newX = this.tablero.movementLimitRight(this, x);
+      newX = this.board.movementLimitRight(this, x);
     } else {
       //Estoy empujandolo a la izquierda
-      newX = this.tablero.movementLimitLeft(this, x);
+      newX = this.board.movementLimitLeft(this, x);
     }
     if (y >= this.y) {
       //Estoy empujandolo hacia abajo
-      newY = this.tablero.movementLimitBottom(this, y);
+      newY = this.board.movementLimitBottom(this, y);
     } else {
       //Estoy empujandolo hacia arriba
-      newY = this.tablero.movementLimitTop(this, y);
+      newY = this.board.movementLimitTop(this, y);
     }
     this.setPosition(newX, newY);
   }
 
   snapYoAss() {
-    let closestMagneto = this.tablero.getClosestMagneto(this);
+    let closestMagneto = this.board.getClosestMagneto(this);
     this.setPosition(closestMagneto.x, closestMagneto.y);
   }
 

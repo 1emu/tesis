@@ -3,11 +3,11 @@ import VehicleType from './VehicleType';
 
 export default class WinningCar extends HorizontalVehicle {
 
-  constructor(id, x = 0, y = 0, tablero) {
-    super(id, x, y, tablero, 'red', 'right', VehicleType.car());
+  constructor(id, x = 0, y = 0, board) {
+    super(id, x, y, board, 'red', 'right', VehicleType.car());
   }
 
   checkWinCondition() {
-    this.tablero.checkWinCondition(this);
+    this.board.checkWinCondition(this);
   }
 }

@@ -9,7 +9,7 @@ import Metrics from '../../Metrics';
 export default class TableroView extends Component {
   constructor(props) {
     super(props);
-    this.tablero = props.tablero;
+    this.board = props.board;
   }
 
   render() {
@@ -22,9 +22,9 @@ export default class TableroView extends Component {
     return (
       <View style={{backgroundColor: 'grey', height: outerHeight, width: width, top: boardMarginTop}}>
         <View style={{backgroundColor: 'lightgrey', height: height, width: width, top: boardMargin, left: boardMargin}}>
-          <VictoryGardenView key='victoryGarden' victoryGarden={this.tablero.victoryGarden}/>
-          <BumpersView bumpers={this.tablero.bumpers} />
-          <CuadraditosView cuadraditos={this.tablero.cuadraditos} />
+          <VictoryGardenView key='victoryGarden' victoryGarden={this.board.victoryGarden}/>
+          <BumpersView bumpers={this.board.bumpers} />
+          <CuadraditosView cuadraditos={this.board.cuadraditos} />
         </View>
       </View>
     )

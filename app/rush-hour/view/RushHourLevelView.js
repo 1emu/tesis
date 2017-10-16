@@ -13,7 +13,7 @@ export default class RushHourLevelView extends React.Component {
 
   constructor(props) {
     super(props);
-    this.tablero = new InicializadorDeTablero(props.levelNumber).obtenerTablero();
+    this.board = new InicializadorDeTablero(props.levelNumber).obtenerTablero();
     autorun(() => this.transitionToSuccessScreen());
   }
 
@@ -21,13 +21,13 @@ export default class RushHourLevelView extends React.Component {
     return (
       <View style={style.container}>
         <LevelNavBarView navigator={this.props.navigator} levelNumber={this.props.levelNumber} />
-        <TableroView tablero={this.tablero}/>
+        <TableroView board={this.board}/>
       </View>
     );
   }
 
   transitionToSuccessScreen() {
-    if (this.tablero.playerHasWon) {
+    if (this.board.playerHasWon) {
       PlayerResults.markLevelComplete(this.props.levelNumber);
       this.props.navigator.push({id: 'rush-hour-success-screen', levelNumber: this.props.levelNumber, nextLevelNumber: this.props.levelNumber + 1});
     }
