@@ -1,5 +1,7 @@
-import {StyleSheet} from "react-native";
-import Metrics from '../Metrics';
+import {StyleSheet} from 'react-native';
+import Metrics from './Metrics';
+import RushHourColors from './rush-hour/RushHourColors';
+import ZoologicColors from './zoologic/ZoologicColors';
 
 const style = StyleSheet.create({
   container: {
@@ -17,24 +19,24 @@ const style = StyleSheet.create({
 
   rushHourBtn: {
     alignSelf: 'center',
-    backgroundColor: "#295246",
+    backgroundColor: '#295246',
     width: Metrics.DEVICE_WIDTH * 0.6,
   },
 
   rushHourBtnText: {
-    color: '#ffffff',
+    color: RushHourColors.light,
     fontWeight: 'bold',
     fontSize: 18,
   },
 
   zoologicBtn: {
     alignSelf: 'center',
-    backgroundColor: "#f7ffb8",
+    backgroundColor: '#f7ffb8',
     width: Metrics.DEVICE_WIDTH * 0.6,
   },
 
   zoologicBtnText: {
-    color: '#161616',
+    color: ZoologicColors.dark,
     fontWeight: 'bold',
     fontSize: 18,
   }

@@ -4,13 +4,15 @@ import {autorun} from 'mobx';
 import {observer} from "mobx-react/native"
 import style from './ZoologicLevelStyle'
 import LevelNavBarView from './LevelNavBarView';
-import TableroZoologicView from './TableroZoologicView';
+import ZoologicBoardView from "./ZoologicBoardView";
+import ZoologicBoardInitializer from "./ZoologicBoardInitializer";
 
 @observer
 export default class ZoologicLevelView extends React.Component {
 
   constructor(props) {
     super(props);
+    this.board = new ZoologicBoardInitializer(this.props.levelNumber).getBoard();
     autorun(() => this.transitionToSuccessScreen());
   }
 
@@ -18,12 +20,15 @@ export default class ZoologicLevelView extends React.Component {
     return (
       <View style={style.container}>
         <LevelNavBarView navigator={this.props.navigator} levelNumber={this.props.levelNumber} />
-        <TableroZoologicView/>
+        <ZoologicBoardView board={this.board}/>
       </View>
     );
   }
 
   transitionToSuccessScreen() {
+    if(this.board.playerHasWon) {
+      this.props.navigator.push({id: 'zoologic-success-screen', levelNumber: this.props.levelNumber});
+    }
   }
 
 }

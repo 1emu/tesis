@@ -99,8 +99,8 @@ describe('RushHourBoard', () => {
       car = new Car(1, 2, { x: 0, y: 0 });
       board.place(car);
       board.moveRight(car);
-      expect(car.x).toEq(1);
-      expect(car.y).toEq(0);
+      expect(car.x).toEqual(1);
+      expect(car.y).toEqual(0);
     });
   });
 });

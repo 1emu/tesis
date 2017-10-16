@@ -1,5 +1,6 @@
 import {StyleSheet, Dimensions} from "react-native";
 
+import RushHourColors from '../rush-hour/RushHourColors'
 import Metrics from '../Metrics';
 
 const style = StyleSheet.create({
@@ -9,7 +10,7 @@ const style = StyleSheet.create({
   },
 
   showModalBtnTxt: {
-    color: '#ffffff',
+    color: RushHourColors.light,
     fontSize: 16,
   },
 
@@ -17,7 +18,7 @@ const style = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: "space-around",
-    backgroundColor: '#3e9184'
+    backgroundColor: RushHourColors.mid
   },
 
   modalBtn: {
@@ -30,7 +31,7 @@ const style = StyleSheet.create({
   },
 
   modalBtnText: {
-    color: '#ffffff',
+    color: RushHourColors.light,
     fontWeight: 'bold',
     fontSize: 18,
   }

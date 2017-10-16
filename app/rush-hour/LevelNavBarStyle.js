@@ -1,5 +1,6 @@
 import {StyleSheet, Dimensions} from "react-native";
 
+import RushHourColors from '../rush-hour/RushHourColors'
 import Metrics from '../Metrics';
 
 const style = StyleSheet.create({
@@ -10,12 +11,12 @@ const style = StyleSheet.create({
     justifyContent: "space-between",
     height: Metrics.NAV_BAR_HEIGHT,
     width: Metrics.NAV_BAR_WIDTH,
-    backgroundColor: '#295246',
+    backgroundColor: RushHourColors.dark,
     paddingRight: 10,
   },
 
   title: {
-    color: '#ffffff',
+    color: RushHourColors.light,
     fontSize: 20,
     fontWeight: 'bold',
   }

@@ -11,16 +11,16 @@ export default class RushHourSuccessScreenView extends React.Component {
     return (
       <View style={style.container}>
 
-        <Text style={style.content}>Nivel {this.props.actualLevelNumber} finalizado</Text>
+        <Text style={style.content}>NIVEL {this.props.actualLevelNumber} COMPLETO</Text>
 
         <Icon.Button name="replay" size={25} style={style.btn} onPress={() => {this.replayLevel()}} >
-          <Text style={style.btnText}>Volver a jugar</Text>
+          <Text style={style.btnText}>VOLVER A JUGAR</Text>
         </Icon.Button>
 
         {this.nextLevelButton()}
 
         <Icon.Button name="list" size={25} style={style.btn} onPress={() => this._levelSelectionMenu()} >
-          <Text style={style.btnText}>Seleccion de niveles</Text>
+          <Text style={style.btnText}>NIVELES</Text>
         </Icon.Button>
 
       </View>
@@ -29,8 +29,9 @@ export default class RushHourSuccessScreenView extends React.Component {
 
   nextLevelButton() {
     let nextLevelButton = null;
-    if (this.props.nextLevelNumber <= MAX_LEVEL_NUMBER) {
-      nextLevelButton = <Icon.Button name="play-arrow" size={25} style={style.btn} onPress={() => {this.chooseLevel(this.props.nextLevelNumber)}} >
+    let nextLevelNumber = this.props.actualLevelNumber + 1;
+    if (nextLevelNumber <= MAX_LEVEL_NUMBER) {
+      nextLevelButton = <Icon.Button name="play-arrow" size={25} style={style.btn} onPress={() => {this.chooseLevel(nextLevelNumber)}} >
         <Text style={style.btnText}>Siguiente nivel</Text>
       </Icon.Button>;
     }

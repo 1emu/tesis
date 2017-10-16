@@ -40,22 +40,22 @@ export default class LevelMenuModal extends Component {
       <View >
 
         <Icon.Button name="menu" size={20} style={style.showModalBtn} onPress={() => this._showModal()}>
-          <Text style={style.showModalBtnTxt}>Opciones</Text>
+          <Text style={style.showModalBtnTxt}>OPCIONES</Text>
         </Icon.Button>
 
         <Modal isVisible={this.state.isModalVisible}>
           <View style={style.modalContent}>
             <Icon.Button name="play-arrow" size={25} style={style.modalBtn} onPress={() => this._hideModal()} >
-              <Text style={style.modalBtnText}>Reanudar</Text>
+              <Text style={style.modalBtnText}>REANUDAR</Text>
             </Icon.Button>
             <Icon.Button name="replay" size={25} style={style.modalBtn} onPress={() => this._replay()} >
-              <Text style={style.modalBtnText}>Reiniciar</Text>
+              <Text style={style.modalBtnText}>REINICIAR</Text>
             </Icon.Button>
             <Icon.Button name="list" size={25} style={style.modalBtn} onPress={() => this._levelSelectionMenu()} >
-              <Text style={style.modalBtnText}>Seleccion de niveles</Text>
+              <Text style={style.modalBtnText}>NIVELES</Text>
             </Icon.Button>
             <Icon.Button name="arrow-back" size={25} style={style.modalBtn} onPress={() => this._transitionToMainMenu()} >
-              <Text style={style.modalBtnText}>Menu Principal</Text>
+              <Text style={style.modalBtnText}>MENU PRINCIPAL</Text>
             </Icon.Button>
           </View>
         </Modal>

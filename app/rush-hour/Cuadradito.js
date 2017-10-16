@@ -1,4 +1,4 @@
-import {observable, autorun} from "mobx";
+import {observable, autorun} from 'mobx';
 import Metrics from '../Metrics';
 
 export default class Cuadradito {
@@ -7,13 +7,13 @@ export default class Cuadradito {
   @observable x;
   @observable y;
 
-  constructor(id, x = 0, y = 0, width, height, tablero, image = null) {
+  constructor(id, xCoordinate = 0, yCoordinate = 0, widthInTiles, heightInTiles, board, image = null) {
     this.id = id;
-    this.tablero = tablero;
+    this.tablero = board;
 
-    this.setInitialPosition(x * Metrics.TILE_SIZE, y * Metrics.TILE_SIZE);
-    this.setDimensions(width, height, Metrics.TILE_SIZE);
-    this.maxSpaceInBetween = Metrics.MAX_SPACE_IN_BETWEEN_TILES;
+    this.setInitialPosition(xCoordinate * board.tileSize, yCoordinate * board.tileSize);
+    this.setDimensions(widthInTiles, heightInTiles, board.tileSize);
+    this.maxSpaceInBetween = board.maxSpaceInBetweenTiles;
 
     this.image = (image ? image : this.DEFAULT_IMG);
   }
@@ -23,7 +23,7 @@ export default class Cuadradito {
     this.y = y;
   }
 
-  setInitialPosition(x, y){
+  setInitialPosition(x, y) {
     this.x = x;
     this.y = y;
   }
@@ -68,12 +68,12 @@ export default class Cuadradito {
     this.setPosition(newX, newY);
   }
 
-  snapYoAss(){
+  snapYoAss() {
     let closestMagneto = this.tablero.getClosestMagneto(this);
     this.setPosition(closestMagneto.x, closestMagneto.y);
   }
 
-  checkWinCondition(){
+  checkWinCondition() {
     // smile and wave
   }
 }

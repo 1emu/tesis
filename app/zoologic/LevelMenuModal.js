@@ -4,7 +4,7 @@ import {observer} from 'mobx-react/native'
 import {autorun} from 'mobx';
 import Modal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import style from './LevelMenuModalStyle'
+import modalStyle from './LevelMenuModalStyle'
 
 
 @observer
@@ -14,9 +14,9 @@ export default class LevelMenuModal extends Component {
     isModalVisible: false
   }
 
-  _showModal = () => this.setState({ isModalVisible: true })
+  _showModal = () => this.setState({ isModalVisible: true });
 
-  _hideModal = () => this.setState({ isModalVisible: false })
+  _hideModal = () => this.setState({ isModalVisible: false });
 
   _replay() {
     this.props.navigator.resetTo({id: 'zoologic-lvl', levelNumber: this.props.levelNumber});
@@ -32,20 +32,20 @@ export default class LevelMenuModal extends Component {
     return (
       <View >
 
-        <Icon.Button name="menu" size={20} style={style.showModalBtn} onPress={() => this._showModal()}>
-          <Text style={style.showModalBtnTxt}>Opciones</Text>
+        <Icon.Button name="menu" size={20} color={modalStyle.iconColor} style={modalStyle.style.showModalBtn} onPress={() => this._showModal()}>
+          <Text style={modalStyle.style.showModalBtnTxt}>OPCIONES</Text>
         </Icon.Button>
 
         <Modal isVisible={this.state.isModalVisible}>
-          <View style={style.modalContent}>
-            <Icon.Button name="play-arrow" size={25} style={style.modalBtn} onPress={() => this._hideModal()} >
-              <Text style={style.modalBtnText}>Reanudar</Text>
+          <View style={modalStyle.style.modalContent}>
+            <Icon.Button name="play-arrow" size={25} color={modalStyle.iconColor} style={modalStyle.style.modalBtn} onPress={() => this._hideModal()} >
+              <Text style={modalStyle.style.modalBtnText}>REANUDAR</Text>
             </Icon.Button>
-            <Icon.Button name="replay" size={25} style={style.modalBtn} onPress={() => this._replay()} >
-              <Text style={style.modalBtnText}>Reiniciar</Text>
+            <Icon.Button name="replay" size={25} color={modalStyle.iconColor} style={modalStyle.style.modalBtn} onPress={() => this._replay()} >
+              <Text style={modalStyle.style.modalBtnText}>REINICIAR</Text>
             </Icon.Button>
-            <Icon.Button name="arrow-back" size={25} style={style.modalBtn} onPress={() => this._transitionToMainMenu()} >
-              <Text style={style.modalBtnText}>Menu Principal</Text>
+            <Icon.Button name="arrow-back" size={25} color={modalStyle.iconColor} style={modalStyle.style.modalBtn} onPress={() => this._transitionToMainMenu()} >
+              <Text style={modalStyle.style.modalBtnText}>MENU PRINCIPAL</Text>
             </Icon.Button>
           </View>
         </Modal>

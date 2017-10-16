@@ -7,7 +7,7 @@ export default class LevelNavBarView extends Component {
 
   constructor(props){
     super(props);
-    this.title = 'Nivel ' + props.levelNumber;
+    this.title = 'NIVEL ' + props.levelNumber;
   }
 
   render() {
