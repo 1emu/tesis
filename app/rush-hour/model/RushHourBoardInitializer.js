@@ -6,7 +6,7 @@ import RushHourLevels from './RushHourLevels';
 import Metrics from '../../Metrics';
 import VehicleType from './VehicleType';
 
-export default class InicializadorDeTablero {
+export default class RushHourBoardInitializer {
 
   constructor(levelNumber) {
     this.configDeTablero = RushHourLevels.getLevelConfig(levelNumber);

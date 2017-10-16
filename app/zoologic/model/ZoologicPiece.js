@@ -54,10 +54,6 @@ export default class ZoologicPiece {
     this._setPosition(this.initialX, this.initialY);
   }
 
-  checkWinCondition() {
-    // smile and wave
-  }
-
   _receive(squareInContact) {
     this.containingSquare = squareInContact;
   }

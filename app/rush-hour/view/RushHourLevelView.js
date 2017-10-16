@@ -4,7 +4,7 @@ import style from '../style/RushHourLevelStyle'
 import {autorun} from 'mobx';
 import LevelNavBarView from './LevelNavBarView';
 import TableroView from './TableroView';
-import InicializadorDeTablero from '../model/InicializadorDeTablero';
+import InicializadorDeTablero from '../model/RushHourBoardInitializer';
 import {observer} from "mobx-react/native"
 import PlayerResults from "../model/PlayerResults";
 

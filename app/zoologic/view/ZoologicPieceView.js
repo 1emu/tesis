@@ -54,7 +54,6 @@ export default class ZoologicPieceView extends Component {
       onPanResponderRelease: (e, gestureState) => {
         this.props.piece.snapYoAss();
         this._scaleUp();
-        // this.props.piece.checkWinCondition();
       }
     });
   }

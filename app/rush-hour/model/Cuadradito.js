@@ -72,8 +72,4 @@ export default class Cuadradito {
     let closestMagneto = this.board.getClosestMagneto(this);
     this.setPosition(closestMagneto.x, closestMagneto.y);
   }
-
-  checkWinCondition() {
-    // smile and wave
-  }
 }

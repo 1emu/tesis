@@ -4,11 +4,11 @@ import Metrics from '../../Metrics';
 export default class VictoryTile {
   @observable backgroundColor;
 
-  constructor(id, x = 0, y = 0, widthEnCuadraditos, heightEnCuadraditos, board) {
+  constructor(id, x = 0, y = 0, widthEnCuadraditos, heightEnCuadraditos, tileSize) {
     this.id = id;
     this.backgroundColor = 'lightgrey';
-    this.setDimensions(widthEnCuadraditos, heightEnCuadraditos, Metrics.TILE_SIZE);
-    this.setPosition(x * Metrics.TILE_SIZE, y * Metrics.TILE_SIZE);
+    this.setDimensions(widthEnCuadraditos, heightEnCuadraditos, tileSize);
+    this.setPosition(x * tileSize, y * tileSize);
   }
 
   setPosition(x, y) {

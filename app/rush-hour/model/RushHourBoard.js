@@ -2,6 +2,7 @@ import Magneto from "./Magneto"
 import VictoryGarden from "./VictoryGarden"
 import Bumper from "./Bumper";
 import {observable} from "mobx";
+import tileStyle from '../../components/tile/style';
 
 export default class RushHourBoard {
   @observable playerHasWon = false;
@@ -15,7 +16,7 @@ export default class RushHourBoard {
     this.generarBumpers();
     this.colisionables = this.bumpers;
     this.generarMagnetos();
-    this.victoryGarden = new VictoryGarden('victoryGarden', 6, 2, 1, 1, this);
+    this.victoryGarden = new VictoryGarden('victoryGarden', 6, 2, 1, 1, this.tileSize);
   }
 
   ubicarVehiculos(vehiculos) {

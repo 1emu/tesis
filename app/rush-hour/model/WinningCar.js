@@ -7,7 +7,8 @@ export default class WinningCar extends HorizontalVehicle {
     super(id, x, y, board, 'red', 'right', VehicleType.car());
   }
 
-  checkWinCondition() {
+  snapYoAss() {
+    super.snapYoAss();
     this.board.checkWinCondition(this);
   }
 }
