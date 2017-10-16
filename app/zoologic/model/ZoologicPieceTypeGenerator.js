@@ -1,5 +1,5 @@
 import ZoologicPieceType from './ZoologicPieceType';
-import ZoologicImage from './ZoologicImage';
+import ZoologicImage from '../img/ZoologicImage';
 import {KNOWN_TYPE} from './ZoologicKnownType';
 
 export default class ZoologicPieceTypeGenerator {

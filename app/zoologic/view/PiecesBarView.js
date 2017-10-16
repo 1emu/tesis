@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import {View, PanResponder, Text, StyleSheet} from 'react-native';
-import {observer} from 'mobx-react/native'
+import {View} from "react-native";
 
-@observer
 export default class ShapeBarView extends Component {
   constructor(props) {
     super(props);
@@ -12,20 +10,11 @@ export default class ShapeBarView extends Component {
     return (
       <View
         style={{
-          width: this.props.piecesBar.width, height: this.props.piecesBar.height, backgroundColor: this.props.piecesBar.backgroundColor,
-          left: this._currentX(), top: this._currentY(), position: 'absolute',
+          width: this.props.width, height: this.props.height, backgroundColor: 'grey',
+          left: this.props.x, top: this.props.y, position: 'absolute',
           borderColor: 'white'
         }}>
       </View>
     )
   }
-
-  _currentX() {
-    return this.props.piecesBar.x;
-  }
-
-  _currentY() {
-    return this.props.piecesBar.y;
-  }
-
 }

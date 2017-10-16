@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Image, PanResponder, Animated} from 'react-native';
 import {observer} from 'mobx-react/native'
-import ZoologicImage from "../model/ZoologicImage";
+import ZoologicImage from "../img/ZoologicImage";
 
 @observer
 export default class ZoologicSquareView extends Component {
