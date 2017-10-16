@@ -1,11 +1,10 @@
 import CarImage from "./CarImages";
-import CuadraditoHorizontal from "./CuadraditoHorizontal";
+import AutoHorizontal from "./AutoHorizontal";
 
-export default class AutoGanador extends CuadraditoHorizontal {
+export default class AutoGanador extends AutoHorizontal {
 
   constructor(id, x = 0, y = 0, tablero) {
-    let image = CarImage.for('car', 'red', 'right');
-    super(id, x, y, 2, 1, tablero, image);
+    super(id, x, y, tablero, 'red', 'right');
   }
 
   checkWinCondition() {

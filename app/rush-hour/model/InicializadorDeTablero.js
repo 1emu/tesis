@@ -25,7 +25,7 @@ export default class InicializadorDeTablero {
     return this.configDeTablero.configuracionDeAutitos.map((configDeVehiculo) => {
       switch (configDeVehiculo.tipo) {
         case 'hc':
-          return new AutoHorizontal(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, configDeVehiculo.color, tablero);
+          return new AutoHorizontal(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, tablero, configDeVehiculo.color);
         case 'vc':
           return new AutoVertical(this.generarId(), configDeVehiculo.x, configDeVehiculo.y, configDeVehiculo.color, tablero);
         case 'ht':
