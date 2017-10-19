@@ -1,10 +1,9 @@
 import Area from './Area';
 
 export default class VictoryGarden extends Area {
-
-  contains(cuadradito){
-    let occupyingXSpan = this.isOccupyingXSpan(cuadradito.x, cuadradito.xMax());
-    let occupyingYSpan = this.isOccupyingYSpan(cuadradito.y, cuadradito.yMax());
+  contains(area){
+    let occupyingXSpan = this.isOccupyingXSpan(area.x, area.xMax());
+    let occupyingYSpan = this.isOccupyingYSpan(area.y, area.yMax());
     return occupyingXSpan && occupyingYSpan;
   }
 }

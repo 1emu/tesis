@@ -33,8 +33,6 @@ export default class LevelMenuModal extends Component {
     this._hideModal();
   }
 
-
-
   render() {
     return (
       <View >

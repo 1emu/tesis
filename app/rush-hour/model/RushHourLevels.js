@@ -8,7 +8,7 @@ export default class RushHourLevels {
   static LEVELS = [
     {
       levelNumber: 1,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'hc', color: 'green', x: 0, y: 0},
         {tipo: 'vt', color: 'yellow', x: 5, y: 0},
         {tipo: 'vt', color: 'purple', x: 0, y: 1},
@@ -22,7 +22,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 2,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vc', color: 'green', x: 0, y: 0},
         {tipo: 'ht', color: 'yellow', x: 3, y: 0},
         {tipo: 'vc', color: 'orange', x: 3, y: 1},
@@ -39,7 +39,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 3,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'wc', x: 1, y: 2},
         {tipo: 'vt', color: 'yellow', x: 3, y: 2},
         {tipo: 'hc', color: 'green', x: 1, y: 3},
@@ -51,7 +51,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 4,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vt', color: 'yellow', x: 0, y: 0},
         {tipo: 'vt', color: 'purple', x: 3, y: 0},
         {tipo: 'wc', x: 1, y: 2},
@@ -64,7 +64,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 5,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'hc', color: 'green', x: 0, y: 0},
         {tipo: 'vt', color: 'yellow', x: 3, y: 0},
         {tipo: 'vc', color: 'orange', x: 5, y: 0},
@@ -81,7 +81,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 6,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'hc', color: 'green', x: 0, y: 0},
         {tipo: 'vc', color: 'orange', x: 3, y: 0},
         {tipo: 'hc', color: 'blue', x: 0, y: 1},
@@ -98,7 +98,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 7,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vc', color: 'green', x: 1, y: 0},
         {tipo: 'hc', color: 'orange', x: 2, y: 0},
         {tipo: 'vc', color: 'blue', x: 4, y: 0},
@@ -113,7 +113,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 8,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'hc', color: 'green', x: 3, y: 0},
         {tipo: 'vt', color: 'yellow', x: 5, y: 0},
         {tipo: 'hc', color: 'orange', x: 2, y: 1},
@@ -133,7 +133,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 9,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vc', color: 'green', x: 1, y: 0},
         {tipo: 'hc', color: 'orange', x: 2, y: 0},
         {tipo: 'hc', color: 'blue', x: 4, y: 0},
@@ -151,7 +151,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 10,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'hc', color: 'green', x: 0, y: 0},
         {tipo: 'vc', color: 'orange', x: 2, y: 0},
         {tipo: 'hc', color: 'blue', x: 4, y: 0},
@@ -169,7 +169,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 11,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vt', color: 'yellow', x: 0, y: 0},
         {tipo: 'hc', color: 'green', x: 1, y: 0},
         {tipo: 'vt', color: 'purple', x: 3, y: 0},
@@ -183,7 +183,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 12,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vc', color: 'green', x: 0, y: 0},
         {tipo: 'hc', color: 'orange', x: 1, y: 0},
         {tipo: 'vt', color: 'yellow', x: 5, y: 0},
@@ -197,7 +197,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 13,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'hc', color: 'green', x: 0, y: 0},
         {tipo: 'hc', color: 'orange', x: 2, y: 0},
         {tipo: 'vc', color: 'blue', x: 4, y: 0},
@@ -216,7 +216,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 14,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'hc', color: 'green', x: 0, y: 0},
         {tipo: 'vc', color: 'orange', x: 2, y: 0},
         {tipo: 'hc', color: 'blue', x: 4, y: 1},
@@ -234,7 +234,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 15,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'hc', color: 'green', x: 1, y: 0},
         {tipo: 'hc', color: 'orange', x: 3, y: 0},
         {tipo: 'hc', color: 'blue', x: 0, y: 1},
@@ -254,7 +254,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 16,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'hc', color: 'green', x: 0, y: 0},
         {tipo: 'hc', color: 'orange', x: 2, y: 0},
         {tipo: 'vc', color: 'blue', x: 4, y: 0},
@@ -271,7 +271,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 17,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vc', color: 'green', x: 0, y: 0},
         {tipo: 'ht', color: 'yellow', x: 1, y: 0},
         {tipo: 'hc', color: 'orange', x: 2, y: 1},
@@ -289,7 +289,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 18,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'hc', color: 'green', x: 0, y: 0},
         {tipo: 'vc', color: 'orange', x: 2, y: 0},
         {tipo: 'vt', color: 'yellow', x: 3, y: 0},
@@ -304,7 +304,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 19,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vc', color: 'green', x: 2, y: 0},
         {tipo: 'hc', color: 'orange', x: 3, y: 0},
         {tipo: 'vc', color: 'brown', x: 4, y: 1},
@@ -318,7 +318,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 20,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vc', color: 'green', x: 0, y: 0},
         {tipo: 'ht', color: 'yellow', x: 3, y: 0},
         {tipo: 'hc', color: 'orange', x: 1, y: 1},
@@ -334,7 +334,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 21,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'hc', color: 'green', x: 0, y: 0},
         {tipo: 'vc', color: 'orange', x: 2, y: 0},
         {tipo: 'vt', color: 'yellow', x: 3, y: 0},
@@ -347,7 +347,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 22,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vc', color: 'green', x: 2, y: 0},
         {tipo: 'ht', color: 'yellow', x: 3, y: 0},
         {tipo: 'vc', color: 'orange', x: 0, y: 1},
@@ -365,7 +365,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 23,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'ht', color: 'yellow', x: 2, y: 0},
         {tipo: 'vt', color: 'purple', x: 5, y: 0},
         {tipo: 'vc', color: 'green', x: 2, y: 1},
@@ -381,7 +381,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 24,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vc', color: 'green', x: 2, y: 0},
         {tipo: 'hc', color: 'orange', x: 3, y: 0},
         {tipo: 'vc', color: 'blue', x: 1, y: 1},
@@ -397,7 +397,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 25,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'hc', color: 'green', x: 0, y: 0},
         {tipo: 'vc', color: 'orange', x: 2, y: 0},
         {tipo: 'hc', color: 'blue', x: 4, y: 0},
@@ -416,7 +416,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 26,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vc', color: 'green', x: 1, y: 0},
         {tipo: 'ht', color: 'yellow', x: 3, y: 0},
         {tipo: 'vc', color: 'orange', x: 0, y: 1},
@@ -434,7 +434,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 27,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vc', color: 'green', x: 0, y: 0},
         {tipo: 'hc', color: 'orange', x: 1, y: 0},
         {tipo: 'vt', color: 'yellow', x: 3, y: 0},
@@ -450,7 +450,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 28,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'ht', color: 'yellow', x: 0, y: 0},
         {tipo: 'vc', color: 'green', x: 3, y: 0},
         {tipo: 'vt', color: 'purple', x: 2, y: 1},
@@ -468,7 +468,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 29,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'ht', color: 'yellow', x: 0, y: 0},
         {tipo: 'vt', color: 'purple', x: 4, y: 0},
         {tipo: 'vc', color: 'green', x: 2, y: 1},
@@ -486,7 +486,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 30,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vt', color: 'yellow', x: 0, y: 0},
         {tipo: 'vc', color: 'green', x: 2, y: 0},
         {tipo: 'ht', color: 'purple', x: 3, y: 0},
@@ -502,7 +502,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 31,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'hc', color: 'green', x: 0, y: 0},
         {tipo: 'ht', color: 'yellow', x: 3, y: 0},
         {tipo: 'vc', color: 'orange', x: 3, y: 1},
@@ -519,7 +519,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 32,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'hc', color: 'green', x: 0, y: 0},
         {tipo: 'vt', color: 'yellow', x: 2, y: 0},
         {tipo: 'vc', color: 'orange', x: 3, y: 0},
@@ -536,7 +536,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 33,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vc', color: 'green', x: 1, y: 0},
         {tipo: 'vt', color: 'green', x: 2, y: 0},
         {tipo: 'hc', color: 'orange', x: 4, y: 0},
@@ -554,7 +554,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 34,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vc', color: 'green', x: 0, y: 0},
         {tipo: 'ht', color: 'green', x: 3, y: 0},
         {tipo: 'vc', color: 'orange', x: 3, y: 1},
@@ -572,7 +572,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 35,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vt', color: 'yellow', x: 2, y: 0},
         {tipo: 'hc', color: 'green', x: 3, y: 0},
         {tipo: 'vt', color: 'purple', x: 5, y: 0},
@@ -589,7 +589,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 36,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vt', color: 'yellow', x: 0, y: 0},
         {tipo: 'ht', color: 'purple', x: 1, y: 0},
         {tipo: 'hc', color: 'green', x: 4, y: 0},
@@ -607,7 +607,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 37,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'hc', color: 'green', x: 0, y: 0},
         {tipo: 'vc', color: 'orange', x: 2, y: 0},
         {tipo: 'hc', color: 'blue', x: 4, y: 0},
@@ -626,7 +626,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 38,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vc', color: 'green', x: 0, y: 0},
         {tipo: 'ht', color: 'yellow', x: 3, y: 0},
         {tipo: 'hc', color: 'orange', x: 1, y: 1},
@@ -643,7 +643,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: 39,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vc', color: 'green', x: 2, y: 0},
         {tipo: 'ht', color: 'yellow', x: 3, y: 0},
         {tipo: 'vc', color: 'orange', x: 3, y: 1},
@@ -661,7 +661,7 @@ export default class RushHourLevels {
     },
     {
       levelNumber: MAX_LEVEL_NUMBER,
-      configuracionDeAutitos: [
+      vehiclesConfiguration: [
         {tipo: 'vt', color: 'yellow', x: 0, y: 0},
         {tipo: 'hc', color: 'green', x: 1, y: 0},
         {tipo: 'vc', color: 'orange', x: 4, y: 0},

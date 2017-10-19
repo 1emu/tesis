@@ -3,17 +3,17 @@ export default class Area {
     this.id = id;
     this.board = board;
 
-    this.setInitialPosition(xCoordinate * board.tileSize, yCoordinate * board.tileSize);
-    this.setDimensions(widthInTiles, heightInTiles, board.tileSize);
+    this._setInitialPosition(xCoordinate * board.tileSize, yCoordinate * board.tileSize);
+    this._setDimensions(widthInTiles, heightInTiles, board.tileSize);
     this.maxSpaceInBetween = board.maxSpaceInBetweenTiles;
   }
 
-  setInitialPosition(x, y) {
+  _setInitialPosition(x, y) {
     this.x = x;
     this.y = y;
   }
 
-  setDimensions(width, height, tileSize) {
+  _setDimensions(width, height, tileSize) {
     this.width = width * tileSize;
     this.height = height * tileSize;
   }

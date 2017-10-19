@@ -24,7 +24,7 @@ export default class RushHourBoardView extends Component {
         <View style={{backgroundColor: 'lightgrey', height: height, width: width, top: boardMargin, left: boardMargin}}>
           <VictoryGardenView key='victoryGarden' victoryGarden={this.board.victoryGarden}/>
           <BumpersView bumpers={this.board.bumpers} />
-          <VehiclesView cuadraditos={this.board.cuadraditos} />
+          <VehiclesView cuadraditos={this.board.areas} />
         </View>
       </View>
     )

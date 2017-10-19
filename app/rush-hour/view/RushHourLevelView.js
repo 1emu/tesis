@@ -13,7 +13,7 @@ export default class RushHourLevelView extends React.Component {
 
   constructor(props) {
     super(props);
-    this.board = new InicializadorDeTablero(props.levelNumber).obtenerTablero();
+    this.board = new InicializadorDeTablero(props.levelNumber).generateBoard();
     autorun(() => this.transitionToSuccessScreen());
   }
 

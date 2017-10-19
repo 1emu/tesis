@@ -10,7 +10,7 @@ describe('WinningCar', () => {
         let yCoord = 3;
         let board = new RushHourBoard(Metrics.RUSH_HOUR_DIMENSIONS);
         auto = new AutoGanador(id, xCoord, yCoord, board);
-        board.ubicarVehiculos([auto]);
+        board.placeVehicles([auto]);
 
         describe('#creation', () => {
          test('it has an id', () => {

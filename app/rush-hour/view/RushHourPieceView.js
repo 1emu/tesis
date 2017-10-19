@@ -12,8 +12,8 @@ export default class RushHourPieceView extends Component {
 
   render() {
 
-    const width = this.props.cuadradito.width;
-    const height = this.props.cuadradito.height;
+    const width = this.props.area.width;
+    const height = this.props.area.height;
 
     return (
 
@@ -23,17 +23,17 @@ export default class RushHourPieceView extends Component {
                         position: 'absolute',
                         transform: [{rotate: '0deg'}, {scale: this.state.scale}]
                       }}
-                      source={this.props.cuadradito.image}
+                      source={this.props.area.image}
       />
     )
   }
 
   _currentX() {
-    return this.props.cuadradito.x;
+    return this.props.area.x;
   }
 
   _currentY() {
-    return this.props.cuadradito.y;
+    return this.props.area.y;
   }
 
   _setupPanResponder() {
@@ -51,10 +51,10 @@ export default class RushHourPieceView extends Component {
       onPanResponderMove: (evt, gestureState) => {
         let newX = this.gestureStartX + gestureState.dx;
         let newY = this.gestureStartY + gestureState.dy;
-        this.props.cuadradito.pushTowards(newX, newY);
+        this.props.area.pushTowards(newX, newY);
       },
       onPanResponderRelease: (e, gestureState) => {
-        this.props.cuadradito.snapYoAss();
+        this.props.area.snapYoAss();
         this._scaleUp();
       }
     });
