@@ -1,7 +1,5 @@
 import {StyleSheet} from 'react-native';
 import Metrics from './Metrics';
-import RushHourColors from './rush-hour/style/RushHourColors';
-import ZoologicColors from './zoologic/style/ZoologicColors';
 
 const style = StyleSheet.create({
   container: {
@@ -9,7 +7,7 @@ const style = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#877670',
+    backgroundColor: '#e6e6e6',
   },
 
   title: {
@@ -19,24 +17,26 @@ const style = StyleSheet.create({
 
   rushHourBtn: {
     alignSelf: 'center',
-    backgroundColor: '#295246',
-    width: Metrics.DEVICE_WIDTH * 0.6,
+    backgroundColor: "#ffffff",
+    width: Metrics.DEVICE_WIDTH * 0.9,
+    height: Metrics.DEVICE_HEIGHT * 0.4,
   },
 
   rushHourBtnText: {
-    color: RushHourColors.light,
+    color: "#000000",
     fontWeight: 'bold',
     fontSize: 18,
   },
 
   zoologicBtn: {
     alignSelf: 'center',
-    backgroundColor: '#f7ffb8',
-    width: Metrics.DEVICE_WIDTH * 0.6,
+    backgroundColor: "#ffffff",
+    width: Metrics.DEVICE_WIDTH * 0.9,
+    height: Metrics.DEVICE_HEIGHT * 0.4,
   },
 
   zoologicBtnText: {
-    color: ZoologicColors.dark,
+    color: "#000000",
     fontWeight: 'bold',
     fontSize: 18,
   }

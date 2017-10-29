@@ -1,16 +1,21 @@
-const dark = '#161616';
-const mid = '#c6afb5';
-const light = '#f7ffb8';
-const btnBeginner = '#f69b00';
-const btnEasy = '#75c30a';
-const btnIntermediate = '#16bcd4';
-const btnAdvanced = '#9d6abb';
-const btnExpert = '#bf3503';
+const dark = '#161519';
+const dark2 = '#7B5459';
+const light = '#B2534F';
+const mid = '#FE6E4B';
+const light2 = '#FF8B6A';
+
+const btnBeginner = '#84b77b';
+const btnEasy = '#f6cd56';
+const btnIntermediate = '#da7e31';
+const btnAdvanced = '#bb3e4c';
+const btnExpert = '#7b072e';
 
 export default {
   dark,
   mid,
   light,
+  dark2,
+  light2,
   btnBeginner,
   btnEasy,
   btnIntermediate,

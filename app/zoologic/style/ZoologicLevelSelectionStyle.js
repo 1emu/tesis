@@ -50,7 +50,7 @@ const levelSelectionStyle = StyleSheet.create({
   },
 
   btnText: {
-    color: ZoologicColors.light,
+    color: ZoologicColors.dark,
     fontWeight: 'bold',
     fontSize: 16,
   },
