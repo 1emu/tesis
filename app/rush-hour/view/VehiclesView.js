@@ -9,7 +9,7 @@ export default class VehiclesView extends Component {
     const {cuadraditos} = this.props;
 
     return <View>
-      {cuadraditos.map((area) => <RushHourPieceView key={area.id} area={area}/>)}
+      {cuadraditos.map((pieza) => <RushHourPieceView key={pieza.id} area={pieza}/>)}
     </View>;
   }
 }
