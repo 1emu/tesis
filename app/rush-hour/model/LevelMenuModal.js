@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {View, Image, PanResponder, Animated, Text} from 'react-native';
+import {Animated, Image, PanResponder, Text, View} from 'react-native';
 import {observer} from 'mobx-react/native'
-import {autorun} from 'mobx';
 import Modal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import style from '../style/LevelMenuModalStyle'
@@ -32,8 +31,6 @@ export default class LevelMenuModal extends Component {
     this.props.navigator.resetTo({id: 'rush-hour-main'});
     this._hideModal();
   }
-
-
 
   render() {
     return (

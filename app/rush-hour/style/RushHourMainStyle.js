@@ -14,6 +14,7 @@ const style = StyleSheet.create({
 
   title: {
     fontSize: 48,
+    color: RushHourColors.light
   },
 
   btn: {

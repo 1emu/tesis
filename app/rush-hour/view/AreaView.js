@@ -11,7 +11,7 @@ export default class AreaView extends Component{
   render() {
     return (
         <View
-            style={{width: this.props.cuadradito.width, height: this.props.cuadradito.height, backgroundColor: 'grey',
+            style={{width: this.props.area.width, height: this.props.area.height, backgroundColor: 'grey',
               left: this._currentX(), top: this._currentY(), position: 'absolute'
               }}
         />
@@ -19,10 +19,10 @@ export default class AreaView extends Component{
   }
 
   _currentX() {
-    return this.props.cuadradito.x;
+    return this.props.area.x;
   }
 
   _currentY() {
-    return this.props.cuadradito.y;
+    return this.props.area.y;
   }
 }

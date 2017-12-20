@@ -10,8 +10,8 @@ const MATRIX_SIZE = MAX_SQUARES_IN_BOARD * 2;
 
 export default class ZoologicBoardInitializer {
   constructor(levelNumber) {
-    this.configDeTablero = ZoologicLevels.getLevelConfig(levelNumber);
-    console.log('config del board ', JSON.stringify( this.configDeTablero));
+    this.boardConfig = ZoologicLevels.getLevelConfig(levelNumber);
+    console.log('config del board ', JSON.stringify( this.boardConfig));
   }
 
   getBoard() {
@@ -34,7 +34,7 @@ export default class ZoologicBoardInitializer {
   }
 
   setUpPieces(board) {
-    let piecesTypes = this.shuffle(this.configDeTablero.pieces);
+    let piecesTypes = this.shuffle(this.boardConfig.pieces);
     let initialY = Metrics.DEVICE_HEIGHT - Metrics.ZOOLOGIC_PIECES_BAR_HEIGHT + Metrics.ZOOLOGIC_PIECES_BAR_PADDING;
     let initialX = Metrics.ZOOLOGIC_PIECES_BAR_PADDING;
     let pieceNumber = 0;
@@ -78,7 +78,7 @@ export default class ZoologicBoardInitializer {
   }
 
   getRawType(x, y) {
-    return this.configDeTablero.squares.charAt(x + y * MATRIX_SIZE);
+    return this.boardConfig.squares.charAt(x + y * MATRIX_SIZE);
   }
 
   typeDefinedForPosition(x, y) {

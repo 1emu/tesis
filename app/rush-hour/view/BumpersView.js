@@ -9,7 +9,7 @@ export default class BumpersView extends Component {
     const {bumpers} = this.props;
 
     return <View>
-      {bumpers.map((cuadradito) => <AreaView key={cuadradito.id} cuadradito={cuadradito}/>)}
+      {bumpers.map((area) => <AreaView key={area.id} area={area}/>)}
     </View>;
   }
 }

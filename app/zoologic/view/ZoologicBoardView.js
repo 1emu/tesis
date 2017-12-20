@@ -5,6 +5,7 @@ import style from '../style/ZoologicBoardStyle'
 import PiecesBarView from './PiecesBarView';
 import ZoologicPieceView from './ZoologicPieceView';
 import ZoologicSquareView from './ZoologicSquareView';
+import ZoologicColors from '../style/ZoologicColors';
 
 export default class ZoologicBoardView extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ export default class ZoologicBoardView extends Component {
   render() {
     return (
       <View style={style.container}>
-        <View style={{backgroundColor: 'lightgrey', height: Metrics.DEVICE_HEIGHT - Metrics.NAV_BAR_HEIGHT, width: Metrics.BOARD_WIDTH, left: 0}}>
+        <View style={{backgroundColor: ZoologicColors.light2, height: Metrics.DEVICE_HEIGHT - Metrics.NAV_BAR_HEIGHT, width: Metrics.BOARD_WIDTH, left: 0}}>
           {this._renderPiecesBar()}
           {this.squares.map((square) =>
             <ZoologicSquareView key={square.key} square={square}/>

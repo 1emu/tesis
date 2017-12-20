@@ -12,33 +12,33 @@ describe('RushHourPiece Test', () => {
     let heightInTiles = 33;
     let board = new RushHourBoard(Metrics.RUSH_HOUR_DIMENSIONS);
 
-    cuadradito = new RushHourPiece(id, xCoord, yCoord, widthInTiles, heightInTiles, board);
+    area = new RushHourPiece(id, xCoord, yCoord, widthInTiles, heightInTiles, board);
 
     test('it has an id', () => {
-      expect(cuadradito.id).toEqual(id);
+      expect(area.id).toEqual(id);
     });
 
     describe('#creation', () => {
 
       test('has an initial position in X equivalent to the board size and the x coordinate', () => {
-        expect(cuadradito.x).toEqual(xCoord * board.tileSize);
+        expect(area.x).toEqual(xCoord * board.tileSize);
       });
 
       test('has an initial position in Y equivalent to the board size and the y coordinate', () => {
-        expect(cuadradito.y).toEqual(yCoord * board.tileSize);
+        expect(area.y).toEqual(yCoord * board.tileSize);
       });
     });
 
     test('has a width proportional to the width of a single tile', () => {
-      expect(cuadradito.width).toEqual(widthInTiles * board.tileSize);
+      expect(area.width).toEqual(widthInTiles * board.tileSize);
     });
 
     test('has a height proportional to the height of a single tile', () => {
-      expect(cuadradito.height).toEqual(heightInTiles* board.tileSize);
+      expect(area.height).toEqual(heightInTiles* board.tileSize);
     });
 
     test('knows the board it belongs to', () => {
-      expect(cuadradito.board).toEqual(board);
+      expect(area.board).toEqual(board);
     });
 
 

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {View} from "react-native";
+import ZoologicColors from '../style/ZoologicColors';
 
 export default class ShapeBarView extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ export default class ShapeBarView extends Component {
     return (
       <View
         style={{
-          width: this.props.width, height: this.props.height, backgroundColor: 'grey',
+          width: this.props.width, height: this.props.height, backgroundColor: ZoologicColors.dark2,
           left: this.props.x, top: this.props.y, position: 'absolute',
           borderColor: 'white'
         }}>
